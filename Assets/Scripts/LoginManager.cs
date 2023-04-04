@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using MySql.Data.MySqlClient;
 using TMPro;
 
@@ -30,36 +31,38 @@ public class LoginManager : MonoBehaviour {
     }
 
     public void LoginBtn() {
-        string connString = string.Format("Server={0};Database={1};User ID={2};Password={3};Pooling=false", host, database, userId, password);
-        MySqlConnection conn = new MySqlConnection(connString);
 
-        try
-        {
-            conn.Open();
 
-            string query = string.Format("SELECT * FROM {0} WHERE ID='{1}' AND PASSWORD='{2}'", tableName, IDInputField, PasswordInputField);
+        //string connString = string.Format("Server={0};Database={1};User ID={2};Password={3};Pooling=false", host, database, userId, password);
+        //MySqlConnection conn = new MySqlConnection(connString);
 
-            MySqlCommand command = new MySqlCommand(query, conn);
-            MySqlDataReader reader = command.ExecuteReader();
+        //try
+        //{
+        //    conn.Open();
 
-            if (reader.HasRows)
-            {
-                Debug.Log("Login Success");
-                // ·Î±×ÀÎ ¼º°ø Ã³¸®
-            }
-            else
-            {
-                Debug.Log("Login Failed");
-                // ·Î±×ÀÎ ½ÇÆÐ Ã³¸®
-            }
+        //    string query = string.Format("SELECT * FROM {0} WHERE ID='{1}' AND PASSWORD='{2}'", tableName, IDInputField, PasswordInputField);
 
-            reader.Close();
-            conn.Close();
-        }
-        catch (System.Exception e)
-        {
-            Debug.Log(e.Message);
-        }
+        //    MySqlCommand command = new MySqlCommand(query, conn);
+        //    MySqlDataReader reader = command.ExecuteReader();
+
+        //    if (reader.HasRows)
+        //    {
+        //        Debug.Log("Login Success");
+        //        // ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+        //    }
+        //    else
+        //    {
+        //        Debug.Log("Login Failed");
+        //        // ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+        //    }
+
+        //    reader.Close();
+        //    conn.Close();
+        //}
+        //catch (System.Exception e)
+        //{
+        //    Debug.Log(e.Message);
+        //}
     }
 
     IEnumerator LoginCo()
