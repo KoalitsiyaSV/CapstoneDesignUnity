@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,10 +108,10 @@ TextureImporter:
       name: tilesetVillage_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 576
-        width: 32
-        height: 32
+        x: 16
+        y: 288
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96794e7de060f1f4db2e44d4502c148b
-      internalID: 83048127
+      spriteID: 554a6a5bbe48dfb45bd0d50012b234b1
+      internalID: -1298707398
       vertices: []
       indices: 
       edges: []
@@ -129,10 +129,10 @@ TextureImporter:
       name: tilesetVillage_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 576
-        width: 32
-        height: 32
+        x: 32
+        y: 288
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4fb24bf65b6d2644b8883baf011742a
-      internalID: 4988978
+      spriteID: e6aab349cb0fbae4ca345cdb9c2f2064
+      internalID: 464380159
       vertices: []
       indices: 
       edges: []
@@ -150,10 +150,10 @@ TextureImporter:
       name: tilesetVillage_2
       rect:
         serializedVersion: 2
-        x: 96
-        y: 576
-        width: 32
-        height: 32
+        x: 48
+        y: 288
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf6fbc5e6efd5b540874b09ce15aa230
-      internalID: 2053264164
+      spriteID: aab125f0c48adb24dbcc909958e1422e
+      internalID: 104605354
       vertices: []
       indices: 
       edges: []
@@ -171,10 +171,10 @@ TextureImporter:
       name: tilesetVillage_3
       rect:
         serializedVersion: 2
-        x: 32
-        y: 544
-        width: 32
-        height: 32
+        x: 16
+        y: 272
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d61f30a4a27b8d146ad9f397650dab45
-      internalID: -1639447877
+      spriteID: 2eecebd2183eb244b88ab5f527b1e2b0
+      internalID: 1071723606
       vertices: []
       indices: 
       edges: []
@@ -192,10 +192,10 @@ TextureImporter:
       name: tilesetVillage_4
       rect:
         serializedVersion: 2
-        x: 64
-        y: 544
-        width: 32
-        height: 32
+        x: 32
+        y: 272
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d34c5386bb23ee478a12acee49439cc
-      internalID: -73743074
+      spriteID: 110d2cc6d765f1a4397c65d59f646a84
+      internalID: 1992230894
       vertices: []
       indices: 
       edges: []
@@ -213,10 +213,10 @@ TextureImporter:
       name: tilesetVillage_5
       rect:
         serializedVersion: 2
-        x: 96
-        y: 544
-        width: 32
-        height: 32
+        x: 48
+        y: 272
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7e72d8437c071b45987c1b87123dc56
-      internalID: 1197541743
+      spriteID: 57c8efa01d455c243abdc4df35fa6a34
+      internalID: -294720908
       vertices: []
       indices: 
       edges: []
@@ -234,10 +234,10 @@ TextureImporter:
       name: tilesetVillage_6
       rect:
         serializedVersion: 2
-        x: 32
-        y: 512
-        width: 32
-        height: 32
+        x: 16
+        y: 256
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,8 +245,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77b0c8b6be734204ebe11cff71d1453e
-      internalID: -1903247663
+      spriteID: b0500c6df6c7fe04581d9b1b3669dc46
+      internalID: 457706946
       vertices: []
       indices: 
       edges: []
@@ -255,10 +255,10 @@ TextureImporter:
       name: tilesetVillage_7
       rect:
         serializedVersion: 2
-        x: 64
-        y: 512
-        width: 32
-        height: 32
+        x: 32
+        y: 256
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,8 +266,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d09c767b96715b04a8850159c1a07443
-      internalID: 498793566
+      spriteID: 1c4dacb1724097b4889628e14d701f4e
+      internalID: 975084342
       vertices: []
       indices: 
       edges: []
@@ -276,10 +276,10 @@ TextureImporter:
       name: tilesetVillage_8
       rect:
         serializedVersion: 2
-        x: 96
-        y: 512
-        width: 32
-        height: 32
+        x: 48
+        y: 256
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,8 +287,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2f4ad72132a2d94d89e2901ab495859
-      internalID: 1194999534
+      spriteID: 0ce55fc98861f37438e5ba52f01c323c
+      internalID: 154748320
       vertices: []
       indices: 
       edges: []
@@ -297,10 +297,10 @@ TextureImporter:
       name: tilesetVillage_9
       rect:
         serializedVersion: 2
-        x: 32
-        y: 480
-        width: 32
-        height: 32
+        x: 16
+        y: 240
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,8 +308,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5de2c93246b8cf647a337843a14ece9f
-      internalID: -1633249660
+      spriteID: d2881edcdb40f2d488d83b210883dc21
+      internalID: 1720652028
       vertices: []
       indices: 
       edges: []
@@ -318,10 +318,10 @@ TextureImporter:
       name: tilesetVillage_10
       rect:
         serializedVersion: 2
-        x: 64
-        y: 480
-        width: 32
-        height: 32
+        x: 32
+        y: 240
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,8 +329,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fded24d6a7d15b458c65883af7f2003
-      internalID: -1394368475
+      spriteID: c8a780daa034df641aaff7fe73f5ade9
+      internalID: -531446012
       vertices: []
       indices: 
       edges: []
@@ -339,10 +339,10 @@ TextureImporter:
       name: tilesetVillage_11
       rect:
         serializedVersion: 2
-        x: 96
-        y: 480
-        width: 32
-        height: 32
+        x: 48
+        y: 240
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,8 +350,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf4637eeeb1206d4e90c9f206cccb595
-      internalID: 1767336322
+      spriteID: 604871f810524204dab498664c0db66d
+      internalID: 1169570962
       vertices: []
       indices: 
       edges: []
@@ -367,18 +367,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tilesetVillage_0: 83048127
-      tilesetVillage_1: 4988978
-      tilesetVillage_10: -1394368475
-      tilesetVillage_11: 1767336322
-      tilesetVillage_2: 2053264164
-      tilesetVillage_3: -1639447877
-      tilesetVillage_4: -73743074
-      tilesetVillage_5: 1197541743
-      tilesetVillage_6: -1903247663
-      tilesetVillage_7: 498793566
-      tilesetVillage_8: 1194999534
-      tilesetVillage_9: -1633249660
+      tilesetVillage_0: -1298707398
+      tilesetVillage_1: 464380159
+      tilesetVillage_10: -531446012
+      tilesetVillage_11: 1169570962
+      tilesetVillage_2: 104605354
+      tilesetVillage_3: 1071723606
+      tilesetVillage_4: 1992230894
+      tilesetVillage_5: -294720908
+      tilesetVillage_6: 457706946
+      tilesetVillage_7: 975084342
+      tilesetVillage_8: 154748320
+      tilesetVillage_9: 1720652028
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
