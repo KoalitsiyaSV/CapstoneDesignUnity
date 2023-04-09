@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 8f;
     public float jumpForce = 10f;
-    public bool isGrounded = true;
 
     // Start is called before the first frame update
     void Start() {
@@ -21,9 +20,9 @@ public class PlayerController : MonoBehaviour
     
     // Update is called once per frame
     void Update() {
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
-                playerRigidbody.velocity = Vector2.up * jumpForce;
-                isGrounded = false;
+            if (Input.GetKeyDown(KeyCode.Space) && !playerAnimator.GetBool("isJump")) {
+                playerRigidbody.velocity = Vector2.up * jumpForce * 1.5f;
+                playerAnimator.SetBool("isJump", true);
             }
         }
 
@@ -33,18 +32,38 @@ public class PlayerController : MonoBehaviour
 
         float xSpeed = xMove * speed;
 
+        if(xMove > 0) {
+            transform.localScale = new Vector2(1, 1);
+            playerAnimator.SetBool("isRun", true);
+        }
+        else if(xMove < 0) {
+            transform.localScale = new Vector2(-1, 1);
+            playerAnimator.SetBool("isRun", true);
+        }
+        else {
+            playerAnimator.SetBool("isRun", false);
+        }
+
+        // 가속도로 점프 상태 반별
+        if (playerRigidbody.velocity.y == 0)
+        {
+            playerAnimator.SetBool("isJump", false);
+        }
+
         playerRigidbody.velocity = new Vector2(xMove * speed, playerRigidbody.velocity.y);
     }
 
     void OnTriggerEnter2D(Collider2D collision) {
         if (collision.CompareTag("Slope")) {
+            playerAnimator.SetBool("isJump", false);
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, true);
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
-        if (collision.CompareTag("Slope")) {
-            isGrounded = true;
+        if (collision.CompareTag("Slope"))
+        {
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, true);
         }
     }
 
