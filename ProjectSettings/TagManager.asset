@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Slope
+  - Slope1
+  - Slope2
   layers:
   - Default
   - TransparentFX
