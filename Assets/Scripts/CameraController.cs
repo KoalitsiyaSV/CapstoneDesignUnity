@@ -9,6 +9,12 @@ public class CameraController : MonoBehaviour
     [Header("Target")]
     public GameObject player;
 
+    [Header("Range")]
+    public float MaxX = 0;
+    public float MinX = 0;
+    public float MaxY = 0;
+    public float MinY = 0;
+
     void Start()
     {
         

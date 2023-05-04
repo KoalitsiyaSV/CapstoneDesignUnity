@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private float lastAttackTime = 0;
     private float maxComboDelay = 0.1f;
 
+    public bool canDownJump;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,11 @@ public class PlayerController : MonoBehaviour
     {
         if (!playerAnimator.GetBool("isAttack")) {
             if (Input.GetKeyDown(KeyCode.Space) && !playerAnimator.GetBool("isJump"))
+            {
+                playerRigidbody.velocity = Vector2.up * jumpForce * 1.5f;
+                playerAnimator.SetBool("isJump", true);
+            }
+            if (Input.GetKeyDown(KeyCode.Space) && Input.GetKeyDown(KeyCode.DownArrow) && !playerAnimator.GetBool("isJump"))
             {
                 playerRigidbody.velocity = Vector2.up * jumpForce * 1.5f;
                 playerAnimator.SetBool("isJump", true);
@@ -125,6 +132,10 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Slope1"))
         {
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, true);
+        }
+        if(collision.tag != "Bottom" && Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            playerRigidbody.velocity = new Vector2(0, jumpForce);
         }
     }
 

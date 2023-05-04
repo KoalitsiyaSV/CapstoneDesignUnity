@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Slope1
   - Slope2
+  - Bottom
   layers:
   - Default
   - TransparentFX
