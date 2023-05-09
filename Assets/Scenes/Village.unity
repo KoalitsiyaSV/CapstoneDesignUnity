@@ -183,7 +183,7 @@ Grid:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424265882}
   m_Enabled: 1
-  m_CellSize: {x: 0.99, y: 0.99, z: 0.99}
+  m_CellSize: {x: 1, y: 1, z: 1}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
@@ -19189,6 +19189,7 @@ MonoBehaviour:
   comboCount: 0
   speed: 8
   jumpForce: 10
+  canDownJump: 0
 --- !u!50 &913862549
 Rigidbody2D:
   serializedVersion: 4
@@ -19960,6 +19961,7 @@ GameObject:
   - component: {fileID: 1312846182}
   - component: {fileID: 1312846181}
   - component: {fileID: 1312846184}
+  - component: {fileID: 1312846185}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -20046,6 +20048,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 913862544}
+  MaxX: 0
+  MinX: 0
+  MaxY: 0
+  MinY: 0
+--- !u!114 &1312846185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312846180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 64
+  m_RefResolutionX: 1920
+  m_RefResolutionY: 1080
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1 &1530404554
 GameObject:
   m_ObjectHideFlags: 0

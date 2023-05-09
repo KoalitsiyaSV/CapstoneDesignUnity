@@ -64,13 +64,13 @@ public class PlayerController : MonoBehaviour
             if(comboCount == 1)
             {
                 playerAnimator.SetBool("isAttack", true);
-                maxComboDelay = playerAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length - 0.4f;
+                maxComboDelay = playerAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length - 0.1f;
             }
             else if(comboCount == 2)
             {
                 playerAnimator.SetBool("isAttack", false);
                 playerAnimator.SetBool("isAttack2", true);
-                maxComboDelay = playerAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length - 0.4f;
+                maxComboDelay = playerAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length - 0.1f;
             }
             //    if(comboCount == 1)
             //    {
@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!playerAnimator.GetBool("isAttack"))
+        if (!playerAnimator.GetBool("isAttack") && !playerAnimator.GetBool("isAttack2"))
         {
             float xMove = Input.GetAxisRaw("Horizontal");
 
