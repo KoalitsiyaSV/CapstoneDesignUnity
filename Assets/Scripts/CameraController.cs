@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private  Vector3 cameraPosition = new Vector3(0, 0, -10);
+    private  Vector3 cameraPosition = new Vector3(0, 2, -10);
 
     [Header("Target")]
     public GameObject player;
@@ -23,6 +23,8 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position = player.transform.position + cameraPosition;
+        //transform.position = player.transform.position + cameraPosition;
+        transform.position = Vector3.Lerp(transform.position, player.transform.position + cameraPosition, 
+                          Time.deltaTime *2f);
     }
 }
