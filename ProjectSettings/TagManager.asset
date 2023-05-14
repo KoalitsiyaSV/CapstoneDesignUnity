@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Slope1
+  - Slope2
+  - Bottom
   layers:
   - Default
   - TransparentFX
