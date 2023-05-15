@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    //UI
+    [Header("UI")]
     public GameObject MenuUI;
     public GameObject InGameUI;
 
