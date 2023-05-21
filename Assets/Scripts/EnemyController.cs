@@ -29,6 +29,7 @@ public class EnemyController : MonoBehaviour
             OnDamaged(collision.transform.position);
         }
     }
+
     void OnDamaged(Vector2 targetPos)
     {
         //gameObject.layer = ; //몬스터 피격 레이어
