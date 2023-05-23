@@ -113,6 +113,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //경사로 통과 관련, 수정 및 공부 필요할듯
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Slope1"))
