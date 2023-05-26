@@ -9,46 +9,78 @@ public class GameManager : MonoBehaviour
     public GameObject MenuUI;
     public GameObject InGameUI;
     public RectTransform ButtonGroup;
-    public float SlideSpeed = 5f;
+    private float SlideSpeed = 1.5f;
+
+    [Header("Cursor")]
+    private bool isCursorActivated;
 
     //test
     [Header("test")]
-    private bool isMenuOpen;
-    public float PullMinX;
-    public float PullMaxY;
+    //public float PullMinX;
+    //public float PullMaxY;
 
+    [SerializeField] Texture2D CursorImage;
+
+    private bool isButtonGroupPulled;
     private Vector2 targetPosition;
-    
+    private float cameraHaldWidth;
 
     // Start is called before the first frame update
     void Start()
     {
+        cameraHaldWidth = Screen.width / 2;
         targetPosition = ButtonGroup.anchoredPosition;
+
+        Cursor.SetCursor(CursorImage, Vector2.zero, CursorMode.ForceSoftware);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isMenuOpen)
+        // 마우스 제어
+        Cursor.lockState = CursorLockMode.Confined;
+
+        if(Input.GetKeyDown(KeyCode.LeftAlt)) isCursorActivated = true;
+        if(Input.GetKeyUp(KeyCode.LeftAlt)) isCursorActivated = false;
+
+        if(!isCursorActivated)
         {
-            ButtonGroup.anchoredPosition = Vector2.Lerp(ButtonGroup.anchoredPosition, targetPosition, SlideSpeed * Time.deltaTime);
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
+        else
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+        // 버튼 슬라이드 기능
+        ButtonGroup.anchoredPosition = Vector2.Lerp(ButtonGroup.anchoredPosition, targetPosition, SlideSpeed * Time.deltaTime);
+        
+        //if(isMenuOpen)
+        //{
+        //    ButtonGroup.anchoredPosition = Vector2.Lerp(ButtonGroup.anchoredPosition, targetPosition, SlideSpeed * Time.deltaTime);
+        //}
+        //else
+        //{
+        //    ButtonGroup.anchoredPosition = Vector2.Lerp(ButtonGroup.anchoredPosition, targetPosition, SlideSpeed * Time.deltaTime);
+        //}
     }
 
     //슬라이드 버튼 클릭 시 이벤트
     public void OnClickSlideBtn()
     {
-        isMenuOpen = !isMenuOpen;
+        isButtonGroupPulled = !isButtonGroupPulled;
 
-        if (isMenuOpen)
+        if (isButtonGroupPulled)
         {
             // 버튼들을 당기는 위치 계산
-                targetPosition = new Vector2(targetPosition.x + PullMinX, targetPosition.y);
+                targetPosition = new Vector2(targetPosition.x - cameraHaldWidth, targetPosition.y);
         }
         else
         {
             // 버튼들을 숨기는 위치 계산
-                targetPosition = new Vector2(targetPosition.x + PullMaxY, targetPosition.y);
+                targetPosition = new Vector2(targetPosition.x + cameraHaldWidth, targetPosition.y);
         }
     }
 

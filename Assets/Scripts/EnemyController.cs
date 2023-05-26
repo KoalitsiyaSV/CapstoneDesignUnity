@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
     Animator anim;
+
     // Start is called before the first frame update
     void Awake()
     {
