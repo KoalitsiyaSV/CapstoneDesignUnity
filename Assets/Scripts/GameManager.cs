@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     public GameObject MenuUI;
     public GameObject InGameUI;
+    public GameObject InventoryUI;
     public RectTransform ButtonGroup;
     private float SlideSpeed = 1.5f;
 
@@ -40,10 +41,10 @@ public class GameManager : MonoBehaviour
         // 마우스 제어
         Cursor.lockState = CursorLockMode.Confined;
 
-        if(Input.GetKeyDown(KeyCode.LeftAlt)) isCursorActivated = true;
-        if(Input.GetKeyUp(KeyCode.LeftAlt)) isCursorActivated = false;
+        if (Input.GetKeyDown(KeyCode.LeftAlt)) isCursorActivated = true;
+        if (Input.GetKeyUp(KeyCode.LeftAlt)) isCursorActivated = false;
 
-        if(!isCursorActivated)
+        if (!isCursorActivated)
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
@@ -91,10 +92,11 @@ public class GameManager : MonoBehaviour
         InGameUI.SetActive(false);
     }
 
-    //메뉴창->게임 종료 버튼
-    public void OnClickExitBtn()
+    //메뉴창->인벤토리 열기 버튼
+    public void OnClickInvencoryBtn()
     {
-        OnApplicationQuit();
+        InventoryUI.SetActive(true);
+        InGameUI.SetActive(false);
     }
 
     //메뉴창->메뉴 닫기 버튼
@@ -103,6 +105,13 @@ public class GameManager : MonoBehaviour
         MenuUI.SetActive(false);
         InGameUI.SetActive(true);
     }
+
+    //메뉴창->게임 종료 버튼
+    public void OnClickExitBtn()
+    {
+        OnApplicationQuit();
+    }
+
 
     //종료 대충
     public void OnApplicationQuit()
