@@ -39,21 +39,21 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         // 마우스 제어
-        Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.lockState = CursorLockMode.Confined;
 
-        if (Input.GetKeyDown(KeyCode.LeftAlt)) isCursorActivated = true;
-        if (Input.GetKeyUp(KeyCode.LeftAlt)) isCursorActivated = false;
+        //if (Input.GetKeyDown(KeyCode.LeftAlt)) isCursorActivated = true;
+        //if (Input.GetKeyUp(KeyCode.LeftAlt)) isCursorActivated = false;
 
-        if (!isCursorActivated)
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        else
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
+        //if (!isCursorActivated)
+        //{
+        //    Cursor.visible = false;
+        //    Cursor.lockState = CursorLockMode.Locked;
+        //}
+        //else
+        //{
+        //    Cursor.visible = true;
+        //    Cursor.lockState = CursorLockMode.None;
+        //}
 
         // 버튼 슬라이드 기능
         ButtonGroup.anchoredPosition = Vector2.Lerp(ButtonGroup.anchoredPosition, targetPosition, SlideSpeed * Time.deltaTime);

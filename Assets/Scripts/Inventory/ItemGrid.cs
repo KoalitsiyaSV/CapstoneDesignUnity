@@ -13,6 +13,7 @@ public class ItemGrid : MonoBehaviour
     InventoryItem[,] inventoryItemSlot;
 
     RectTransform rectTransform;
+    public Canvas canvas;
 
     // 그리드 개수
     [SerializeField] int gridSizeWidth = 10;
@@ -43,8 +44,8 @@ public class ItemGrid : MonoBehaviour
         positionOnTheGrid.x = mousePosition.x - rectTransform.position.x;
         positionOnTheGrid.y = rectTransform.position.y - mousePosition.y;
 
-        gridPosition.x = (int)(positionOnTheGrid.x / tileSizeWidth);
-        gridPosition.y = -(int)(positionOnTheGrid.y / tileSizeHeight);
+        gridPosition.x = (int)(positionOnTheGrid.x / (tileSizeWidth * canvas.scaleFactor));
+        gridPosition.y = -(int)(positionOnTheGrid.y / (tileSizeHeight * canvas.scaleFactor));
 
         return gridPosition;
     }
@@ -61,11 +62,32 @@ public class ItemGrid : MonoBehaviour
         return toReturn;
     }
 
+    // ? 추가
+    public Vector2Int? FindSpaceForObject(InventoryItem itemToInsert)
+    {
+        int width = gridSizeWidth - itemToInsert.Width + 1;
+        int height = gridSizeHeight - itemToInsert.Height + 1;
+        
+
+        for (int y = 0; y < height; y++)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                if(CheckAvailableSpace(x, y, itemToInsert.Width, itemToInsert.Height) == true)
+                { 
+                    return new Vector2Int(x,y);
+                }
+            }
+        }
+
+        return null;
+    }
+
     private void CleanGridReference(InventoryItem toReturn)
     {
-        for (int ix = 0; ix < toReturn.itemData.width; ix++)
+        for (int ix = 0; ix < toReturn.Width; ix++)
         {
-            for (int iy = 0; iy < toReturn.itemData.height; iy++)
+            for (int iy = 0; iy < toReturn.Height; iy++)
             {
                 inventoryItemSlot[toReturn.onGridPositionX + ix, toReturn.onGridPositionY + iy] = null;
             }
@@ -75,12 +97,12 @@ public class ItemGrid : MonoBehaviour
     // [posX, posY]에 아이템 두기
     public bool PlaceItem(InventoryItem inventoryItem, int posX, int posY, ref InventoryItem overlapItem)
     {
-        if (!BoundaryCheck(posX, posY, inventoryItem.itemData.width, inventoryItem.itemData.height))
+        if (!BoundaryCheck(posX, posY, inventoryItem.Width, inventoryItem.Height))
         {
             return false;
         }
 
-        if (!OverlapCheck(posX, posY, inventoryItem.itemData.width, inventoryItem.itemData.height, ref overlapItem))
+        if (!OverlapCheck(posX, posY, inventoryItem.Width, inventoryItem.Height, ref overlapItem))
         {
             overlapItem = null;
             return false;
@@ -91,12 +113,19 @@ public class ItemGrid : MonoBehaviour
             CleanGridReference(overlapItem);
         }
 
+        PlaceItem(inventoryItem, posX, posY);
+
+        return true;
+    }
+
+    public void PlaceItem(InventoryItem inventoryItem, int posX, int posY)
+    {
         RectTransform rectTransform = inventoryItem.GetComponent<RectTransform>();
         rectTransform.SetParent(this.rectTransform);
 
-        for (int x = 0; x < inventoryItem.itemData.width; x++)
+        for (int x = 0; x < inventoryItem.Width; x++)
         {
-            for (int y = 0; y < inventoryItem.itemData.height; y++)
+            for (int y = 0; y < inventoryItem.Height; y++)
             {
                 inventoryItemSlot[posX + x, posY + y] = inventoryItem;
             }
@@ -107,15 +136,13 @@ public class ItemGrid : MonoBehaviour
         Vector2 position = CalculatePositionOnGrid(inventoryItem, posX, posY);
 
         rectTransform.localPosition = position;
-
-        return true;
     }
 
     public Vector2 CalculatePositionOnGrid(InventoryItem inventoryItem, int posX, int posY)
     {
         Vector2 position = new Vector2();
-        position.x = posX * tileSizeWidth + tileSizeWidth * inventoryItem.itemData.width / 2;
-        position.y = posY * tileSizeHeight + tileSizeHeight * inventoryItem.itemData.height / 2;
+        position.x = posX * tileSizeWidth + tileSizeWidth * inventoryItem.Width / 2;
+        position.y = posY * tileSizeHeight + tileSizeHeight * inventoryItem.Height / 2;
         return position;
     }
 
@@ -138,6 +165,21 @@ public class ItemGrid : MonoBehaviour
                             return false;
                         }
                     }
+                }
+            }
+        }
+
+        return true;
+    }
+    private bool CheckAvailableSpace(int posX, int posY, int width, int height)
+    {
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                if (inventoryItemSlot[posX + x, posY + y] != null)
+                {
+                    return false;
                 }
             }
         }
