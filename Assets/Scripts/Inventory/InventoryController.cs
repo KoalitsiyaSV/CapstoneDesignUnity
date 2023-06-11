@@ -7,7 +7,15 @@ using UnityEngine.UIElements;
 public class InventoryController : MonoBehaviour
 {
     [HideInInspector]// 인스펙터 창에서 숨기기
-    public ItemGrid selectedItemGrid;
+    private ItemGrid selectedItemGrid;
+
+    public ItemGrid SelectedItemGrid { 
+        get => selectedItemGrid;
+        set {
+            selectedItemGrid = value;
+            inventoryHighlight.SetParant(value);
+        }
+    }
 
     InventoryItem selectedItem;
     InventoryItem overlapItem;
@@ -30,9 +38,22 @@ public class InventoryController : MonoBehaviour
 
         
 
-        if(Input.GetKeyUp(KeyCode.Q))
+        if(Input.GetKeyDown(KeyCode.Q))
         {
-            CreateRandomItem();
+            if(selectedItem == null)
+            {
+                CreateRandomItem();
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            InsertRandomItem();
+        }
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            RotateItem();
         }
 
         if (selectedItemGrid == null) 
@@ -50,11 +71,42 @@ public class InventoryController : MonoBehaviour
         }
     }
 
+    private void RotateItem()
+    {
+        if(selectedItem == null) { return; }
+
+        selectedItem.Rotate();
+    }
+
+    private void InsertRandomItem()
+    {
+        if (selectedItemGrid == null) { return; }
+
+        CreateRandomItem();
+        InventoryItem itemToInsert = selectedItem;
+        selectedItem = null;
+        InsertItem(itemToInsert);
+    }
+
+    private void InsertItem(InventoryItem itemToInsert)
+    {
+        Vector2Int? posOnGrid = selectedItemGrid.FindSpaceForObject(itemToInsert);
+
+        if(posOnGrid == null) { return; }
+
+        selectedItemGrid.PlaceItem(itemToInsert, posOnGrid.Value.x, posOnGrid.Value.y);
+    }
+
+    Vector2Int oldPosition;
     InventoryItem itemToHighlight;
 
     private void HandleHighlight()
     {
         Vector2Int positionOnGrid = GetTileGridPosition();
+
+        if (oldPosition == positionOnGrid) { return; }
+
+        oldPosition = positionOnGrid;
 
         if (selectedItem == null)
         {
@@ -64,7 +116,7 @@ public class InventoryController : MonoBehaviour
             {
                 inventoryHighlight.Show(true);
                 inventoryHighlight.SetSize(itemToHighlight);
-                inventoryHighlight.SetParant(selectedItemGrid);
+                //inventoryHighlight.SetParant(selectedItemGrid);
                 inventoryHighlight.SetPosition(selectedItemGrid, itemToHighlight);
             }
             else
@@ -77,11 +129,12 @@ public class InventoryController : MonoBehaviour
             inventoryHighlight.Show(selectedItemGrid.BoundaryCheck(
                 positionOnGrid.x,
                 positionOnGrid.y,
-                selectedItem.itemData.width,
-                selectedItem.itemData.height
+                selectedItem.Width,
+                selectedItem.Height
                 ));
+
             inventoryHighlight.SetSize(selectedItem);
-            inventoryHighlight.SetParant(selectedItemGrid);
+            //inventoryHighlight.SetParant(selectedItemGrid); 삭제 예정
             inventoryHighlight.SetPosition(selectedItemGrid, selectedItem, positionOnGrid.x, positionOnGrid.y);
         }
     }
@@ -122,8 +175,8 @@ public class InventoryController : MonoBehaviour
 
         if (selectedItem != null)
         {
-            position.x -= (selectedItem.itemData.width - 1) * ItemGrid.tileSizeWidth / 2;
-            position.y -= (selectedItem.itemData.height - 1) * ItemGrid.tileSizeHeight / 2;
+            position.x -= (selectedItem.Width - 1) * ItemGrid.tileSizeWidth / 2;
+            position.y -= (selectedItem.Height - 1) * ItemGrid.tileSizeHeight / 2;
         }
 
         //좌클릭 한 포인트의 그리드 상의 좌표 받기
