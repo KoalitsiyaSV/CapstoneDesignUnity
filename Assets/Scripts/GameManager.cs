@@ -24,12 +24,12 @@ public class GameManager : MonoBehaviour
 
     private bool isButtonGroupPulled;
     private Vector2 targetPosition;
-    private float cameraHaldWidth;
+    private float cameraHalfWidth;
 
     // Start is called before the first frame update
     void Start()
     {
-        cameraHaldWidth = Screen.width / 2;
+        cameraHalfWidth = Screen.width / 2 - 300;
         targetPosition = ButtonGroup.anchoredPosition;
 
         Cursor.SetCursor(CursorImage, Vector2.zero, CursorMode.ForceSoftware);
@@ -76,12 +76,12 @@ public class GameManager : MonoBehaviour
         if (isButtonGroupPulled)
         {
             // 버튼들을 당기는 위치 계산
-                targetPosition = new Vector2(targetPosition.x - cameraHaldWidth, targetPosition.y);
+                targetPosition = new Vector2(targetPosition.x - cameraHalfWidth, targetPosition.y);
         }
         else
         {
             // 버튼들을 숨기는 위치 계산
-                targetPosition = new Vector2(targetPosition.x + cameraHaldWidth, targetPosition.y);
+                targetPosition = new Vector2(targetPosition.x + cameraHalfWidth, targetPosition.y);
         }
     }
 
