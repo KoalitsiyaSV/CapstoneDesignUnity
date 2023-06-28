@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class InventoryHighlight : MonoBehaviour
 {
     [SerializeField] RectTransform highlighter;
+    [SerializeField] RectTransform RedHighlighter;
 
     public void Show(bool b)
     {
@@ -39,6 +40,7 @@ public class InventoryHighlight : MonoBehaviour
 
     public void SetPosition(ItemGrid targetGrid, InventoryItem targetItem, int posX, int posY)
     {
+        //추가 희망: 아이템의 배치 가능 유무에 따라 highlighter의 색상 변경
         Vector2 pos = targetGrid.CalculatePositionOnGrid(
             targetItem,
             posX,

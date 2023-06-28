@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject InGameUI;
     public GameObject InventoryUI;
     public RectTransform ButtonGroup;
-    private float SlideSpeed = 1.5f;
+    //private float SlideSpeed = 1.5f;
 
     [Header("Cursor")]
     private bool isCursorActivated;
@@ -23,14 +23,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] Texture2D CursorImage;
 
     private bool isButtonGroupPulled;
+    private bool isInventoryOpen;
+    private bool isMenuOpen;
+
     private Vector2 targetPosition;
     private float cameraHalfWidth;
 
     // Start is called before the first frame update
     void Start()
     {
-        cameraHalfWidth = Screen.width / 2 - 300;
-        targetPosition = ButtonGroup.anchoredPosition;
+        //cameraHalfWidth = Screen.width / 2 - 400;
+        //targetPosition = ButtonGroup.anchoredPosition;
 
         Cursor.SetCursor(CursorImage, Vector2.zero, CursorMode.ForceSoftware);
     }
@@ -56,7 +59,7 @@ public class GameManager : MonoBehaviour
         //}
 
         // 버튼 슬라이드 기능
-        ButtonGroup.anchoredPosition = Vector2.Lerp(ButtonGroup.anchoredPosition, targetPosition, SlideSpeed * Time.deltaTime);
+        //ButtonGroup.anchoredPosition = Vector2.Lerp(ButtonGroup.anchoredPosition, targetPosition, SlideSpeed * Time.deltaTime);
         
         //if(isMenuOpen)
         //{
@@ -69,40 +72,47 @@ public class GameManager : MonoBehaviour
     }
 
     //슬라이드 버튼 클릭 시 이벤트
-    public void OnClickSlideBtn()
-    {
-        isButtonGroupPulled = !isButtonGroupPulled;
+    //public void OnClickSlideBtn()
+    //{
+    //    isButtonGroupPulled = !isButtonGroupPulled;
 
-        if (isButtonGroupPulled)
-        {
-            // 버튼들을 당기는 위치 계산
-                targetPosition = new Vector2(targetPosition.x - cameraHalfWidth, targetPosition.y);
-        }
-        else
-        {
-            // 버튼들을 숨기는 위치 계산
-                targetPosition = new Vector2(targetPosition.x + cameraHalfWidth, targetPosition.y);
-        }
-    }
+    //    if (isButtonGroupPulled)
+    //    {
+    //        // 버튼들을 당기는 위치 계산
+    //            targetPosition = new Vector2(targetPosition.x - cameraHalfWidth, targetPosition.y);
+    //    }
+    //    else
+    //    {
+    //        // 버튼들을 숨기는 위치 계산
+    //            targetPosition = new Vector2(targetPosition.x + cameraHalfWidth, targetPosition.y);
+    //    }
+    //}
 
-    //인게임 메뉴 버튼 클릭 시 이벤트
+    //메뉴 버튼 클릭 시 이벤트
     public void OnClickMenuBtn()
     {
         MenuUI.SetActive(true);
         InGameUI.SetActive(false);
     }
 
-    //메뉴창->인벤토리 열기 버튼
+    //인벤토리 버튼 클릭 시 이벤트
     public void OnClickInvencoryBtn()
     {
         InventoryUI.SetActive(true);
         InGameUI.SetActive(false);
     }
 
-    //메뉴창->메뉴 닫기 버튼
-    public void OnClickCloseBtn()
+    //메뉴 닫기 버튼 클릭 시 이벤트
+    public void OnClickCloseMenuBtn()
     {
         MenuUI.SetActive(false);
+        InGameUI.SetActive(true);
+    }
+
+    //인벤토리 닫기 버튼 클릭 시 이벤트
+    public void OnClickCloseInventoryBtn()
+    {
+        InventoryUI.SetActive(false);
         InGameUI.SetActive(true);
     }
 
