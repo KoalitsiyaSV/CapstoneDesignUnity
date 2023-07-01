@@ -7,13 +7,16 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D playerRigidbody;
     private Animator playerAnimator;
     private SpriteRenderer playerSpriteRenderer;
+    private Collider2D[] colliderComponents;
 
-
+    [Header("test")]
     public int comboCount = 0;
     public float speed = 8f;
     public float jumpForce = 10f;
+    public float fallenSpeed = 1f;
 
     private float lastAttackTime = 0;
+    //private float maxComboCount = 2;
     private float maxComboDelay = 0.1f;
 
     public bool canDownJump;
@@ -24,6 +27,7 @@ public class PlayerController : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
+        colliderComponents = GetComponents<Collider2D>();
     }
 
     // Update is called once per frame
@@ -35,10 +39,11 @@ public class PlayerController : MonoBehaviour
                 playerRigidbody.velocity = Vector2.up * jumpForce * 1.5f;
                 playerAnimator.SetBool("isJump", true);
             }
-            if (Input.GetKeyDown(KeyCode.Space) && Input.GetKeyDown(KeyCode.DownArrow) && !playerAnimator.GetBool("isJump"))
-            {
-                playerRigidbody.velocity = Vector2.up * jumpForce * 1.5f;
-                playerAnimator.SetBool("isJump", true);
+
+            if (Input.GetKeyDown(KeyCode.S)) {
+                ReverseTrigger();
+                Invoke("ReverseTrigger", fallenSpeed);
+                //canDownJump = false;
             }
         }
 
@@ -56,9 +61,10 @@ public class PlayerController : MonoBehaviour
             comboCount = 0;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && comboCount < 2)
         {
             lastAttackTime = Time.time;
+
             comboCount++;
 
             if(comboCount == 1)
@@ -113,44 +119,47 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //경사로 통과 관련, 수정 및 공부 필요할듯
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Slope1"))
+        if (collision.CompareTag("Platform"))
         {
+            canDownJump = true;
             playerAnimator.SetBool("isJump", false);
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, true);
         }
-        if (collision.CompareTag("Slope2"))
+        if (collision.CompareTag("Bottom"))
         {
-            playerAnimator.SetBool("isJump", false);
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, true);
+            canDownJump = false;
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Slope1"))
+        if (collision.CompareTag("Platform"))
         {
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, true);
-        }
-        if(collision.tag != "Bottom" && Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            playerRigidbody.velocity = new Vector2(0, jumpForce);
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, true);  
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Slope1"))
+        if (collision.CompareTag("Platform"))
         {
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, false);
-        }
-        if (collision.CompareTag("Slope2"))
-        {
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, false);
+            //if (colliderComponents[0].isTrigger) ReverseTrigger();
         }
     }
+
+    //플레이어 발 판정 트리거 반전
+    void ReverseTrigger()
+    {
+        colliderComponents[0].isTrigger = !colliderComponents[0].isTrigger;
+    }
 }
+
+
+// ComboAttack Test1
 
 //    public void return1()
 //    {
