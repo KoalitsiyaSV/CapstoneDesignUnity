@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    //UI
-    [Header("UI")]
-    public GameObject MenuUI;
-    public GameObject InGameUI;
-    public GameObject InventoryUI;
-    public RectTransform ButtonGroup;
-    //private float SlideSpeed = 1.5f;
+    ////UI
+    //[Header("UI")]
+    //public GameObject MenuUI;
+    //public GameObject InGameUI;
+    //public GameObject InventoryUI;
+    //public RectTransform ButtonGroup;
+    ////private float SlideSpeed = 1.5f;
 
     [Header("Cursor")]
     private bool isCursorActivated;
@@ -22,9 +22,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Texture2D CursorImage;
 
-    private bool isButtonGroupPulled;
-    private bool isInventoryOpen;
-    private bool isMenuOpen;
+    //private bool isButtonGroupPulled;
+    //private bool isInventoryOpen;
+    //private bool isMenuOpen;
 
     private Vector2 targetPosition;
     private float cameraHalfWidth;
@@ -88,44 +88,44 @@ public class GameManager : MonoBehaviour
     //    }
     //}
 
-    //메뉴 버튼 클릭 시 이벤트
-    public void OnClickMenuBtn()
-    {
-        MenuUI.SetActive(true);
-        InGameUI.SetActive(false);
-    }
+    ////메뉴 버튼 클릭 시 이벤트
+    //public void OnClickMenuBtn()
+    //{
+    //    MenuUI.SetActive(true);
+    //    InGameUI.SetActive(false);
+    //}
 
-    //인벤토리 버튼 클릭 시 이벤트
-    public void OnClickInvencoryBtn()
-    {
-        InventoryUI.SetActive(true);
-        InGameUI.SetActive(false);
-    }
+    ////인벤토리 버튼 클릭 시 이벤트
+    //public void OnClickInvencoryBtn()
+    //{
+    //    InventoryUI.SetActive(true);
+    //    InGameUI.SetActive(false);
+    //}
 
-    //메뉴 닫기 버튼 클릭 시 이벤트
-    public void OnClickCloseMenuBtn()
-    {
-        MenuUI.SetActive(false);
-        InGameUI.SetActive(true);
-    }
+    ////메뉴 닫기 버튼 클릭 시 이벤트
+    //public void OnClickCloseMenuBtn()
+    //{
+    //    MenuUI.SetActive(false);
+    //    InGameUI.SetActive(true);
+    //}
 
-    //인벤토리 닫기 버튼 클릭 시 이벤트
-    public void OnClickCloseInventoryBtn()
-    {
-        InventoryUI.SetActive(false);
-        InGameUI.SetActive(true);
-    }
+    ////인벤토리 닫기 버튼 클릭 시 이벤트
+    //public void OnClickCloseInventoryBtn()
+    //{
+    //    InventoryUI.SetActive(false);
+    //    InGameUI.SetActive(true);
+    //}
 
-    //메뉴창->게임 종료 버튼
-    public void OnClickExitBtn()
-    {
-        OnApplicationQuit();
-    }
+    ////메뉴창->게임 종료 버튼
+    //public void OnClickExitBtn()
+    //{
+    //    OnApplicationQuit();
+    //}
 
 
-    //종료 대충
-    public void OnApplicationQuit()
-    {
-        Application.Quit();
-    }
+    ////종료 대충
+    //public void OnApplicationQuit()
+    //{
+    //    Application.Quit();
+    //}
 }

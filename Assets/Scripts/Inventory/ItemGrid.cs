@@ -146,6 +146,7 @@ public class ItemGrid : MonoBehaviour
         return position;
     }
 
+    //겹치는 아이템에 대한 체크
     private bool OverlapCheck(int posX, int posY, int width, int height, ref InventoryItem overlapItem)
     {
         for(int x = 0; x < width; x++)
@@ -171,6 +172,8 @@ public class ItemGrid : MonoBehaviour
 
         return true;
     }
+
+    //아이템을 둘 수 있는 지에 대한 체크
     private bool CheckAvailableSpace(int posX, int posY, int width, int height)
     {
         for (int x = 0; x < width; x++)
@@ -187,6 +190,7 @@ public class ItemGrid : MonoBehaviour
         return true;
     }
 
+    // 
     public bool PositionCheck(int posX, int posY)
     {
         if (posX < 0 || posY < 0) return false;
@@ -195,6 +199,7 @@ public class ItemGrid : MonoBehaviour
         return true;
     }
 
+    //경계선을 넘어갔는 가에 대한 체크
     public bool BoundaryCheck(int posX, int posY, int width, int height)
     {
         if (!PositionCheck(posX,posY)) { return false; }
