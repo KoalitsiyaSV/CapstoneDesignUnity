@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ItemGrid : MonoBehaviour
 {
-    // ±×¸®µå »çÀÌÁî
+    // ê·¸ë¦¬ë“œ ì‚¬ì´ì¦ˆ
     public const float tileSizeWidth = 32;
     public const float tileSizeHeight = 32;
 
@@ -15,7 +15,7 @@ public class ItemGrid : MonoBehaviour
     RectTransform rectTransform;
     public Canvas canvas;
 
-    // ±×¸®µå °³¼ö
+    // ê·¸ë¦¬ë“œ ê°œìˆ˜
     [SerializeField] int gridSizeWidth = 10;
     [SerializeField] int gridSizeHeight = 10;
 
@@ -26,8 +26,8 @@ public class ItemGrid : MonoBehaviour
         Init(gridSizeWidth, gridSizeHeight);
     }
 
-    // ±×¸®µå »çÀÌÁî ÃÊ±âÈ­
-    // ÀÔ·ÂµÈ °ª¸¸Å­ ÀÎº¥Åä¸® ½½·Ô ¹è¿­ »ı¼º ¹× ±×¸®µå »ı¼º
+    // ê·¸ë¦¬ë“œ ì‚¬ì´ì¦ˆ ì´ˆê¸°í™”
+    // ì…ë ¥ëœ ê°’ë§Œí¼ ì¸ë²¤í† ë¦¬ ìŠ¬ë¡¯ ë°°ì—´ ìƒì„± ë° ê·¸ë¦¬ë“œ ìƒì„±
     private void Init(int width, int height)
     {
         inventoryItemSlot = new InventoryItem[width, height];
@@ -38,7 +38,7 @@ public class ItemGrid : MonoBehaviour
     Vector2 positionOnTheGrid = new Vector2();
     Vector2Int gridPosition = new Vector2Int();
 
-    // ¸¶¿ì½º Æ÷ÀÎÅÍ°¡ À§Ä¡ÇÑ ±×¸®µå ÁÂÇ¥ °è»ê
+    // ë§ˆìš°ìŠ¤ í¬ì¸í„°ê°€ ìœ„ì¹˜í•œ ê·¸ë¦¬ë“œ ì¢Œí‘œ ê³„ì‚°
     public Vector2Int GetTileGridPosition(Vector2 mousePosition)
     {
         positionOnTheGrid.x = mousePosition.x - rectTransform.position.x;
@@ -50,7 +50,7 @@ public class ItemGrid : MonoBehaviour
         return gridPosition;
     }
 
-    // [posX, posY]¿¡ ÀÖ´Â ¾ÆÀÌÅÛ Áı±â
+    // [posX, posY]ì— ìˆëŠ” ì•„ì´í…œ ì§‘ê¸°
     public InventoryItem PickUpItem(int x, int y)
     {
         InventoryItem toReturn = inventoryItemSlot[x, y];
@@ -62,7 +62,7 @@ public class ItemGrid : MonoBehaviour
         return toReturn;
     }
 
-    // ? Ãß°¡
+    // ? ì¶”ê°€
     public Vector2Int? FindSpaceForObject(InventoryItem itemToInsert)
     {
         int width = gridSizeWidth - itemToInsert.Width + 1;
@@ -94,7 +94,7 @@ public class ItemGrid : MonoBehaviour
         }
     }
 
-    // [posX, posY]¿¡ ¾ÆÀÌÅÛ µÎ±â
+    // [posX, posY]ì— ì•„ì´í…œ ë‘ê¸°
     public bool PlaceItem(InventoryItem inventoryItem, int posX, int posY, ref InventoryItem overlapItem)
     {
         if (!BoundaryCheck(posX, posY, inventoryItem.Width, inventoryItem.Height))
@@ -146,7 +146,7 @@ public class ItemGrid : MonoBehaviour
         return position;
     }
 
-    //°ãÄ¡´Â ¾ÆÀÌÅÛ¿¡ ´ëÇÑ Ã¼Å©
+    //ê²¹ì¹˜ëŠ” ì•„ì´í…œì— ëŒ€í•œ ì²´í¬
     private bool OverlapCheck(int posX, int posY, int width, int height, ref InventoryItem overlapItem)
     {
         for(int x = 0; x < width; x++)
@@ -173,7 +173,7 @@ public class ItemGrid : MonoBehaviour
         return true;
     }
 
-    //¾ÆÀÌÅÛÀ» µÑ ¼ö ÀÖ´Â Áö¿¡ ´ëÇÑ Ã¼Å©
+    //ì•„ì´í…œì„ ë‘˜ ìˆ˜ ìˆëŠ” ì§€ì— ëŒ€í•œ ì²´í¬
     private bool CheckAvailableSpace(int posX, int posY, int width, int height)
     {
         for (int x = 0; x < width; x++)
@@ -199,7 +199,7 @@ public class ItemGrid : MonoBehaviour
         return true;
     }
 
-    //°æ°è¼±À» ³Ñ¾î°¬´Â °¡¿¡ ´ëÇÑ Ã¼Å©
+    //ê²½ê³„ì„ ì„ ë„˜ì–´ê°”ëŠ” ê°€ì— ëŒ€í•œ ì²´í¬
     public bool BoundaryCheck(int posX, int posY, int width, int height)
     {
         if (!PositionCheck(posX,posY)) { return false; }
