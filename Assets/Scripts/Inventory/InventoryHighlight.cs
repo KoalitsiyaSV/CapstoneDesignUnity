@@ -40,7 +40,7 @@ public class InventoryHighlight : MonoBehaviour
 
     public void SetPosition(ItemGrid targetGrid, InventoryItem targetItem, int posX, int posY)
     {
-        //Ãß°¡ Èñ¸Á: ¾ÆÀÌÅÛÀÇ ¹èÄ¡ °¡´É À¯¹«¿¡ µû¶ó highlighterÀÇ »ö»ó º¯°æ
+        //ï¿½ß°ï¿½ ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ highlighterï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         Vector2 pos = targetGrid.CalculatePositionOnGrid(
             targetItem,
             posX,

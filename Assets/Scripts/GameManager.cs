@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    //UI
-    [Header("UI")]
-    public GameObject MenuUI;
-    public GameObject InGameUI;
-    public GameObject InventoryUI;
-    public RectTransform ButtonGroup;
-    //private float SlideSpeed = 1.5f;
+    ////UI
+    //[Header("UI")]
+    //public GameObject MenuUI;
+    //public GameObject InGameUI;
+    //public GameObject InventoryUI;
+    //public RectTransform ButtonGroup;
+    ////private float SlideSpeed = 1.5f;
 
     [Header("Cursor")]
     private bool isCursorActivated;
@@ -22,9 +22,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Texture2D CursorImage;
 
-    private bool isButtonGroupPulled;
-    private bool isInventoryOpen;
-    private bool isMenuOpen;
+    //private bool isButtonGroupPulled;
+    //private bool isInventoryOpen;
+    //private bool isMenuOpen;
 
     private Vector2 targetPosition;
     private float cameraHalfWidth;
@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // ¸¶¿ì½º Á¦¾î
+        // ë§ˆìš°ìŠ¤ ì œì–´
         //Cursor.lockState = CursorLockMode.Confined;
 
         //if (Input.GetKeyDown(KeyCode.LeftAlt)) isCursorActivated = true;
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         //    Cursor.lockState = CursorLockMode.None;
         //}
 
-        // ¹öÆ° ½½¶óÀÌµå ±â´É
+        // ë²„íŠ¼ ìŠ¬ë¼ì´ë“œ ê¸°ëŠ¥
         //ButtonGroup.anchoredPosition = Vector2.Lerp(ButtonGroup.anchoredPosition, targetPosition, SlideSpeed * Time.deltaTime);
         
         //if(isMenuOpen)
@@ -71,61 +71,61 @@ public class GameManager : MonoBehaviour
         //}
     }
 
-    //½½¶óÀÌµå ¹öÆ° Å¬¸¯ ½Ã ÀÌº¥Æ®
+    //ìŠ¬ë¼ì´ë“œ ë²„íŠ¼ í´ë¦­ ì‹œ ì´ë²¤íŠ¸
     //public void OnClickSlideBtn()
     //{
     //    isButtonGroupPulled = !isButtonGroupPulled;
 
     //    if (isButtonGroupPulled)
     //    {
-    //        // ¹öÆ°µéÀ» ´ç±â´Â À§Ä¡ °è»ê
+    //        // ë²„íŠ¼ë“¤ì„ ë‹¹ê¸°ëŠ” ìœ„ì¹˜ ê³„ì‚°
     //            targetPosition = new Vector2(targetPosition.x - cameraHalfWidth, targetPosition.y);
     //    }
     //    else
     //    {
-    //        // ¹öÆ°µéÀ» ¼û±â´Â À§Ä¡ °è»ê
+    //        // ë²„íŠ¼ë“¤ì„ ìˆ¨ê¸°ëŠ” ìœ„ì¹˜ ê³„ì‚°
     //            targetPosition = new Vector2(targetPosition.x + cameraHalfWidth, targetPosition.y);
     //    }
     //}
 
-    //¸Þ´º ¹öÆ° Å¬¸¯ ½Ã ÀÌº¥Æ®
-    public void OnClickMenuBtn()
-    {
-        MenuUI.SetActive(true);
-        InGameUI.SetActive(false);
-    }
+    ////ë©”ë‰´ ë²„íŠ¼ í´ë¦­ ì‹œ ì´ë²¤íŠ¸
+    //public void OnClickMenuBtn()
+    //{
+    //    MenuUI.SetActive(true);
+    //    InGameUI.SetActive(false);
+    //}
 
-    //ÀÎº¥Åä¸® ¹öÆ° Å¬¸¯ ½Ã ÀÌº¥Æ®
-    public void OnClickInvencoryBtn()
-    {
-        InventoryUI.SetActive(true);
-        InGameUI.SetActive(false);
-    }
+    ////ì¸ë²¤í† ë¦¬ ë²„íŠ¼ í´ë¦­ ì‹œ ì´ë²¤íŠ¸
+    //public void OnClickInvencoryBtn()
+    //{
+    //    InventoryUI.SetActive(true);
+    //    InGameUI.SetActive(false);
+    //}
 
-    //¸Þ´º ´Ý±â ¹öÆ° Å¬¸¯ ½Ã ÀÌº¥Æ®
-    public void OnClickCloseMenuBtn()
-    {
-        MenuUI.SetActive(false);
-        InGameUI.SetActive(true);
-    }
+    ////ë©”ë‰´ ë‹«ê¸° ë²„íŠ¼ í´ë¦­ ì‹œ ì´ë²¤íŠ¸
+    //public void OnClickCloseMenuBtn()
+    //{
+    //    MenuUI.SetActive(false);
+    //    InGameUI.SetActive(true);
+    //}
 
-    //ÀÎº¥Åä¸® ´Ý±â ¹öÆ° Å¬¸¯ ½Ã ÀÌº¥Æ®
-    public void OnClickCloseInventoryBtn()
-    {
-        InventoryUI.SetActive(false);
-        InGameUI.SetActive(true);
-    }
+    ////ì¸ë²¤í† ë¦¬ ë‹«ê¸° ë²„íŠ¼ í´ë¦­ ì‹œ ì´ë²¤íŠ¸
+    //public void OnClickCloseInventoryBtn()
+    //{
+    //    InventoryUI.SetActive(false);
+    //    InGameUI.SetActive(true);
+    //}
 
-    //¸Þ´ºÃ¢->°ÔÀÓ Á¾·á ¹öÆ°
-    public void OnClickExitBtn()
-    {
-        OnApplicationQuit();
-    }
+    ////ë©”ë‰´ì°½->ê²Œìž„ ì¢…ë£Œ ë²„íŠ¼
+    //public void OnClickExitBtn()
+    //{
+    //    OnApplicationQuit();
+    //}
 
 
-    //Á¾·á ´ëÃæ
-    public void OnApplicationQuit()
-    {
-        Application.Quit();
-    }
+    ////ì¢…ë£Œ ëŒ€ì¶©
+    //public void OnApplicationQuit()
+    //{
+    //    Application.Quit();
+    //}
 }
