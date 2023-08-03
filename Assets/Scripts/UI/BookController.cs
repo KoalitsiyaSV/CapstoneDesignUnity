@@ -17,6 +17,9 @@ public class BookController : MonoBehaviour
     private Transform previousBtn;
     private Transform nextBtn;
 
+    //목차 = page 0, 인벤토리 = page 1, 스테이터스 = page 2, 스킬 = page 3, 설정창 = page 4(last)
+    private Transform inventoryPage;
+
     void Awake()
     {
         bookPage = 0;
@@ -27,9 +30,13 @@ public class BookController : MonoBehaviour
         previousBtn = transform.Find("PreviousBtn");
         nextBtn = transform.Find("NextBtn");
 
+        inventoryPage = transform.Find("InventoryPage");
+
         closeBtn.gameObject.SetActive(false);
         previousBtn.gameObject.SetActive(false);
         nextBtn.gameObject.SetActive(false);
+
+        inventoryPage.gameObject.SetActive(false);
     }
 
     private void OnEnable()
@@ -50,6 +57,8 @@ public class BookController : MonoBehaviour
         {
             previousBtn.gameObject.SetActive(false);
         }
+
+        Invoke("InventoryPage", 0.3f);
     }
 
     private void FixedUpdate()
@@ -135,6 +144,23 @@ public class BookController : MonoBehaviour
         if (!animator.GetBool("isReverse"))
         {
             currentRepeatCount++;
+        }
+    }
+
+    private void ContentsPage()
+    {
+
+    }
+
+    private void InventoryPage()
+    {
+        if (bookPage == 1)
+        {
+            inventoryPage.gameObject.SetActive(true);
+        }
+        else
+        {
+            inventoryPage.gameObject.SetActive(false);
         }
     }
 }
