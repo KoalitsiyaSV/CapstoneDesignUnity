@@ -8,32 +8,66 @@ public class ButtonController : MonoBehaviour
     [Header("UI")]
     public GameObject InGameUI;
     public GameObject MenuUI;
-    public GameObject InventoryUI;
+    public GameObject SettingUI;
 
-    private bool isInventoryOpen;
-    private bool isMenuOpen;
+    public RectTransform BookPos;
+    public float testTime;
+
+    public Vector2 targetPos;
+
+    private Animator animator;
+    private bool isMenuOpen = false;
+
+    public void Start()
+    {
+        animator = GetComponent<Animator>();
+        targetPos = new Vector2(0, 0);
+    }
+
+    public void Update()
+    {
+        if (isMenuOpen)
+        {
+            BookPos.anchoredPosition = Vector2.Lerp(BookPos.anchoredPosition, targetPos, 3f * Time.deltaTime);
+        }
+    }
 
     public void OnClickMenuBtn()
     {
+        targetPos = new Vector2(0, 0);
         InGameUI.SetActive(false);
         MenuUI.SetActive(true);
+        isMenuOpen = !isMenuOpen;
     }
 
     public void OnClickInventoryBtn()
     {
         InGameUI.SetActive(false);
-        InventoryUI.SetActive(true);
+        SettingUI.SetActive(true);
     }
 
     public void OnClickCloseMenuBtn()
     {
+        Invoke("CloseMenuBtnLerp", 1f);
+        Invoke("CloseMenuBtnAction", 2f);
+    }
+
+    private void CloseMenuBtnLerp()
+    {
+        targetPos = new Vector2(0, -500f);
+        BookPos.anchoredPosition = Vector2.Lerp(BookPos.anchoredPosition, targetPos, 3f * Time.deltaTime);
+    }
+
+    private void CloseMenuBtnAction()
+    {
         MenuUI.SetActive(false);
         InGameUI.SetActive(true);
+        isMenuOpen = !isMenuOpen;
     }
 
     public void OnClickCloseInventoryBtn()
     {
-        InventoryUI.SetActive(false);
+        SettingUI.SetActive(false);
         InGameUI.SetActive(true);
     }
 
@@ -46,4 +80,6 @@ public class ButtonController : MonoBehaviour
     {
         Application.Quit();
     }
+
+
 }
