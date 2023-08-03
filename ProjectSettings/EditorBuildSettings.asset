@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Login.unity
     guid: a9ac108b8f82c554da14b455a52ef4c4
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Village.unity
     guid: c895ff300d1d0934fbece135d32550fe
   - enabled: 0
@@ -21,9 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Example3.unity
     guid: 7f3a83834f6b0354390dc4a1533b5e4d
   - enabled: 0
-    path: Assets/Example4.unity
-    guid: 2ab57477c5795e24282848094af15075
-  - enabled: 1
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scenes/Example5.unity
     guid: b640723549cc362468cdb222a10e5c1a
   m_configObjects: {}
