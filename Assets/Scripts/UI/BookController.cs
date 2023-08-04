@@ -6,6 +6,7 @@ using UnityEngine;
 public class BookController : MonoBehaviour
 {
     private int bookPage;
+    private int currentPage;
     public int repeatCount = 0;
     public int currentRepeatCount = 0;
 
@@ -18,10 +19,13 @@ public class BookController : MonoBehaviour
     private Transform nextBtn;
 
     //목차 = page 0, 인벤토리 = page 1, 스테이터스 = page 2, 스킬 = page 3, 설정창 = page 4(last)
-    private Transform inventoryPage;
+    private Transform[] pages;
+    private Transform iventoryPage;
 
     void Awake()
     {
+        pages = new Transform[5];
+
         bookPage = 0;
 
         animator = GetComponent<Animator>();
@@ -30,13 +34,21 @@ public class BookController : MonoBehaviour
         previousBtn = transform.Find("PreviousBtn");
         nextBtn = transform.Find("NextBtn");
 
-        inventoryPage = transform.Find("InventoryPage");
+        pages[0] = transform.Find("ContentsPage");
+        pages[1] = transform.Find("InventoryPage");
+        pages[2] = transform.Find("StatusPage");
+        pages[3] = transform.Find("SkillPage");
+        pages[4] = transform.Find("OptionPage");
 
         closeBtn.gameObject.SetActive(false);
         previousBtn.gameObject.SetActive(false);
         nextBtn.gameObject.SetActive(false);
 
-        inventoryPage.gameObject.SetActive(false);
+        for(int i = 0; i < 5; i++)
+        {
+            pages[i].gameObject.SetActive(false);
+        }
+        
     }
 
     private void OnEnable()
@@ -45,20 +57,36 @@ public class BookController : MonoBehaviour
         Invoke("ActivateCloseBtn", 2.3f);
         Invoke("ActivateNextBtn", 2.3f);
         currentRepeatCount = 0;
+        bookPage = 0;
+        currentPage = 0;
     }
 
     private void Update()
     {
-        if (bookPage > 0)
+        if (bookPage != currentPage)
         {
-            ActivatePreviousBtn();
-        }
-        else
-        {
-            previousBtn.gameObject.SetActive(false);
+            if (bookPage > 0)
+            {
+                ActivatePreviousBtn();
+            }
+            else
+            {
+                previousBtn.gameObject.SetActive(false);
+            }
+
+            if (bookPage >= 4)
+            {
+                nextBtn.gameObject.SetActive(false);
+            }
+            else
+            {
+                ActivateNextBtn();
+            }
         }
 
-        Invoke("InventoryPage", 0.3f);
+        currentPage = bookPage;
+
+        PageChanger(bookPage);
     }
 
     private void FixedUpdate()
@@ -81,7 +109,7 @@ public class BookController : MonoBehaviour
 
     private void OnDisable()
     {
-        
+
     }
 
     private void BookOpen()
@@ -95,7 +123,6 @@ public class BookController : MonoBehaviour
         closeBtn.gameObject.SetActive(false);
         previousBtn.gameObject.SetActive(false);
         nextBtn.gameObject.SetActive(false);
-        bookPage = 0;
     }
 
     public void PreviousPage()
@@ -135,6 +162,7 @@ public class BookController : MonoBehaviour
         nextBtn.gameObject.SetActive(true);
     }
 
+    // 애니메이션 클립 이벤트에서 사용
     private void RepeatCount()
     {
         if(animator.GetBool("isReverse"))
@@ -147,20 +175,16 @@ public class BookController : MonoBehaviour
         }
     }
 
-    private void ContentsPage()
+    private void ActivateCurrentPage()
     {
-
+        for(int i = 0; i < 5; i++)
+        {
+            pages[i].gameObject.SetActive(i == bookPage);
+        }
     }
 
-    private void InventoryPage()
+    private void PageChanger(int page)
     {
-        if (bookPage == 1)
-        {
-            inventoryPage.gameObject.SetActive(true);
-        }
-        else
-        {
-            inventoryPage.gameObject.SetActive(false);
-        }
+        ActivateCurrentPage();
     }
 }
