@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Example5.unity
     guid: b640723549cc362468cdb222a10e5c1a
+  - enabled: 1
+    path: Assets/save dev/Select.unity
+    guid: e8531749323f5b141bb8512698977f93
+  - enabled: 0
+    path: Assets/save dev/Game.unity
+    guid: f870dd241cb649043b7ec2d1ee5644d6
   m_configObjects: {}

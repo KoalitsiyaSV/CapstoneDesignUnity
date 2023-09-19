@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("test")]
     public int comboCount = 0;
+    public int jumpCount = 0; //LJHClient
     public float speed = 8f;
     public float jumpForce = 10f;
     public float fallenSpeed = 1f;
@@ -33,7 +34,25 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!playerAnimator.GetBool("isAttack")) {
+        if (!playerAnimator.GetBool("isAttack")) //LJHCLient
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && jumpCount != 2)
+            {
+                playerRigidbody.velocity = Vector2.up * jumpForce * 1.5f;
+                playerAnimator.SetBool("isJump", true);
+                jumpCount += 1;
+            }
+            
+
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                ReverseTrigger();
+                Invoke("ReverseTrigger", fallenSpeed);
+                //canDownJump = false;
+            }
+        }
+
+        /*if (!playerAnimator.GetBool("isAttack")) {
             if (Input.GetKeyDown(KeyCode.Space) && !playerAnimator.GetBool("isJump"))
             {
                 playerRigidbody.velocity = Vector2.up * jumpForce * 1.5f;
@@ -45,8 +64,9 @@ public class PlayerController : MonoBehaviour
                 Invoke("ReverseTrigger", fallenSpeed);
                 //canDownJump = false;
             }
-        }
+        }*/
 
+       
         //if(Input.GetMouseButtonDown(0) && playerAnimator.GetBool("isAttack")) {
         //    playerAnimator.SetBool("isAttack2", true);
         //}
@@ -113,6 +133,7 @@ public class PlayerController : MonoBehaviour
             if (playerRigidbody.velocity.y == 0)
             {
                 playerAnimator.SetBool("isJump", false);
+                jumpCount = 0; // LJHClient
             }
 
             playerRigidbody.velocity = new Vector2(xMove * speed, playerRigidbody.velocity.y);
