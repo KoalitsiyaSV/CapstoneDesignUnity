@@ -43,18 +43,20 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //점프 코드
-        //if (!playerAnimator.GetBool("isAttack")) {
-        //    if (Input.GetKeyDown(KeyCode.Space) && !playerAnimator.GetBool("isJump"))
-        //    {
-        //        playerRigidbody.velocity = Vector2.up * jumpForce * 1.5f;
-        //        playerAnimator.SetBool("isJump", true);
-        //    }
+        //if (!playerAnimator.GetBool("isAttack"))
+        //{
+            if (Input.GetKeyDown(KeyCode.Space)) // && !playerAnimator.GetBool("isJump")
+        {
+                playerRigidbody.velocity = Vector2.up * jumpForce * 1.5f;
+                playerAnimator.SetBool("isJump", true);
+            }
 
-        //    if (Input.GetKeyDown(KeyCode.S)) {
-        //        ReverseTrigger();
-        //        Invoke("ReverseTrigger", fallenSpeed);
-        //        //canDownJump = false;
-        //    }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                ReverseTrigger();
+                Invoke("ReverseTrigger", fallenSpeed);
+                //canDownJump = false;
+            }
         //}
 
         //if(Input.GetMouseButtonDown(0) && playerAnimator.GetBool("isAttack")) {
