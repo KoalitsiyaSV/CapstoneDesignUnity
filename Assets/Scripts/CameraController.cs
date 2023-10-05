@@ -13,8 +13,9 @@ public class CameraController : MonoBehaviour
     public float MaxY = 0;
     public float MinY = 0;
 
-    //[Header("test")]
-    //public float height = 0;
+    [Header("test")]
+    public float nowX = 0;
+    public float nowY = 0;
 
     private Vector3 cameraPosition = new Vector3(0, 2, -10);
 
@@ -37,6 +38,9 @@ public class CameraController : MonoBehaviour
             Mathf.Clamp(player.position.x + cameraPosition.x, MinX + cameraHalfWidth, MaxX - cameraHalfWidth),
             Mathf.Clamp(player.position.y + cameraPosition.y, MinY + cameraHalfHeight, MaxY - cameraHalfHeight) + 3f,
             cameraPosition.z);
+
+        nowX = cameraPosition.x;
+        nowY = cameraPosition.y;
 
         //카메라의 이동
         //transform.position = player.transform.position + cameraPosition;
