@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 10f;
     public float fallenSpeed = 1f;
 
-    //´Ş¸®±â °ü·Ã º¯¼ö
+    //ë‹¬ë¦¬ê¸° ê´€ë ¨ ë³€ìˆ˜
     [Header("Run")]
     private float walkSpeed = 6f;
     private float runSpeed = 10f;
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Á¡ÇÁ ÄÚµå
+        //ì í”„ ì½”ë“œ
         //if (!playerAnimator.GetBool("isAttack")) {
         //    if (Input.GetKeyDown(KeyCode.Space) && !playerAnimator.GetBool("isJump"))
         //    {
@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
         //        //canDownJump = false;
         //    }
         //}
-
+       
         //if(Input.GetMouseButtonDown(0) && playerAnimator.GetBool("isAttack")) {
         //    playerAnimator.SetBool("isAttack2", true);
         //}
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
         //playerAnimator.SetBool("isAttack", true);
         //}
 
-        //ÄŞº¸ ¾îÅÃ °ü·Ã ÄÚµå
+        //ì½¤ë³´ ì–´íƒ ê´€ë ¨ ì½”ë“œ
         //if (Time.time - lastAttackTime > maxComboDelay)
         //{
         //    playerAnimator.SetBool("isAttack", false);
@@ -94,11 +94,11 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Ä³¸¯ÅÍ ÀÌµ¿ ÄÚµå
+        //ìºë¦­í„° ì´ë™ ì½”ë“œ
         PlayerMovement();
     }
 
-    //°æ»ç·Î Åë°ú °ü·Ã, ¼öÁ¤ ¹× °øºÎ ÇÊ¿äÇÒµí
+    //ê²½ì‚¬ë¡œ í†µê³¼ ê´€ë ¨, ìˆ˜ì • ë° ê³µë¶€ í•„ìš”í• ë“¯
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Platform"))
@@ -130,7 +130,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //ÇÃ·¹ÀÌ¾î ÀÌµ¿ °ü·Ã
+    //í”Œë ˆì´ì–´ ì´ë™ ê´€ë ¨
     private void PlayerMovement()
     {
         float xMove = Input.GetAxisRaw("Horizontal");
@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
 
         TransformMoveAnim(xMove);
 
-        // °¡¼Óµµ·Î Á¡ÇÁ »óÅÂ ¹İº°
+        // ê°€ì†ë„ë¡œ ì í”„ ìƒíƒœ ë°˜ë³„
         //if (playerRigidbody.velocity.y == 0)
         //{
         //    playerAnimator.SetBool("isJump", false);
@@ -203,7 +203,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //ÇÃ·¹ÀÌ¾î ¹ß ÆÇÁ¤ Æ®¸®°Å ¹İÀü
+    //í”Œë ˆì´ì–´ ë°œ íŒì • íŠ¸ë¦¬ê±° ë°˜ì „
     void ReverseTrigger()
     {
         colliderComponents[0].isTrigger = !colliderComponents[0].isTrigger;

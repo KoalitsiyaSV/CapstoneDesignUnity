@@ -3749,7 +3749,7 @@ GameObject:
   - component: {fileID: 6305546064189810736}
   - component: {fileID: 8526237997361263504}
   m_Layer: 0
-  m_Name: Cave Palette
+  m_Name: Cave Pallete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
