@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -128,4 +129,26 @@ public class GameManager : MonoBehaviour
     //{
     //    Application.Quit();
     //}
+
+    void OnEnable()
+    {
+        // 델리게이트 체인 추가
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    //scene을 로드할때마다 한번씩 동작
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+       if (scene.name == "Village")
+        {
+            DataManager.instance.SaveData();
+            Debug.Log("saveData");
+        }
+    }
+
+    void OnDisable()
+    {
+        // 델리게이트 체인 제거
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 }

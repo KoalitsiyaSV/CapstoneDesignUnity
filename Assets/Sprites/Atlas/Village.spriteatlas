@@ -727,6 +727,40 @@ SpriteAtlas:
   - {fileID: 378374172, guid: 45e559dcd6128e9449a04fdd0f97af8a, type: 3}
   - {fileID: 1171496100, guid: 45e559dcd6128e9449a04fdd0f97af8a, type: 3}
   - {fileID: -2136687970, guid: 45e559dcd6128e9449a04fdd0f97af8a, type: 3}
+  - {fileID: 658057344, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: -1299844729, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: 1123941414, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: -618712755, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: 2021371275, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: 1704178554, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: 116269498, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: 362130114, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: -217215887, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: 1747268194, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: -1615585552, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: 1210359072, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: 88900760, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: 656034990, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: -1509609798, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: -831992151, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: -125222254, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: -712850962, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: 1412445927, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: 554069555, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: 1379270712, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: 2034106559, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: -1649484487, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: -1257549892, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: -324501819, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: -159139567, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: -378387054, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: 1783067575, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: 1263787266, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: -1677774035, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: 1376874408, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: -1349648754, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: -900675889, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
+  - {fileID: -1845163939, guid: bc7685edf0866d54eb7767e180520b8b, type: 3}
   m_PackedSpriteNamesToIndex:
   - tilesetCave_9
   - tilesetCave_8
@@ -1072,6 +1106,40 @@ SpriteAtlas:
   - tilesetVillage_71
   - tilesetVillage_81
   - tilesetVillage_70
+  - Forest Pallete_8
+  - Forest Pallete_9
+  - Forest Pallete_6
+  - Forest Pallete_7
+  - Forest Pallete_4
+  - Forest Pallete_5
+  - Forest Pallete_2
+  - Forest Pallete_3
+  - Forest Pallete_0
+  - Forest Pallete_1
+  - Forest Pallete_24
+  - Forest Pallete_25
+  - Forest Pallete_26
+  - Forest Pallete_27
+  - Forest Pallete_20
+  - Forest Pallete_21
+  - Forest Pallete_22
+  - Forest Pallete_23
+  - Forest Pallete_33
+  - Forest Pallete_32
+  - Forest Pallete_31
+  - Forest Pallete_30
+  - Forest Pallete_28
+  - Forest Pallete_29
+  - Forest Pallete_19
+  - Forest Pallete_18
+  - Forest Pallete_15
+  - Forest Pallete_14
+  - Forest Pallete_17
+  - Forest Pallete_16
+  - Forest Pallete_11
+  - Forest Pallete_10
+  - Forest Pallete_13
+  - Forest Pallete_12
   m_RenderDataMap: {}
   m_Tag: Village
   m_IsVariant: 0

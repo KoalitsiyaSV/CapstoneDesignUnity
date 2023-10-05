@@ -11,9 +11,16 @@ public class PlayerController : MonoBehaviour
 
     [Header("test")]
     public int comboCount = 0;
-    public float speed = 8f;
     public float jumpForce = 10f;
     public float fallenSpeed = 1f;
+
+    //ë‹¬ë¦¬ê¸° ê´€ë ¨ ë³€ìˆ˜
+    [Header("Run")]
+    private float walkSpeed = 6f;
+    private float runSpeed = 10f;
+    private float currentSpeed;
+    private float doubleTapTime = 0.2f;
+    private bool isRun = false;
 
     private float lastAttackTime = 0;
     //private float maxComboCount = 2;
@@ -28,25 +35,28 @@ public class PlayerController : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
         colliderComponents = GetComponents<Collider2D>();
+
+        currentSpeed = walkSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!playerAnimator.GetBool("isAttack")) {
-            if (Input.GetKeyDown(KeyCode.Space) && !playerAnimator.GetBool("isJump"))
-            {
-                playerRigidbody.velocity = Vector2.up * jumpForce * 1.5f;
-                playerAnimator.SetBool("isJump", true);
-            }
+        //ì í”„ ì½”ë“œ
+        //if (!playerAnimator.GetBool("isAttack")) {
+        //    if (Input.GetKeyDown(KeyCode.Space) && !playerAnimator.GetBool("isJump"))
+        //    {
+        //        playerRigidbody.velocity = Vector2.up * jumpForce * 1.5f;
+        //        playerAnimator.SetBool("isJump", true);
+        //    }
 
-            if (Input.GetKeyDown(KeyCode.S)) {
-                ReverseTrigger();
-                Invoke("ReverseTrigger", fallenSpeed);
-                //canDownJump = false;
-            }
-        }
-
+        //    if (Input.GetKeyDown(KeyCode.S)) {
+        //        ReverseTrigger();
+        //        Invoke("ReverseTrigger", fallenSpeed);
+        //        //canDownJump = false;
+        //    }
+        //}
+       
         //if(Input.GetMouseButtonDown(0) && playerAnimator.GetBool("isAttack")) {
         //    playerAnimator.SetBool("isAttack2", true);
         //}
@@ -54,72 +64,41 @@ public class PlayerController : MonoBehaviour
         //playerAnimator.SetBool("isAttack", true);
         //}
 
-        if (Time.time - lastAttackTime > maxComboDelay)
-        {
-            playerAnimator.SetBool("isAttack", false);
-            playerAnimator.SetBool("isAttack2", false);
-            comboCount = 0;
-        }
+        //ì½¤ë³´ ì–´íƒ ê´€ë ¨ ì½”ë“œ
+        //if (Time.time - lastAttackTime > maxComboDelay)
+        //{
+        //    playerAnimator.SetBool("isAttack", false);
+        //    playerAnimator.SetBool("isAttack2", false);
+        //    comboCount = 0;
+        //}
 
-        if (Input.GetMouseButtonDown(0) && comboCount < 2)
-        {
-            lastAttackTime = Time.time;
+        //if (Input.GetMouseButtonDown(0) && comboCount < 2)
+        //{
+        //    lastAttackTime = Time.time;
 
-            comboCount++;
+        //    comboCount++;
 
-            if(comboCount == 1)
-            {
-                playerAnimator.SetBool("isAttack", true);
-                maxComboDelay = playerAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length - 0.1f;
-            }
-            else if(comboCount == 2)
-            {
-                playerAnimator.SetBool("isAttack", false);
-                playerAnimator.SetBool("isAttack2", true);
-                maxComboDelay = playerAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length - 0.1f;
-            }
-            //    if(comboCount == 1)
-            //    {
-            //        playerAnimator.SetBool("isAttack", true);
-            //    }
-            //    comboCount = Mathf.Clamp(comboCount, 0, 3);
-        }
+        //    if(comboCount == 1)
+        //    {
+        //        playerAnimator.SetBool("isAttack", true);
+        //        maxComboDelay = playerAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length - 0.1f;
+        //    }
+        //    else if(comboCount == 2)
+        //    {
+        //        playerAnimator.SetBool("isAttack", false);
+        //        playerAnimator.SetBool("isAttack2", true);
+        //        maxComboDelay = playerAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length - 0.1f;
+        //    }
+        //}
     }
 
     private void FixedUpdate()
     {
-        if (!playerAnimator.GetBool("isAttack") && !playerAnimator.GetBool("isAttack2"))
-        {
-            float xMove = Input.GetAxisRaw("Horizontal");
-
-            float xSpeed = xMove * speed;
-
-            if (xMove > 0)
-            {
-                transform.localScale = new Vector2(1, 1);
-                playerAnimator.SetBool("isRun", true);
-            }
-            else if (xMove < 0)
-            {
-                transform.localScale = new Vector2(-1, 1);
-                playerAnimator.SetBool("isRun", true);
-            }
-            else
-            {
-                playerAnimator.SetBool("isRun", false);
-            }
-
-            // °¡¼Óµµ·Î Á¡ÇÁ »óÅÂ ¹Ýº°
-            if (playerRigidbody.velocity.y == 0)
-            {
-                playerAnimator.SetBool("isJump", false);
-            }
-
-            playerRigidbody.velocity = new Vector2(xMove * speed, playerRigidbody.velocity.y);
-        }
+        //ìºë¦­í„° ì´ë™ ì½”ë“œ
+        PlayerMovement();
     }
 
-    //°æ»ç·Î Åë°ú °ü·Ã, ¼öÁ¤ ¹× °øºÎ ÇÊ¿äÇÒµí
+    //ê²½ì‚¬ë¡œ í†µê³¼ ê´€ë ¨, ìˆ˜ì • ë° ê³µë¶€ í•„ìš”í• ë“¯
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Platform"))
@@ -151,7 +130,80 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //ÇÃ·¹ÀÌ¾î ¹ß ÆÇÁ¤ Æ®¸®°Å ¹ÝÀü
+    //í”Œë ˆì´ì–´ ì´ë™ ê´€ë ¨
+    private void PlayerMovement()
+    {
+        float xMove = Input.GetAxisRaw("Horizontal");
+
+        ToggleRun();
+
+        float xSpeed = xMove * currentSpeed;
+
+        TransformMoveAnim(xMove);
+
+        // ê°€ì†ë„ë¡œ ì í”„ ìƒíƒœ ë°˜ë³„
+        //if (playerRigidbody.velocity.y == 0)
+        //{
+        //    playerAnimator.SetBool("isJump", false);
+        //}
+
+        playerRigidbody.velocity = new Vector2(xSpeed, playerRigidbody.velocity.y);
+    }
+
+    private void TransformMoveAnim(float xMove)
+    {
+        if (!isRun)
+        {
+            if (xMove > 0)
+            {
+                transform.localScale = new Vector2(1, 1);
+                playerAnimator.SetBool("isWalk", true);
+            }
+            else if (xMove < 0)
+            {
+                transform.localScale = new Vector2(-1, 1);
+                playerAnimator.SetBool("isWalk", true);
+            }
+        }
+        else
+        {
+            if (xMove > 0)
+            {
+                transform.localScale = new Vector2(1, 1);
+                playerAnimator.SetBool("isRun", true);
+            }
+            else if (xMove < 0)
+            {
+                transform.localScale = new Vector2(-1, 1);
+                playerAnimator.SetBool("isRun", true);
+            }
+        }
+
+        if (xMove == 0)
+        {
+            playerAnimator.SetBool("isWalk", false);
+            playerAnimator.SetBool("isRun", false);
+        }
+    }
+
+    private void ToggleRun()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            if (currentSpeed == walkSpeed)
+            {
+                currentSpeed = runSpeed;
+                isRun = !isRun;
+            }
+            else
+            {
+                currentSpeed = walkSpeed;
+                isRun = !isRun;
+            }
+        }
+    }
+
+    //í”Œë ˆì´ì–´ ë°œ íŒì • íŠ¸ë¦¬ê±° ë°˜ì „
     void ReverseTrigger()
     {
         colliderComponents[0].isTrigger = !colliderComponents[0].isTrigger;
