@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 10f;
     public float fallenSpeed = 1f;
 
-    //달리기 관련 변수
+    //щ━湲 愿� 蹂
     [Header("Run")]
     private float walkSpeed = 6f;
     private float runSpeed = 10f;
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //점프 코드
+        //� 肄
         //if (!playerAnimator.GetBool("isAttack")) {
             if (Input.GetKeyDown(KeyCode.Space) ) { //&& !playerAnimator.GetBool("isJump")
                 playerRigidbody.velocity = Vector2.up * jumpForce * 1.5f;
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
         //playerAnimator.SetBool("isAttack", true);
         //}
 
-        //콤보 어택 관련 코드
+        //肄ㅻ낫 댄 愿� 肄
         //if (Time.time - lastAttackTime > maxComboDelay)
         //{
         //    playerAnimator.SetBool("isAttack", false);
@@ -93,11 +93,11 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //캐릭터 이동 코드
+        //罹由� 대 肄
         PlayerMovement();
     }
 
-    //경사로 통과 관련, 수정 및 공부 필요할듯
+    //寃쎌щ 듦낵 愿�, � 諛 怨듬 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Platform"))
@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //플레이어 이동 관련
+    //�댁 대 愿�
     private void PlayerMovement()
     {
         float xMove = Input.GetAxisRaw("Horizontal");
@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
 
         TransformMoveAnim(xMove);
 
-        // 가속도로 점프 상태 반별
+        // 媛濡 �  諛蹂
         //if (playerRigidbody.velocity.y == 0)
         //{
         //    playerAnimator.SetBool("isJump", false);
@@ -202,7 +202,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //플레이어 발 판정 트리거 반전
+    //�댁 諛 � 몃━嫄 諛�
     void ReverseTrigger()
     {
         colliderComponents[0].isTrigger = !colliderComponents[0].isTrigger;
