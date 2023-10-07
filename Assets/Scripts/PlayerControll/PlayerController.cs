@@ -4,32 +4,33 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody2D playerRigidbody;
-    private Animator playerAnimator;
-    private SpriteRenderer playerSpriteRenderer;
-    private Collider2D[] colliderComponents;
+    protected Rigidbody2D playerRigidbody;
+    protected Animator playerAnimator;
+    protected SpriteRenderer playerSpriteRenderer;
+    protected Collider2D[] colliderComponents;
 
     [Header("test")]
     public int comboCount = 0;
     public float jumpForce = 10f;
     public float fallenSpeed = 1f;
 
-    //щ━湲 愿� 蹂
+    //달리기 관련 변수
     [Header("Run")]
-    private float walkSpeed = 6f;
-    private float runSpeed = 10f;
-    private float currentSpeed;
-    private float doubleTapTime = 0.2f;
-    private bool isRun = false;
+    public float walkSpeed = 6f;
+    public float runSpeed = 10f;
+    protected float currentSpeed;
+    protected float doubleTapTime = 0.2f;
+    protected bool isRun = false;
 
     private float lastAttackTime = 0;
     //private float maxComboCount = 2;
     private float maxComboDelay = 0.1f;
 
     public bool canDownJump;
+    private bool isTriggerReversed = false;
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
@@ -40,20 +41,13 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
-        //� 肄
-        //if (!playerAnimator.GetBool("isAttack")) {
-            if (Input.GetKeyDown(KeyCode.Space) ) { //&& !playerAnimator.GetBool("isJump")
-                playerRigidbody.velocity = Vector2.up * jumpForce * 1.5f;
-                playerAnimator.SetBool("isJump", true);
-            }
+        //점프 관련
+        PlayerJump();
 
-            if (Input.GetKeyDown(KeyCode.S)) {
-                ReverseTrigger();
-                Invoke("ReverseTrigger", fallenSpeed);
-                //canDownJump = false;
-            }
+        //달리기 활성/비활성
+        ToggleRun();
         //}
 
         //if(Input.GetMouseButtonDown(0) && playerAnimator.GetBool("isAttack")) {
@@ -63,7 +57,7 @@ public class PlayerController : MonoBehaviour
         //playerAnimator.SetBool("isAttack", true);
         //}
 
-        //肄ㅻ낫 댄 愿� 肄
+        //콤보 어택 관련
         //if (Time.time - lastAttackTime > maxComboDelay)
         //{
         //    playerAnimator.SetBool("isAttack", false);
@@ -91,36 +85,46 @@ public class PlayerController : MonoBehaviour
         //}
     }
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
-        //罹由� 대 肄
+        //플레이어 이동 메서드
         PlayerMovement();
     }
 
-    //寃쎌щ 듦낵 愿�, � 諛 怨듬 
-    void OnTriggerEnter2D(Collider2D collision)
+    //벽 충돌 관련
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Platform"))
         {
-            canDownJump = true;
-            playerAnimator.SetBool("isJump", false);
+            //playerAnimator.SetBool("isJump", false);
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, true);
         }
-        if (collision.CompareTag("Bottom"))
-        {
-            canDownJump = false;
+    }
+
+    protected void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform")) {
+            canDownJump = !canDownJump;
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    protected void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Platform"))
         {
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, true);  
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, true);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            canDownJump = !canDownJump;
+        }
+    }
+
+    protected void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Platform"))
         {
@@ -129,24 +133,40 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //�댁 대 愿�
+    //플레이어 이동 제어 메서드
     private void PlayerMovement()
     {
-        float xMove = Input.GetAxisRaw("Horizontal");
+        float xMove = Input.GetAxis("Horizontal");
 
-        ToggleRun();
+        if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) xMove = 0;
 
         float xSpeed = xMove * currentSpeed;
 
         TransformMoveAnim(xMove);
 
-        // 媛濡 �  諛蹂
+        // 가속도로 점프 판정
         //if (playerRigidbody.velocity.y == 0)
         //{
         //    playerAnimator.SetBool("isJump", false);
         //}
 
         playerRigidbody.velocity = new Vector2(xSpeed, playerRigidbody.velocity.y);
+    }
+
+    private void PlayerJump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        { //&& !playerAnimator.GetBool("isJump")
+            playerRigidbody.velocity = Vector2.up * jumpForce * 1.5f;
+            playerAnimator.SetBool("isJump", true);
+        }
+
+        if (Input.GetKeyDown(KeyCode.S) && canDownJump)
+        {
+            ReverseTrigger();
+            Invoke("ReverseTrigger", 0.1f);
+
+        }
     }
 
     private void TransformMoveAnim(float xMove)
@@ -178,8 +198,14 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (xMove == 0)
+        if (xMove == 0 && Input.GetAxis("Horizontal") == 0)
         {
+            if(currentSpeed != walkSpeed)
+            {
+                currentSpeed = walkSpeed;
+                isRun = !isRun;
+            }
+            
             playerAnimator.SetBool("isWalk", false);
             playerAnimator.SetBool("isRun", false);
         }
@@ -198,14 +224,16 @@ public class PlayerController : MonoBehaviour
             {
                 currentSpeed = walkSpeed;
                 isRun = !isRun;
+                playerAnimator.SetBool("isRun", false);
             }
         }
     }
 
-    //�댁 諛 � 몃━嫄 諛�
+    //하향 점프
     void ReverseTrigger()
     {
         colliderComponents[0].isTrigger = !colliderComponents[0].isTrigger;
+        isTriggerReversed = !isTriggerReversed;
     }
 }
 
