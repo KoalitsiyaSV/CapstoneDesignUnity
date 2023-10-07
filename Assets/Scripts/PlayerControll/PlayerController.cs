@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private float maxComboDelay = 0.1f;
 
     public bool canDownJump;
+    public bool canJump;
     private bool isTriggerReversed = false;
 
     // Start is called before the first frame update
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
         colliderComponents = GetComponents<Collider2D>();
 
         currentSpeed = walkSpeed;
+        canJump = true;
     }
 
     // Update is called once per frame
@@ -106,6 +108,10 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Platform")) {
             canDownJump = !canDownJump;
         }
+        if (collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Bottom") || collision.gameObject.CompareTag("Enemy") ){
+            playerAnimator.SetBool("isJump", false);
+            canJump = true;
+        }
     }
 
     protected void OnTriggerStay2D(Collider2D collision)
@@ -122,6 +128,7 @@ public class PlayerController : MonoBehaviour
         {
             canDownJump = !canDownJump;
         }
+        canJump = false;
     }
 
     protected void OnTriggerExit2D(Collider2D collision)
@@ -155,10 +162,11 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !playerAnimator.GetBool("isJump") && canJump)
         { //&& !playerAnimator.GetBool("isJump")
             playerRigidbody.velocity = Vector2.up * jumpForce * 1.5f;
             playerAnimator.SetBool("isJump", true);
+            canJump = false;
         }
 
         if (Input.GetKeyDown(KeyCode.S) && canDownJump)
@@ -213,7 +221,7 @@ public class PlayerController : MonoBehaviour
 
     private void ToggleRun()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canJump)
         {
             if (currentSpeed == walkSpeed)
             {
