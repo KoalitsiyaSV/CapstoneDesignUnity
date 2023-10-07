@@ -13,8 +13,9 @@ public class CameraController : MonoBehaviour
     public float MaxY = 0;
     public float MinY = 0;
 
-    //[Header("test")]
-    //public float height = 0;
+    [Header("test")]
+    public float CurX = 0;
+    public float CurY = 0;
 
     private Vector3 cameraPosition = new Vector3(0, 2, -10);
 
@@ -42,5 +43,8 @@ public class CameraController : MonoBehaviour
         //transform.position = player.transform.position + cameraPosition;
         transform.position = Vector3.Lerp(transform.position, desiredPosition, 
                           Time.deltaTime *2f);
+
+        CurX = transform.position.x;
+        CurY = cameraPosition.y;
     }
 }
