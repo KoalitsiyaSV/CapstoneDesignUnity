@@ -21,9 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Example3.unity
     guid: 7f3a83834f6b0354390dc4a1533b5e4d
   - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
     path: Assets/Scenes/Example5.unity
     guid: b640723549cc362468cdb222a10e5c1a
   - enabled: 1
