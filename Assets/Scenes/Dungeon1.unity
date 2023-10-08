@@ -35401,7 +35401,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 16
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1440, y: 900}
+  m_ReferenceResolution: {x: 1280, y: 720}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -113477,6 +113477,7 @@ Transform:
   - {fileID: 660593689}
   - {fileID: 2056671025}
   - {fileID: 200590895}
+  - {fileID: 385731068}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1926883290
@@ -114879,3 +114880,6 @@ SceneRoots:
   - {fileID: 808745874}
   - {fileID: 1673053754}
   - {fileID: 969282508}
+  - {fileID: 467474711}
+  - {fileID: 1827575054}
+  - {fileID: 1287073283}
