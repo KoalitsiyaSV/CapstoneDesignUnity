@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private float maxComboDelay = 0.1f;
 
     public bool canDownJump;
+    public bool canJump;
     private bool isTriggerReversed = false;
 
     // Start is called before the first frame update
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
     {
         soundManager.PlayBgm(SoundManager.Bgm.Village); //DEV
         currentSpeed = walkSpeed;
+        canJump = true;
     }
 
     // Update is called once per frame
@@ -97,7 +99,7 @@ public class PlayerController : MonoBehaviour
         PlayerMovement();
     }
 
-    //벽 충돌 관련
+    //트리거 컨트롤
     protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Platform"))
@@ -107,10 +109,29 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    protected void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Platform"))
+        {
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, false);
+            //if (colliderComponents[0].isTrigger) ReverseTrigger();
+        }
+    }
+
+    //콜리젼 컨트롤
     protected void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform")) {
-            canDownJump = !canDownJump;
+        if (collision.gameObject.CompareTag("Platform")) 
+        {
+            canDownJump = true;
+        }
+        if (collision.gameObject.CompareTag("Bottom"))
+        {
+            canDownJump = false;
+        }
+        if (collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Bottom") || collision.gameObject.CompareTag("Enemy") ){
+            playerAnimator.SetBool("isJump", false);
+            canJump = true;
         }
     }
 
@@ -126,16 +147,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
-            canDownJump = !canDownJump;
-        }
-    }
-
-    protected void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Platform"))
-        {
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, false);
-            //if (colliderComponents[0].isTrigger) ReverseTrigger();
+            canDownJump = false;
         }
     }
 
@@ -161,10 +173,11 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !playerAnimator.GetBool("isJump") && canJump)
         { //&& !playerAnimator.GetBool("isJump")
             playerRigidbody.velocity = Vector2.up * jumpForce * 1.5f;
             playerAnimator.SetBool("isJump", true);
+            canJump = false;
         }
 
         if (Input.GetKeyDown(KeyCode.S) && canDownJump)
@@ -204,7 +217,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (xMove == 0 && Input.GetAxis("Horizontal") == 0)
+        if (xMove == 0)
         {
             if(currentSpeed != walkSpeed)
             {
@@ -219,7 +232,7 @@ public class PlayerController : MonoBehaviour
 
     private void ToggleRun()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canJump)
         {
             if (currentSpeed == walkSpeed)
             {
