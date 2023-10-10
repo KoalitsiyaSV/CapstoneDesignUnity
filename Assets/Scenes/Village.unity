@@ -29939,7 +29939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c2a8bb1425cec4b862d8e863fc7d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1427921511}
   MaxX: 42
   MinX: -42
   MaxY: 30
