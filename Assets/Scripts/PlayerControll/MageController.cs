@@ -20,6 +20,4 @@ public class MageController : PlayerController
     {
         base.FixedUpdate();
     }
-
-
 }

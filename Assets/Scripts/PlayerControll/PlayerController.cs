@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
         PlayerMovement();
     }
 
-    //벽 충돌 관련
+    //트리거 컨트롤
     protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Platform"))
@@ -103,10 +103,25 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    protected void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Platform"))
+        {
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, false);
+            //if (colliderComponents[0].isTrigger) ReverseTrigger();
+        }
+    }
+
+    //콜리젼 컨트롤
     protected void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform")) {
-            canDownJump = !canDownJump;
+        if (collision.gameObject.CompareTag("Platform")) 
+        {
+            canDownJump = true;
+        }
+        if (collision.gameObject.CompareTag("Bottom"))
+        {
+            canDownJump = false;
         }
         if (collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Bottom") || collision.gameObject.CompareTag("Enemy") ){
             playerAnimator.SetBool("isJump", false);
@@ -126,17 +141,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
-            canDownJump = !canDownJump;
-        }
-        canJump = false;
-    }
-
-    protected void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Platform"))
-        {
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, false);
-            //if (colliderComponents[0].isTrigger) ReverseTrigger();
+            canDownJump = false;
         }
     }
 
@@ -206,7 +211,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (xMove == 0 && Input.GetAxis("Horizontal") == 0)
+        if (xMove == 0)
         {
             if(currentSpeed != walkSpeed)
             {
