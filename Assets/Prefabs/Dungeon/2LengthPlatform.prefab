@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 1837832813991719226}
   - component: {fileID: 3332775114767143148}
   - component: {fileID: 882187400590035416}
-  - component: {fileID: 6811348593271436491}
+  - component: {fileID: 5993420667236506412}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: Platform
@@ -88,16 +88,6 @@ Tilemap:
   m_GameObject: {fileID: 4495244250369232031}
   m_Enabled: 1
   m_Tiles:
-  - first: {x: -1, y: 0, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 0, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -108,17 +98,27 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 1, y: 0, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 84b24eec4b179a043bc7ee722b0edfd9, type: 2}
+    m_Data: {fileID: 11400000, guid: 64028aba16e3c9141bf46f5c1c0075f0, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 72f7b03eefa1e824a88bb1a1ab68d719, type: 2}
+    m_Data: {fileID: 11400000, guid: f0bcf77be7da03149bc8ca2190a7639d, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
-    m_Data: {fileID: 2011645616, guid: c14c69e6159f7324e9d2483096c2ac92, type: 3}
+    m_Data: {fileID: 2129973718, guid: 5b4a87372f4db0342b930cf59da9ad2f, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -1543252750, guid: c14c69e6159f7324e9d2483096c2ac92, type: 3}
+    m_Data: {fileID: 1704069506, guid: 5b4a87372f4db0342b930cf59da9ad2f, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 2
     m_Data:
@@ -145,7 +145,7 @@ Tilemap:
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -1, y: 0, z: 0}
-  m_Size: {x: 2, y: 1, z: 1}
+  m_Size: {x: 3, y: 1, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -214,7 +214,7 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!19719996 &6811348593271436491
+--- !u!19719996 &5993420667236506412
 TilemapCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
