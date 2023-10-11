@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour
             //RayCast 형성
             Debug.DrawRay(frontVec, Vector3.down, new Color(0, 1, 0));
             //레이에 맞은 것의 정보를 받음
-            RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1, LayerMask.GetMask("Platform"));
+            RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1, LayerMask.GetMask("Default")); //Default로 임시 변경
             if (rayHit.collider == null)    //앞에 Platform이름의 타일이 없다(null)
             {
                 //Debug.Log("가지마용");
