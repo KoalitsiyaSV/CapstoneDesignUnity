@@ -9,8 +9,6 @@ public class PlayerController : MonoBehaviour
     protected SpriteRenderer playerSpriteRenderer;
     protected Collider2D[] colliderComponents;
 
-    SoundManager soundManager; //DEV
-
     [Header("test")]
     public int comboCount = 0;
     public float jumpForce = 10f;
@@ -39,11 +37,9 @@ public class PlayerController : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
         colliderComponents = GetComponents<Collider2D>();
-        soundManager = GetComponent<SoundManager>(); //DEV
     }
     protected void Start()
     {
-        soundManager.PlayBgm(SoundManager.Bgm.Village); //DEV
         currentSpeed = walkSpeed;
         canJump = true;
     }
