@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Village.unity
     guid: c895ff300d1d0934fbece135d32550fe
+  - enabled: 1
+    path: Assets/Scenes/Dungeon1.unity
+    guid: 9eb40cfec153a924eb46cc5cbcc47e45
   - enabled: 0
     path: Assets/Scenes/Example.unity
     guid: 94eb2daa56226e44ea460a5ca92defc4
@@ -23,10 +26,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Example5.unity
     guid: b640723549cc362468cdb222a10e5c1a
-  - enabled: 1
+  - enabled: 0
     path: Assets/save dev/Select.unity
     guid: e8531749323f5b141bb8512698977f93
   - enabled: 0
     path: Assets/save dev/Game.unity
     guid: f870dd241cb649043b7ec2d1ee5644d6
+  - enabled: 0
+    path: Assets/Scenes/Unload.unity
+    guid: ad1f4e5a28574534cb8855edd3da2755
   m_configObjects: {}
