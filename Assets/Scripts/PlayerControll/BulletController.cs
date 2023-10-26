@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillController : MonoBehaviour
+public class BulletController : MonoBehaviour
 {
     [Header("탄 속성")]
     public int dmg;
@@ -22,13 +22,13 @@ public class SkillController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        bulletRigidbody.velocity += currentDirection * acceleration * Time.deltaTime;
+        //bulletRigidbody.velocity += currentDirection * acceleration * Time.deltaTime;
     }
 
     void Start()
     {
         bulletRigidbody = GetComponent<Rigidbody2D>();
-        currentDirection = bulletRigidbody.velocity.normalized;
+        //currentDirection = bulletRigidbody.velocity.normalized;
 
         //일정 시간(DestroyTime)이 지나면 본인 삭제 메소드 호출
         Invoke("DestroyObj", DestroyTime);

@@ -13,9 +13,11 @@ public class EnemyController : MonoBehaviour
     Rigidbody2D rigid;
 
     //김동우 개발 Part
+    [Header("몬스터")]
     public int EnemyType;
     public int nextMove;    //다시 이동하는데 걸리는 시간
     public float Enemy_Life;
+    public float raycastLength;
     //public Sprite[] sprites;//추후 Enemy추가시 사용할 Sprite배열
 
     // Start is called before the first frame update
@@ -44,7 +46,7 @@ public class EnemyController : MonoBehaviour
             //RayCast 형성
             Debug.DrawRay(frontVec, Vector3.down, new Color(0, 1, 0));
             //레이에 맞은 것의 정보를 받음
-            RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1, LayerMask.GetMask("Default")); //Default로 임시 변경
+            RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, raycastLength, LayerMask.GetMask("Default")); //Default로 임시 변경
             if (rayHit.collider == null)    //앞에 Platform이름의 타일이 없다(null)
             {
                 //Debug.Log("가지마용");
@@ -89,7 +91,7 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            SkillController bullet = collision.gameObject.GetComponent<SkillController>();  //이 부분이 다른 스크립트의 변수 호출해서 값 지정해 넣고 하는 부분 제일중요!
+            BulletController bullet = collision.gameObject.GetComponent<BulletController>();  //이 부분이 다른 스크립트의 변수 호출해서 값 지정해 넣고 하는 부분 제일중요!
             OnHit(bullet.dmg);
             Destroy(collision.gameObject);//플레이어의 총알을 삭제한다 이때, collision개념 잘 파악
         }
