@@ -60,6 +60,22 @@ public class EnemyController : MonoBehaviour
     {
         nextMove = Random.Range(-1, 2); //랜덤에서 최솟값은 상관이 없지만, 최대값은 목표인 1이 아닌 2가 들어가야함
         //float nextThinkTime = Random.Range(2f, 5f);
+
+        if(nextMove > 0)
+        {
+            transform.localScale = new Vector2(1, 1);
+            anim.SetBool("isWalk", true);
+        }
+        else if(nextMove < 0)
+        {
+            transform.localScale = new Vector2(-1, 1);
+            anim.SetBool("isWalk", true);
+        }
+        else if(nextMove == 0)
+        {
+            anim.SetBool("isWalk", false);
+        }
+
         Invoke("Think", 2); //재귀함수
     }
 
