@@ -31,13 +31,15 @@ public class PlayerController : MonoBehaviour
     private bool isTriggerReversed = false;
 
     // Start is called before the first frame update
-    protected void Start()
+    private void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
         colliderComponents = GetComponents<Collider2D>();
-
+    }
+    protected void Start()
+    {
         currentSpeed = walkSpeed;
         canJump = true;
     }
