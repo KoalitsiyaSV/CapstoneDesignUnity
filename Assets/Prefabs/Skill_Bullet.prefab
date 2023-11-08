@@ -162,4 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 1
-  DestroyTime: 1.2
+  DestroyTime: 4
+  acceleration: 20
+  maxSpeed: 0

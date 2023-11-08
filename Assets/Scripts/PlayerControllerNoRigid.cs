@@ -21,6 +21,7 @@ public class PlayerControllerNoRigid : MonoBehaviour
 
     public bool canDownJump;
 
+
     // Start is called before the first frame update
     void Start()
     {
