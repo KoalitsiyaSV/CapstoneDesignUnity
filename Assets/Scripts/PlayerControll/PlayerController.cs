@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     protected SpriteRenderer playerSpriteRenderer;
     protected Collider2D[] colliderComponents;
 
-    
     [Header("test")]
     public int comboCount = 0;
     public float jumpForce = 10f;
@@ -38,11 +37,6 @@ public class PlayerController : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
         colliderComponents = GetComponents<Collider2D>();
-        
-    }
-    protected void Start()
-    {
-       
         currentSpeed = walkSpeed;
         canJump = true;
     }
