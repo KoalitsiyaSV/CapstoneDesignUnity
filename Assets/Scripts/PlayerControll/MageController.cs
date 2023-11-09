@@ -6,7 +6,7 @@ using UnityEngine;
 public class MageController : PlayerController
 {
     //public float speed;
-      //실재로 한발 쏜 다음 충전 딜레이
+    //실재로 한발 쏜 다음 충전 딜레이
 
     [Header("AttackA")]
     public float power;
@@ -18,8 +18,6 @@ public class MageController : PlayerController
     public float SkillSpeed_A;
     public GameObject bulletObjA;//프리펩 변수 1
     public Transform posA;//스킬 생성 위치, 성공적
-
-
 
     // Start is called before the first frame update
     void Start()

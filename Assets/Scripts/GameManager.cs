@@ -117,18 +117,18 @@ public class GameManager : MonoBehaviour
     //    InGameUI.SetActive(true);
     //}
     //
-    ////메뉴창->게임 종료 버튼
-    //public void OnClickExitBtn()
-    //{
-    //    OnApplicationQuit();
-    //}
-    //
-    //
-    ////종료 대충
-    //public void OnApplicationQuit()
-    //{
-    //    Application.Quit();
-    //}
+    //메뉴창->게임 종료 버튼
+    public void OnClickExitBtn()
+    {
+        OnApplicationQuit();
+    }
+
+
+    //종료 대충
+    public void OnApplicationQuit()
+    {
+        Application.Quit();
+    }
 
     //void OnEnable()
     //{
