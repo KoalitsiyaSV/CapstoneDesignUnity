@@ -7,8 +7,8 @@ public class BookController : MonoBehaviour
 {
     private int bookPage;
     private int currentPage;
-    public int repeatCount = 0;
-    public int currentRepeatCount = 0;
+    private int repeatCount = 0;
+    private int currentRepeatCount = 0;
 
     public bool isTurnThePage = false;
 
@@ -154,6 +154,59 @@ public class BookController : MonoBehaviour
         animator.SetBool("isTurnThePage", true);
         repeatCount = 1;
     }
+
+    public void ToInventoryPage()
+    {
+        bookPage = 1;
+
+        if (animator.GetBool("isReverse")) animator.SetBool("isReverse", false);
+
+        PageChanger();
+
+        currentRepeatCount = 0;
+        animator.SetBool("isTurnThePage", true);
+        repeatCount = 1;
+    }
+
+    public void ToStatusPage()
+    {
+        bookPage = 2;
+
+        if (animator.GetBool("isReverse")) animator.SetBool("isReverse", false);
+
+        PageChanger();
+
+        currentRepeatCount = 0;
+        animator.SetBool("isTurnThePage", true);
+        repeatCount = 2;
+    }
+
+    public void ToSkillPage()
+    {
+        bookPage = 3;
+
+        if (animator.GetBool("isReverse")) animator.SetBool("isReverse", false);
+
+        PageChanger();
+
+        currentRepeatCount = 0;
+        animator.SetBool("isTurnThePage", true);
+        repeatCount = 3;
+    }
+
+    public void ToOptionPage()
+    {
+        bookPage = 4;
+
+        if (animator.GetBool("isReverse")) animator.SetBool("isReverse", false);
+
+        PageChanger();
+
+        currentRepeatCount = 0;
+        animator.SetBool("isTurnThePage", true);
+        repeatCount = 4;
+    }
+
 
     private void ActivateCloseBtn()
     {
