@@ -5,6 +5,71 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public float playerMaxHP { get; private set; }
+    public float playerCurHP { get; private set; }
+    public float playerHPRatio { get; private set; }
+
+    //싱글톤 인스턴스
+    private static GameManager _instance = null;
+
+    //외부에서 접근 가능한 싱글톤 인스턴스 속성
+    public static GameManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                //인스턴스가 없으면 새로 생성
+                GameObject gameMgr = new GameObject("GameManager");
+                _instance = gameMgr.AddComponent<GameManager>();
+            }
+
+            return _instance;
+        }
+    }
+
+    private void Start()
+    {
+        Initialize();
+    }
+
+    private void Awake()
+    {
+        //이미 다른 인스턴스가 있는 경우 중복 생성 방지
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+            //씬 전환 시 파괴되지 않도록 설정
+            DontDestroyOnLoad(this.gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        
+        
+        
+        
+    }
+
+    //초기화, 현재는 플레이어 체력 관리만 함
+    private void Initialize()
+    {
+        playerMaxHP = PlayerData.Instance.playerHP;
+        playerCurHP = playerMaxHP;
+        playerHPRatio = 100f;
+    }
+
+    public void PlayerTakeDamage(int dmgAmount)
+    {
+        playerCurHP -= dmgAmount;
+        playerHPRatio = (playerCurHP / playerMaxHP) * 100f;
+    }
+
     ////UI
     //[Header("UI")]
     //public GameObject MenuUI;
