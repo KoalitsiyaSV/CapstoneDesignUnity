@@ -6,6 +6,7 @@ using System.Diagnostics;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
+
 public class EnemyController : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
@@ -58,27 +59,29 @@ public class EnemyController : MonoBehaviour
     }
     void Think()
     {
-        nextMove = Random.Range(-1, 2); //랜덤에서 최솟값은 상관이 없지만, 최대값은 목표인 1이 아닌 2가 들어가야함
+        nextMove = Random.Range(-1, 2); //랜덤에서 최솟값은 상관이 없지만, 최대값은 목표인 1이 아닌 2가 들어가야함         
         //float nextThinkTime = Random.Range(2f, 5f);
+        TransformAnim();
+        Invoke("Think", 2); //재귀함수
+    }
 
-        if(nextMove > 0)
+    private void TransformAnim()
+    {
+        if (nextMove > 0)
         {
             transform.localScale = new Vector2(1, 1);
             anim.SetBool("isWalk", true);
         }
-        else if(nextMove < 0)
+        else if (nextMove < 0)
         {
             transform.localScale = new Vector2(-1, 1);
             anim.SetBool("isWalk", true);
         }
-        else if(nextMove == 0)
+        else if (nextMove == 0)
         {
             anim.SetBool("isWalk", false);
         }
-
-        Invoke("Think", 2); //재귀함수
     }
-
 
     void OnCollisionEnter2D(Collision2D collision)
     {
