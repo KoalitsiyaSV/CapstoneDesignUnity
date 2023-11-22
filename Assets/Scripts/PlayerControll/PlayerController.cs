@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
-
+using Debug = UnityEngine.Debug;
+using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     protected Rigidbody2D playerRigidbody;
@@ -30,6 +32,8 @@ public class PlayerController : MonoBehaviour
     public bool canJump;
     private bool isTriggerReversed = false;
 
+    //11.09
+    private bool isPlayerDamaged = false;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -103,6 +107,12 @@ public class PlayerController : MonoBehaviour
             //playerAnimator.SetBool("isJump", false);
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, true);
         }
+
+        //11.09 test
+        if (collision.gameObject.layer == 8)
+        {
+            OnPlayer_Enemy_Damaged(collision.transform.position);
+        }
     }
 
     protected void OnTriggerExit2D(Collider2D collision)
@@ -129,7 +139,52 @@ public class PlayerController : MonoBehaviour
             playerAnimator.SetBool("isJump", false);
             canJump = true;
         }
+
+        //11.09 함정 부분 & Enemy 부분
+        if (collision.gameObject.CompareTag ("trap"))
+        {
+            OnPlayer_trap_Damaged(collision.transform.position);
+        }
     }
+    //11.09부분 시작
+    //피격시 발생하는 함수, +무적시간 부여
+    void OnPlayer_Enemy_Damaged(Vector2 targetPos)
+    {
+        if (!isPlayerDamaged)
+        {
+            Debug.Log("적에게 맞았습니다");
+            isPlayerDamaged = true;
+            //피격시 레이어 변경(PlayerDamaged로)
+            //gameObject.layer = 11;
+            //힘을 줘서 피격시 밀어냄
+            //playerRigidbody.AddForce(new Vector2(1, 5) * 7, ForceMode2D.Impulse);
+            //색 변경
+            playerSpriteRenderer.color = new Color(1, 1, 1, 0.4f);
+            //아래로 무적시간 주고, 피격 해제
+            Invoke("OffPlayerDamaged", 3);
+        }
+    }
+    void OnPlayer_trap_Damaged(Vector2 targetPos)
+    {
+        Debug.Log("함정에 빠졌습니다!");
+        //피격시 레이어 변경(PlayerDamaged로)
+        //gameObject.layer = 11;
+        //색 변경
+        playerSpriteRenderer.color = new Color(1, 1, 1, 0.4f);
+        //힘을 줘서 피격시 밀어냄
+        playerRigidbody.AddForce(new Vector2(1, 1) * 7, ForceMode2D.Impulse);
+        //아래로 무적시간 주고, 피격 해제
+        Invoke("OffPlayerDamaged", 1);
+
+    }
+    //피격판정 완료시 발생
+    void OffPlayerDamaged()
+    {
+        isPlayerDamaged = false;
+        //gameObject.layer = 7;
+        playerSpriteRenderer.color = new Color(1, 1, 1, 1);
+    }
+    //11.09부분 끝
 
     protected void OnTriggerStay2D(Collider2D collision)
     {

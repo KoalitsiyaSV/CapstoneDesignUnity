@@ -28951,7 +28951,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1195398707}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BulletPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30368,7 +30368,7 @@ GameObject:
   - component: {fileID: 1427921507}
   - component: {fileID: 1427921506}
   - component: {fileID: 1427921505}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -35296,6 +35296,7 @@ MonoBehaviour:
   EnemyType: 0
   nextMove: 2
   Enemy_Life: 3
+  raycastLength: 0
 --- !u!1 &2136912709
 GameObject:
   m_ObjectHideFlags: 0
