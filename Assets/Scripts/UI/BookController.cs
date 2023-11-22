@@ -131,82 +131,49 @@ public class BookController : MonoBehaviour
 
     public void PreviousPage()
     {
-        bookPage--;
-
-        if (!animator.GetBool("isReverse")) animator.SetBool("isReverse", true);
-
-        PageChanger();
-
-        currentRepeatCount = 0;
-        animator.SetBool("isTurnThePage", true);
-        repeatCount = 1;
+        PageChanger(--bookPage, 1, true);
     }
 
     public void NextPage()
     {
-        bookPage++;
-
-        if (animator.GetBool("isReverse")) animator.SetBool("isReverse", false);
-
-        PageChanger();
-
-        currentRepeatCount = 0;
-        animator.SetBool("isTurnThePage", true);
-        repeatCount = 1;
+        PageChanger(++bookPage, 1, false);
     }
 
     public void ToInventoryPage()
     {
-        bookPage = 1;
-
-        if (animator.GetBool("isReverse")) animator.SetBool("isReverse", false);
-
-        PageChanger();
-
-        currentRepeatCount = 0;
-        animator.SetBool("isTurnThePage", true);
-        repeatCount = 1;
+        PageChanger(1, 1, false);
     }
 
     public void ToStatusPage()
     {
-        bookPage = 2;
-
-        if (animator.GetBool("isReverse")) animator.SetBool("isReverse", false);
-
-        PageChanger();
-
-        currentRepeatCount = 0;
-        animator.SetBool("isTurnThePage", true);
-        repeatCount = 2;
+        PageChanger(2, 2, false);
     }
 
     public void ToSkillPage()
     {
-        bookPage = 3;
-
-        if (animator.GetBool("isReverse")) animator.SetBool("isReverse", false);
-
-        PageChanger();
-
-        currentRepeatCount = 0;
-        animator.SetBool("isTurnThePage", true);
-        repeatCount = 3;
+        PageChanger(3, 3, false);
     }
 
     public void ToOptionPage()
     {
-        bookPage = 4;
+        PageChanger(4, 4, false);
+    }
 
-        if (animator.GetBool("isReverse")) animator.SetBool("isReverse", false);
+    private void PageChanger(int page, int count, bool reverse)
+    {
+        bookPage = page;
 
-        PageChanger();
+        if(reverse)
+            if (!animator.GetBool("isReverse")) animator.SetBool("isReverse", true);
+        else
+            if (animator.GetBool("isReverse")) animator.SetBool("isReverse", false);
+
+        ControlCurrentPage();
 
         currentRepeatCount = 0;
         animator.SetBool("isTurnThePage", true);
-        repeatCount = 4;
+        repeatCount = count;
     }
-
 
     private void ActivateCloseBtn()
     {
@@ -250,10 +217,5 @@ public class BookController : MonoBehaviour
     private void ActivateCurrentPage()
     {
         pages[bookPage].gameObject.SetActive(true);
-    }
-
-    private void PageChanger()
-    {
-        ControlCurrentPage();
     }
 }
