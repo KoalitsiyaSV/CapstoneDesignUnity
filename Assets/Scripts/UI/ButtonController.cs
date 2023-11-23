@@ -80,6 +80,4 @@ public class ButtonController : MonoBehaviour
     {
         Application.Quit();
     }
-
-
 }
