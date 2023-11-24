@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
         playerHPRatio = (playerCurHP / playerMaxHP) * 100f;
     }
 
+    
     ////UI
     //[Header("UI")]
     //public GameObject MenuUI;
