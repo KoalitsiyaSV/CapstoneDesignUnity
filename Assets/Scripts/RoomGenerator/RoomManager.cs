@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RoomManager : MonoBehaviour {
     [SerializeField] GameObject roomPrefab;
@@ -10,19 +11,20 @@ public class RoomManager : MonoBehaviour {
     int roomWidth = 80;
     int roomHeight = 80;
 
-    [SerializeField] int gridSizeX = 10;
-    [SerializeField] int gridSizeY = 10;
+    [SerializeField] int gridSizeX = 15;
+    [SerializeField] int gridSizeY = 15;
 
-    private List<GameObject> roomObjects = new List<GameObject>();
+    private List<GameObject> roomObjects = new List<GameObject>(); //생성된 방의 정보가 담김
 
-    private Queue<Vector2Int> roomQueue = new Queue<Vector2Int>();
+    private Queue<Vector2Int> roomQueue = new Queue<Vector2Int>(); //생성 예정인 방의 위치가 저장됨
 
-    private int[,] roomGrid;
+    private int[,] roomGrid; //모든 방은 roomGrid안에 생성됨
 
     private int roomCount;
 
     private bool generationComplete = false;
 
+   
     private void Start() {
         roomGrid = new int[gridSizeX, gridSizeY];
         roomQueue = new Queue<Vector2Int>();
@@ -50,7 +52,7 @@ public class RoomManager : MonoBehaviour {
             generationComplete = true;
         }
     }
-
+     
     private void StartRoomGenerationFromRoom(Vector2Int roomIndex) {
         roomQueue.Enqueue(roomIndex);
         int x = roomIndex.x;
@@ -145,7 +147,7 @@ public class RoomManager : MonoBehaviour {
         int count = 0;
 
         if (x > 0 && roomGrid[x - 1, y] != 0) count++; //right neighbour
-        if (x < gridSizeX - 1 && roomGrid[x + 1, 7] != 0) count++; //right neighbour
+        if (x < gridSizeX - 1 && roomGrid[x + 1, y] != 0) count++; //right neighbour
         if (y > 0 && roomGrid[x, y - 1] != 0) count++; //Botton neighbour
         if (y < gridSizeY - 1 && roomGrid[x, y + 1] != 0) count++; //Top neighbour
 
@@ -170,5 +172,5 @@ public class RoomManager : MonoBehaviour {
             }
         }
     }
+
 }
-//~21:00
