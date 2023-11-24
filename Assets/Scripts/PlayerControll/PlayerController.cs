@@ -174,6 +174,7 @@ public class PlayerController : MonoBehaviour
             playerRigidbody.velocity = Vector2.up * jumpForce * 1.5f;
             playerAnimator.SetBool("isJump", true);
             canJump = false;
+            GameManager.Instance.PlayerTakeDamage(10);
         }
 
         if (Input.GetKeyDown(KeyCode.S) && canDownJump)
@@ -251,7 +252,6 @@ public class PlayerController : MonoBehaviour
         isTriggerReversed = !isTriggerReversed;
     }
 }
-
 
 // ComboAttack Test1
 
