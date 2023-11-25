@@ -14,6 +14,10 @@ public class RoomManager : MonoBehaviour {
     [SerializeField] int gridSizeX = 15;
     [SerializeField] int gridSizeY = 15;
 
+    public Vector2Int RoomGridSize { 
+        get { return new Vector2Int(gridSizeX, gridSizeY); } 
+    }
+
     private List<GameObject> roomObjects = new List<GameObject>(); //생성된 방의 정보가 담김
 
     private Queue<Vector2Int> roomQueue = new Queue<Vector2Int>(); //생성 예정인 방의 위치가 저장됨
@@ -96,8 +100,8 @@ public class RoomManager : MonoBehaviour {
         //Neighbours
         Room leftRoomScript = GetRoomScriptAt(new Vector2Int(x - 1, y));
         Room rightRoomScript = GetRoomScriptAt(new Vector2Int(x + 1, y));
-        Room topRoomScript = GetRoomScriptAt(new Vector2Int(x, y + 1));
-        Room bottomRoomScript = GetRoomScriptAt(new Vector2Int(x, y - 1));
+        Room upRoomScript = GetRoomScriptAt(new Vector2Int(x, y + 1));
+        Room downRoomScript = GetRoomScriptAt(new Vector2Int(x, y - 1));
 
         //Determine which doors to open based on the direction
         if (x > 0 && roomGrid[x - 1, y] != 0) {
@@ -113,12 +117,12 @@ public class RoomManager : MonoBehaviour {
         if (y > 0 && roomGrid[x, y - 1] != 0) {
             //Neighbouring room to the bottom
             newRoomScript.OpenDoor(Vector2Int.down);
-            bottomRoomScript.OpenDoor(Vector2Int.up);
+            downRoomScript.OpenDoor(Vector2Int.up);
         }
         if (y < gridSizeY - 1 && roomGrid[x, y + 1] != 0) {
             //Neighbouring room to the top
             newRoomScript.OpenDoor(Vector2Int.up);
-            topRoomScript.OpenDoor(Vector2Int.down);
+            upRoomScript.OpenDoor(Vector2Int.down);
         }
     }
 
@@ -134,7 +138,7 @@ public class RoomManager : MonoBehaviour {
         StartRoomGenerationFromRoom(initialRoomIndex);
     }
 
-    Room GetRoomScriptAt(Vector2Int index) {
+    public Room GetRoomScriptAt(Vector2Int index) {
         GameObject roomObject = roomObjects.Find(r => r.GetComponent<Room>().RoomIndex == index);
         if (roomObject != null)
             return roomObject.GetComponent<Room>();
@@ -172,5 +176,22 @@ public class RoomManager : MonoBehaviour {
             }
         }
     }
-
+    public Vector3 teleportRoom(Vector2Int targerGrid, string targetPortal) {
+        Room targetRoom = GetRoomScriptAt(targerGrid);
+        Vector3 target = new Vector3();
+        if (targetPortal == "down") {
+            target = targetRoom.getDownPortalPosition;
+        }
+        else if (targetPortal == "up") {
+            target = targetRoom.getUpPortalPosition;
+        }
+        else if (targetPortal == "right") {
+            target = targetRoom.getRightPortalPosition;
+        }
+        else if (targetPortal == "left") {
+            target = targetRoom.getLeftPortalPosition;
+        }
+        return target;
+    }
+    // 텔레포트할 방의 Vector2Int 값과 목적지 Portal의 이름을 매개변수로 받아서 목적지 Portal의 좌표를 return함
 }
