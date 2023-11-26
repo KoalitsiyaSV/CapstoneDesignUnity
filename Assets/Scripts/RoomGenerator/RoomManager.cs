@@ -8,8 +8,8 @@ public class RoomManager : MonoBehaviour {
     [SerializeField] private int maxRooms = 15;
     [SerializeField] private int minRooms = 7;
 
-    int roomWidth = 80;
-    int roomHeight = 80;
+    int roomWidth = 130;
+    int roomHeight = 100;
 
     [SerializeField] int gridSizeX = 15;
     [SerializeField] int gridSizeY = 15;
@@ -27,6 +27,8 @@ public class RoomManager : MonoBehaviour {
     private int roomCount;
 
     private bool generationComplete = false;
+
+    private string[] portalPosition = new string[] { "lower", "upper", "basic" };
 
    
     private void Start() {
@@ -106,13 +108,15 @@ public class RoomManager : MonoBehaviour {
         //Determine which doors to open based on the direction
         if (x > 0 && roomGrid[x - 1, y] != 0) {
             //Neighbouring room to the left
-            newRoomScript.OpenDoor(Vector2Int.left);
-            leftRoomScript.OpenDoor(Vector2Int.right);
+            int i = Random.Range(0, 3);
+            newRoomScript.OpenLRDoor(Vector2Int.left, portalPosition[i]);
+            leftRoomScript.OpenLRDoor(Vector2Int.right, portalPosition[i]);            
         }
         if (x < gridSizeX - 1 && roomGrid[x + 1, y] != 0) {
             //Neighbouring room to the right
-            newRoomScript.OpenDoor(Vector2Int.right);
-            rightRoomScript.OpenDoor(Vector2Int.left);
+            int i = Random.Range(0, 3);
+            newRoomScript.OpenLRDoor(Vector2Int.right, portalPosition[i]);
+            rightRoomScript.OpenLRDoor(Vector2Int.left, portalPosition[i]);
         }
         if (y > 0 && roomGrid[x, y - 1] != 0) {
             //Neighbouring room to the bottom
@@ -176,20 +180,30 @@ public class RoomManager : MonoBehaviour {
             }
         }
     }
-    public Vector3 teleportRoom(Vector2Int targerGrid, string targetPortal) {
-        Room targetRoom = GetRoomScriptAt(targerGrid);
+    public Vector3 teleportRoom(Vector2Int targetRoomGrid, string entryPortal) {
+        Room targetRoom = GetRoomScriptAt(targetRoomGrid);
         Vector3 target = new Vector3();
-        if (targetPortal == "down") {
+        if (entryPortal == "down") {
             target = targetRoom.getDownPortalPosition;
         }
-        else if (targetPortal == "up") {
+        else if (entryPortal == "up") {
             target = targetRoom.getUpPortalPosition;
         }
-        else if (targetPortal == "right") {
-            target = targetRoom.getRightPortalPosition;
+        else if (entryPortal.Contains("Right")) {
+            if(entryPortal.Contains("lower"))
+                target = targetRoom.getLeftPortalPosition("lower");
+            else if(entryPortal.Contains("upper"))
+                target = targetRoom.getLeftPortalPosition("upper");
+            else if(entryPortal.Contains("basic"))
+                target = targetRoom.getLeftPortalPosition("basic");
         }
-        else if (targetPortal == "left") {
-            target = targetRoom.getLeftPortalPosition;
+        else if (entryPortal.Contains("Left")) {
+            if (entryPortal.Contains("lower"))
+                target = targetRoom.getRightPortalPosition("lower");
+            else if (entryPortal.Contains("upper"))
+                target = targetRoom.getRightPortalPosition("upper");
+            else if (entryPortal.Contains("basic"))
+                target = targetRoom.getRightPortalPosition("basic");
         }
         return target;
     }
