@@ -13,6 +13,7 @@ public class Room : MonoBehaviour {
     [SerializeField] GameObject stair2;
     [SerializeField] GameObject leftBase;
     [SerializeField] GameObject rightBase;
+    [SerializeField] GameObject spawnPoint;
 
     public Vector2Int RoomIndex { get; set; }
 
@@ -107,5 +108,19 @@ public class Room : MonoBehaviour {
         
     }
     // OpenDoor메소드는 생성된 Room에서 생성할 문의 방향을 매개변수로 받아서 해당 문을 여는 메소드
+    public void SpawnSpawnPoint() {
+        int numOfSpawnPoint = Random.Range(2, 6);
+        int spawnCount = 0;
+        Transform spawn = spawnPoint.transform;
+        for ( int n = 0; n < spawn.childCount; n++) {
+            int i = Random.Range(0, 2);
+            if (spawnCount < numOfSpawnPoint) {
+                if (i == 1) {
+                    spawn.GetChild(n).gameObject.SetActive(true); 
+                    numOfSpawnPoint++;
+                }
+            }
+        }
+    }
 }
 
