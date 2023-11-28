@@ -94,9 +94,14 @@ public class RoomManager : MonoBehaviour {
         roomObjects.Add(newRoom);
 
         OpenDoors(newRoom, x, y);
+        OpenSpawnPoint(newRoom, x, y);
+        
         return true;
     }
-
+    void OpenSpawnPoint(GameObject room, int x, int y) {
+        Room newRoom = room.GetComponent<Room>();
+        newRoom.SpawnSpawnPoint();
+    }
     void OpenDoors(GameObject room, int x, int y) {
         Room newRoomScript = room.GetComponent<Room>();
         //Neighbours
