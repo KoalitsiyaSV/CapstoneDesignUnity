@@ -32014,9 +32014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4afd5772cd2b83c4fb70a9b3caa0a630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboCount: 0
   jumpForce: 6
-  fallenSpeed: 1
   walkSpeed: 6
   runSpeed: 10
   canDownJump: 0
@@ -35886,7 +35884,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canInteract: 0
-  items: []
+  items:
+  - {fileID: 487183061885561533, guid: 131e64664b1729e43a46242ed1ed86bb, type: 3}
+  - {fileID: 487183061885561533, guid: 06cc2ec92228397469b4aec610371aaf, type: 3}
+  - {fileID: 482694944638112833, guid: 9e8b08d532daef14d913a8f575c69bb0, type: 3}
 --- !u!1 &1921804101
 GameObject:
   m_ObjectHideFlags: 0

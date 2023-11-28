@@ -885,9 +885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4afd5772cd2b83c4fb70a9b3caa0a630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboCount: 0
   jumpForce: 6
-  fallenSpeed: 1
   walkSpeed: 6
   runSpeed: 10
   canDownJump: 0

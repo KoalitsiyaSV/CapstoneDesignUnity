@@ -57,7 +57,7 @@ public class ChestFunction : MonoBehaviour
     private void ChestItemDrop()
     {
         //·£´ý º¯¼ö
-        int rnd = Random.Range(1, 4);
+        int rnd = Random.Range(1, items.Length);
 
         Debug.Log("Item " + rnd + " Dropped!");
 

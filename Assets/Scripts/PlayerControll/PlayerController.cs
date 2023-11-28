@@ -10,21 +10,21 @@ public class PlayerController : MonoBehaviour
     protected Collider2D[] colliderComponents;
 
     [Header("test")]
-    public int comboCount = 0;
-    public float jumpForce = 10f;
-    public float fallenSpeed = 1f;
+    //[SerializeField] int comboCount = 0;
+    [SerializeField] float jumpForce = 10f;
+    //[SerializeField] float fallenSpeed = 1f;
 
     //달리기 관련 변수
     [Header("Run")]
-    public float walkSpeed = 6f;
-    public float runSpeed = 10f;
+    [SerializeField] float walkSpeed = 6f;
+    [SerializeField] float runSpeed = 10f;
     protected float currentSpeed;
     protected float doubleTapTime = 0.2f;
     protected bool isRun = false;
 
-    private float lastAttackTime = 0;
+    //private float lastAttackTime = 0;
     //private float maxComboCount = 2;
-    private float maxComboDelay = 0.1f;
+    //private float maxComboDelay = 0.1f;
 
     public bool canDownJump;
     public bool canJump;
