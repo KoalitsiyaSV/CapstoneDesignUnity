@@ -97,9 +97,9 @@ GameObject:
   - component: {fileID: 8454826085477076910}
   - component: {fileID: 1722228220711058703}
   - component: {fileID: 8985485648154728336}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: LargeChest
-  m_TagString: NPC
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

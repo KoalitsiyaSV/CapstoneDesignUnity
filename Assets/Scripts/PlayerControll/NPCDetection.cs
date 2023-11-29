@@ -14,19 +14,8 @@ public class NPCDetection : MonoBehaviour
     //현재 범위 안에 둘이상의 중립 NPC가 존재할 때의 처리는 없음
     private GameObject targetObject;
     private Transform overheadImage;
+    private string targetTag;
     private string targetString = "OverheadImage";
-
-    public event Action<GameObject> OnNPCDetected;
-
-    void Start()
-    {
-
-    }
-
-    private void Update()
-    {
-        
-    }
 
     //탐지 범위 안에 NPC가 확인되었을 시
     private void OnTriggerEnter2D(Collider2D other)

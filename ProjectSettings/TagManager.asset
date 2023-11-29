@@ -11,6 +11,7 @@ TagManager:
   - Platform
   - Bullet
   - NPC
+  - Chest
   layers:
   - Default
   - TransparentFX
@@ -22,9 +23,9 @@ TagManager:
   - Player
   - Enemy
   - Neutral
+  - Chest
   - Minimap
   - Platform
-  - 
   - 
   - 
   - 

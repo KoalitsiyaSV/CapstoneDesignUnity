@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     protected void Update()
     {
-        xMove = GameManager.Instance.isTalk? 0 : Input.GetAxisRaw("Horizontal");
+        xMove = GameManager.Instance.isAction? 0 : Input.GetAxisRaw("Horizontal");
 
         //점프 관련
         PlayerJump();
@@ -64,7 +64,8 @@ public class PlayerController : MonoBehaviour
         //달리기 활성/비활성
         ToggleRun();
 
-        detectedObject = npcDetection.GetTargetObject();
+        if(detectedObject != null)
+            detectedObject = npcDetection.GetTargetObject();
 
         if (Input.GetKeyDown(KeyCode.F) && detectedObject != null)
             GameManager.Instance.DialogueAction(detectedObject);
@@ -165,8 +166,6 @@ public class PlayerController : MonoBehaviour
     //플레이어 이동 제어 메서드
     private void PlayerMovement()
     {
-        
-
         if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) xMove = 0;
 
         float xSpeed = xMove * currentSpeed;

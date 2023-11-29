@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bb5898c94ac6ae749a25cc409440c86b
+guid: 40d39c3c763dba04ba27249afef5c775
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tilesetDungeonBG 1_0
+      name: tilesetDungeonBG_0
       rect:
         serializedVersion: 2
         x: 32
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60c6fc6852ff0164fbf226e0bc72cc96
-      internalID: -1725549605
+      spriteID: 1076cfd82cf455a48860832d9575533f
+      internalID: 599042902
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilesetDungeonBG 1_1
+      name: tilesetDungeonBG_1
       rect:
         serializedVersion: 2
         x: 48
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3626a88a8d53cd04cb094507d8f174d4
-      internalID: 445730862
+      spriteID: 7ef6a416858c87a4f880522530518549
+      internalID: 1115928427
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilesetDungeonBG 1_2
+      name: tilesetDungeonBG_2
       rect:
         serializedVersion: 2
         x: 16
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f511a8666e6c9d4c833b0f61761787a
-      internalID: -587470178
+      spriteID: 8c4e18d087df8264ba02bde870892832
+      internalID: 1427424504
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilesetDungeonBG 1_3
+      name: tilesetDungeonBG_3
       rect:
         serializedVersion: 2
         x: 32
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10501d0298af5214e966ef6dc22225a1
-      internalID: -934969970
+      spriteID: ee29707861073f34997d88c94b584e71
+      internalID: -1848180495
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilesetDungeonBG 1_4
+      name: tilesetDungeonBG_4
       rect:
         serializedVersion: 2
         x: 48
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec237e44e8a871d40b4b9bc4029b1b29
-      internalID: 1536478248
+      spriteID: 40265beb294196e4b8de236ab42438e6
+      internalID: 1311795562
       vertices: []
       indices: 
       edges: []
@@ -225,11 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tilesetDungeonBG 1_0: -1725549605
-      tilesetDungeonBG 1_1: 445730862
-      tilesetDungeonBG 1_2: -587470178
-      tilesetDungeonBG 1_3: -934969970
-      tilesetDungeonBG 1_4: 1536478248
+      tilesetDungeonBG_0: 599042902
+      tilesetDungeonBG_1: 1115928427
+      tilesetDungeonBG_2: 1427424504
+      tilesetDungeonBG_3: -1848180495
+      tilesetDungeonBG_4: 1311795562
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

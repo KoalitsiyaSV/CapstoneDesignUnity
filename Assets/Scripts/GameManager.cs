@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject targetObject;
     public GameObject dialoguePanel;
-    public bool isTalk;
+    public bool isAction;
 
     public float playerMaxHP { get; private set; }
     public float playerCurHP { get; private set; }
@@ -68,17 +68,17 @@ public class GameManager : MonoBehaviour
 
     public void DialogueAction(GameObject targetObj)
     {
-        if (isTalk)
+        if (isAction)
         {
-            isTalk = false;
+            isAction = false;
         }
         else
         {
-            isTalk = true;
+            isAction = true;
             targetObject = targetObj;
         }
 
-        dialoguePanel.SetActive(isTalk);
+        dialoguePanel.SetActive(isAction);
     }
     
     ////UI

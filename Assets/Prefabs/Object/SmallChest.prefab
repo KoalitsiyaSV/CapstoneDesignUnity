@@ -97,9 +97,9 @@ GameObject:
   - component: {fileID: 1053153756003286405}
   - component: {fileID: 2598827505154342412}
   - component: {fileID: 2858740079677690897}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: SmallChest
-  m_TagString: NPC
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
