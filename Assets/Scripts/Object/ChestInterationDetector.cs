@@ -28,7 +28,7 @@ public class ChestInterationDetector : PlayerDetector
     private void Update()
     {
         //플레이어가 탐지되어 있고 F키를 눌렀을 떄
-        if(targetObject != null && Input.GetKeyDown(KeyCode.F))
+        if(player != null && Input.GetKeyDown(KeyCode.F))
         {
             //overheadImage가 있다면 아직 열리지 않은 상자
             if (overheadImage != null)

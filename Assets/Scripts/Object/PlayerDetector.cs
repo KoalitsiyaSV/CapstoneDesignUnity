@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerDetector : MonoBehaviour
 {
     [Header("Detector Data")]
-    [SerializeField] protected GameObject targetObject;
+    [SerializeField] protected GameObject player;
     [SerializeField] protected Transform overheadImage;
 
     protected virtual void Start()
@@ -27,7 +27,7 @@ public class PlayerDetector : MonoBehaviour
         {
             Debug.Log("Player Detected");
 
-            targetObject = collision.gameObject;
+            player = collision.gameObject;
 
             if (overheadImage != null)
                 overheadImage.gameObject.SetActive(true);
@@ -45,9 +45,9 @@ public class PlayerDetector : MonoBehaviour
                 overheadImage.gameObject.SetActive(false);
             }
 
-            if(targetObject != null)
+            if(player != null)
             {
-                targetObject = null;
+                player = null;
             }
         }
     }
