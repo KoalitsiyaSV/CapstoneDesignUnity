@@ -186,7 +186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1075911553
 Rigidbody2D:
   serializedVersion: 4
@@ -313,8 +313,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1844582744}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1075911557
@@ -460,7 +459,7 @@ Camera:
   far clip plane: 999.99
   field of view: 60
   orthographic: 1
-  orthographic size: 10.75
+  orthographic size: 5.96875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -485,11 +484,11 @@ Transform:
   m_GameObject: {fileID: 1844582741}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 3.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1075911556}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1844582745
 MonoBehaviour:
@@ -589,6 +588,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPrefab: {fileID: 8935833585645702381, guid: 678e772a6f380d9448cc998522ec9826, type: 3}
+  roomPrefabList:
+  - {fileID: 1973053890141088810, guid: cebf53f752db67d46afe488d43d4097d, type: 3}
+  - {fileID: 7215289173510601495, guid: 953c0d1c332f03440b5b6dff91631995, type: 3}
+  - {fileID: 9009908586727354429, guid: 6490d9057bec8c04b9ad5e4058e92aef, type: 3}
+  - {fileID: 1171357439970794731, guid: 19a464515ad00834c903c98b44081c22, type: 3}
+  - {fileID: 8059758256868335561, guid: e08b6bdec5626bf4cae0a85b2e4a1ca0, type: 3}
+  - {fileID: 8167478711543029726, guid: bf7c1f9bd62d27747b516bf40d2f25aa, type: 3}
+  - {fileID: 165993752747068523, guid: 20df8b85e2af3e549832e9b18f101dd8, type: 3}
+  - {fileID: 4423205342310053371, guid: b1481d95d6d1a04449bbb543b24c4697, type: 3}
   maxRooms: 15
   minRooms: 10
   gridSizeX: 15
@@ -615,4 +623,5 @@ SceneRoots:
   - {fileID: 1855882897}
   - {fileID: 976396228}
   - {fileID: 1584193285}
+  - {fileID: 1844582744}
   - {fileID: 1075911556}

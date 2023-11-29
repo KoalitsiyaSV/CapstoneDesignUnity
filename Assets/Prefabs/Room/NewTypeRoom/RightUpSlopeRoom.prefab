@@ -2475,7 +2475,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -2530,8 +2530,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3379526806714867834}
   m_Layer: 0
-  m_Name: Top
-  m_TagString: Untagged
+  m_Name: Up
+  m_TagString: Up
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2562,7 +2562,7 @@ GameObject:
   - component: {fileID: 5839722992011286128}
   m_Layer: 0
   m_Name: Right
-  m_TagString: Untagged
+  m_TagString: Right
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10534,35 +10534,55 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: -35, y: 8, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 3
+      m_TileSpriteIndex: 3
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -35, y: 9, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 213
+  - m_RefCount: 214
     m_Data: {fileID: 11400000, guid: 713ebf5ff7b982549a8685a67b3fca55, type: 2}
   - m_RefCount: 17
     m_Data: {fileID: 11400000, guid: 506be29fd5fbe124cba4d53ac1589774, type: 2}
   - m_RefCount: 32
     m_Data: {fileID: 11400000, guid: 99c198c24fbdc3849b20440d79166274, type: 2}
-  - m_RefCount: 456
+  - m_RefCount: 457
     m_Data: {fileID: 11400000, guid: 6b5b63679d0639e4a9641e8cabc08491, type: 2}
   - m_RefCount: 72
     m_Data: {fileID: 11400000, guid: 29b7cca5becc4844c9536ea80fb53883, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 939ab69c102bd654c94be9eb4b72484e, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 213
+  - m_RefCount: 214
     m_Data: {fileID: -1011805475, guid: 5b4a87372f4db0342b930cf59da9ad2f, type: 3}
   - m_RefCount: 17
     m_Data: {fileID: 48007034, guid: 5b4a87372f4db0342b930cf59da9ad2f, type: 3}
   - m_RefCount: 32
     m_Data: {fileID: 1992736361, guid: 5b4a87372f4db0342b930cf59da9ad2f, type: 3}
-  - m_RefCount: 456
+  - m_RefCount: 457
     m_Data: {fileID: 465124586, guid: 5b4a87372f4db0342b930cf59da9ad2f, type: 3}
   - m_RefCount: 72
     m_Data: {fileID: -1515387167, guid: 5b4a87372f4db0342b930cf59da9ad2f, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -1628467322, guid: 5b4a87372f4db0342b930cf59da9ad2f, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 791
+  - m_RefCount: 793
     m_Data:
       e00: 1
       e01: 0
@@ -10581,13 +10601,13 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 791
+  - m_RefCount: 793
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -24, y: -20, z: 0}
-  m_Size: {x: 59, y: 26, z: 1}
+  m_Origin: {x: -35, y: -20, z: 0}
+  m_Size: {x: 70, y: 30, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -10647,7 +10667,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -50889,8 +50909,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8183613482579730766}
   m_Layer: 0
-  m_Name: Bottom
-  m_TagString: Untagged
+  m_Name: Down
+  m_TagString: Down
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53326,7 +53346,7 @@ GameObject:
   - component: {fileID: 9007886181303860267}
   m_Layer: 0
   m_Name: Left
-  m_TagString: Untagged
+  m_TagString: Left
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53356,6 +53376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3679694270709591901}
   - component: {fileID: 5438046434381110388}
+  - component: {fileID: 1737200861928829652}
   m_Layer: 0
   m_Name: RightUpSlopeRoom
   m_TagString: Untagged
@@ -53394,3 +53415,25 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &1737200861928829652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8167478711543029726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ba78e2a2fb5e5240a79dcf28f1d2f3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upPortal: {fileID: 0}
+  downPortal: {fileID: 0}
+  stair1: {fileID: 0}
+  stair2: {fileID: 0}
+  leftBase: {fileID: 0}
+  rightBase: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  leftPortalPrefab: {fileID: 0}
+  rightPortalPrefab: {fileID: 0}
+  portalPrefab: {fileID: 6025231329084222337, guid: b1f4084b1d5422147af26691097c7fbe, type: 3}

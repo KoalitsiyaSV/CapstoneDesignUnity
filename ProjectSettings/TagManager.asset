@@ -13,6 +13,10 @@ TagManager:
   - NPC
   - Chest
   - Item
+  - Left
+  - Right
+  - Down
+  - Up
   layers:
   - Default
   - TransparentFX
