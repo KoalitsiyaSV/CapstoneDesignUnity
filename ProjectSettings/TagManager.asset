@@ -17,6 +17,9 @@ TagManager:
   - Right
   - Down
   - Up
+  - Undefined
+  - TDArea
+  - LRArea
   layers:
   - Default
   - TransparentFX
