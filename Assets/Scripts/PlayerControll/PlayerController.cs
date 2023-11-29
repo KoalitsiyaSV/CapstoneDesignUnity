@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     {
         
     }
-    protected void Start()
+    protected virtual void Start()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    protected void Update()
+    protected virtual void Update()
     {
         xMove = GameManager.Instance.isAction? 0 : Input.GetAxisRaw("Horizontal");
 
@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
         //}
     }
 
-    protected void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         //플레이어 이동 메서드
         PlayerMovement();

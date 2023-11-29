@@ -8,11 +8,7 @@ public class DialogueManager : MonoBehaviour
 {
     Dictionary<int, string[]> dialogueData; 
 
-    public TextMesh talkText;
-    public GameObject gameObj;
-
-    // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         dialogueData = new Dictionary<int, string[]>();
 
@@ -27,6 +23,9 @@ public class DialogueManager : MonoBehaviour
 
     public string GetDialogue(int id, int dialogueIndex)
     {
-        return dialogueData[id][dialogueIndex];
+        if (dialogueIndex == dialogueData[id].Length)
+            return null;
+        else 
+            return dialogueData[id][dialogueIndex];
     }
 }

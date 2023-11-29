@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("대화 시스템 관련")]
     public DialogueManager dialogueManager;
     public GameObject targetObject;
     public GameObject dialoguePanel;
-    public TextMesh dialogueText;
+    public TypeEffect dialogueEffect;
     public bool isAction;
     public int dialogueIndex;
 
@@ -72,28 +74,37 @@ public class GameManager : MonoBehaviour
         playerHPRatio = (playerCurHP / playerMaxHP) * 100f;
     }
 
-    public void DialogueAction(GameObject targetObj)
+    public void DialogueAction(ObjectData objectData)
     {
-        if (isAction)
-        {
-            isAction = false;
-        }
-        else
-        {
-            isAction = true;
-            targetObject = targetObj;
-            ObjectData npcData = targetObject.GetComponent<ObjectData>();
-            Talk(npcData.id, npcData.isNpc);
-        }
+        Talk(objectData.id);
 
         dialoguePanel.SetActive(isAction);
     }
     
-    private void Talk(int id, bool isNpc)
+    private void Talk(int npcId)
     {
-        string dialogueData = dialogueManager.GetDialogue(id, dialogueIndex);
+        string dialogueData = dialogueManager.GetDialogue(npcId, dialogueIndex);
 
-        dialogueText.text = dialogueData;
+        if(dialogueData == null)
+        {
+            NPCManager.instance.activeNpcFunction();
+
+            //isAction = false;
+            //dialogueIndex = 0;
+            return;
+        }
+
+        dialoguePanel.SetActive(true);
+
+        dialogueEffect.SetDialogue(dialogueData);
+
+        isAction = true;
+        dialogueIndex++;
+    }
+
+    public void SceneChange(int changeSceneIndex)
+    {
+        SceneManager.LoadScene(changeSceneIndex);
     }
 
     ////UI
