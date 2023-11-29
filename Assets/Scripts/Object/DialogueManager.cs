@@ -9,7 +9,7 @@ public class DialogueManager : MonoBehaviour
     Dictionary<int, string[]> dialogueData; 
 
     public TextMesh talkText;
-    public GameObject gameObject;
+    public GameObject gameObj;
 
     // Start is called before the first frame update
     void Awake()
@@ -21,7 +21,7 @@ public class DialogueManager : MonoBehaviour
 
     private void GenerateDate()
     {
-        dialogueData.Add(100, new string[] {"모험가 길드에 오신 것을 환영합니다.",
+        dialogueData.Add(1000, new string[] {"모험가 길드에 오신 것을 환영합니다.",
                                                                    "오늘은 어떤 던전으로의 모험을 희망하시나요?"});
     }
 

@@ -8,6 +8,8 @@ public class ChestInterationDetector : PlayerDetector
 {
     [Header("Chest Data")]
     [SerializeField] GameObject[] items;
+
+    [Header("Spawn Effect")]
     [SerializeField] float spawnForce = 6f;
     [SerializeField] float itemDropDelay = 0.083f;
     [SerializeField] int spawnCount;

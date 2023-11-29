@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public DialogueManager dialogueManager;
     public GameObject targetObject;
     public GameObject dialoguePanel;
+    public TextMesh dialogueText;
     public bool isAction;
+    public int dialogueIndex;
 
     public float playerMaxHP { get; private set; }
     public float playerCurHP { get; private set; }
@@ -34,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        //layerName끼리 충돌판정이 생기지 않도록 함
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Item"), LayerMask.NameToLayer("Item"));
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Item"));
         Initialize();
@@ -78,11 +82,20 @@ public class GameManager : MonoBehaviour
         {
             isAction = true;
             targetObject = targetObj;
+            ObjectData npcData = targetObject.GetComponent<ObjectData>();
+            Talk(npcData.id, npcData.isNpc);
         }
 
         dialoguePanel.SetActive(isAction);
     }
     
+    private void Talk(int id, bool isNpc)
+    {
+        string dialogueData = dialogueManager.GetDialogue(id, dialogueIndex);
+
+        dialogueText.text = dialogueData;
+    }
+
     ////UI
     //[Header("UI")]
     //public GameObject MenuUI;

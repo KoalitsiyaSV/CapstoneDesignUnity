@@ -24,9 +24,6 @@ public class PlayerController : MonoBehaviour
 
     private float xMove;
 
-    private NPCDetection npcDetection;
-    private GameObject detectedObject;
-
     //private float lastAttackTime = 0;
     //private float maxComboCount = 2;
     //private float maxComboDelay = 0.1f;
@@ -47,8 +44,6 @@ public class PlayerController : MonoBehaviour
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
         colliderComponents = GetComponents<Collider2D>();
 
-        npcDetection = GetComponent<NPCDetection>();
-
         currentSpeed = walkSpeed;
         canJump = true;
     }
@@ -63,12 +58,6 @@ public class PlayerController : MonoBehaviour
 
         //달리기 활성/비활성
         ToggleRun();
-
-        if(detectedObject != null)
-            detectedObject = npcDetection.GetTargetObject();
-
-        if (Input.GetKeyDown(KeyCode.F) && detectedObject != null)
-            GameManager.Instance.DialogueAction(detectedObject);
         
         //if(Input.GetMouseButtonDown(0) && playerAnimator.GetBool("isAttack")) {
         //    playerAnimator.SetBool("isAttack2", true);
