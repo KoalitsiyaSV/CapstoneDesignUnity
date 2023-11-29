@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class RoomManager : MonoBehaviour {
     [SerializeField] GameObject roomPrefab;
     [SerializeField] private int maxRooms = 15;
-    [SerializeField] private int minRooms = 10;
+    [SerializeField] private int minRooms = 7;
 
     int roomWidth = 130;
     int roomHeight = 100;
@@ -28,9 +28,7 @@ public class RoomManager : MonoBehaviour {
 
     private bool generationComplete = false;
 
-    private bool checkOverlap = false;
-
-    private string[] portalPosition = new string[] { "lower", "lower", "lower", "upper", "upper", "upper", "basic" };
+    private string[] portalPosition = new string[] { "lower", "upper", "basic" };
 
    
     private void Start() {
@@ -52,24 +50,10 @@ public class RoomManager : MonoBehaviour {
             TryGenerateRoom(new Vector2Int(gridX, gridY - 1));
         }
         else if (roomCount < minRooms) {
-            Debug.Log("RoomCount was less than the minumum amount of rooms. Regenerating Room");
+            Debug.Log("RoomCount was less than the minumum amount of rooms. Trying again");
             RegenerateRooms();
         }
-        else if(!generationComplete && !checkOverlap) {
-            for (int i = 1; i < roomObjects.Count; i++) {
-                if (roomObjects[0].transform.position == roomObjects[i].transform.position) {
-                    Debug.Log("Error. Regenerating Room");
-                    checkOverlap = false;
-                    RegenerateRooms();
-                    break;
-                }
-                else
-                    Debug.Log("Checking Overlap /// No Overlap detected in this generation");
-                    checkOverlap = true;
-
-            }
-        }
-        else if (!generationComplete && checkOverlap) {
+        else if (!generationComplete) {
             Debug.Log($"Generation Complete, {roomCount} room created");
             generationComplete = true;
         }
@@ -126,17 +110,18 @@ public class RoomManager : MonoBehaviour {
         Room upRoomScript = GetRoomScriptAt(new Vector2Int(x, y + 1));
         Room downRoomScript = GetRoomScriptAt(new Vector2Int(x, y - 1));
 
-        int i = Random.Range(0, portalPosition.Length);
         //Determine which doors to open based on the direction
         if (x > 0 && roomGrid[x - 1, y] != 0) {
             //Neighbouring room to the left
-            newRoomScript.OpenLRDoor(Vector2Int.left, portalPosition[i], newRoomScript);
-            leftRoomScript.OpenLRDoor(Vector2Int.right, portalPosition[i], leftRoomScript);            
+            int i = Random.Range(0, 3);
+            newRoomScript.OpenLRDoor(Vector2Int.left, portalPosition[i]);
+            leftRoomScript.OpenLRDoor(Vector2Int.right, portalPosition[i]);            
         }
         if (x < gridSizeX - 1 && roomGrid[x + 1, y] != 0) {
             //Neighbouring room to the right
-            newRoomScript.OpenLRDoor(Vector2Int.right, portalPosition[i], newRoomScript);
-            rightRoomScript.OpenLRDoor(Vector2Int.left, portalPosition[i], rightRoomScript);
+            int i = Random.Range(0, 3);
+            newRoomScript.OpenLRDoor(Vector2Int.right, portalPosition[i]);
+            rightRoomScript.OpenLRDoor(Vector2Int.left, portalPosition[i]);
         }
         if (y > 0 && roomGrid[x, y - 1] != 0) {
             //Neighbouring room to the bottom
@@ -209,41 +194,23 @@ public class RoomManager : MonoBehaviour {
         else if (entryPortal == "up") {
             target = targetRoom.getUpPortalPosition;
         }
-        else if (entryPortal == " Right") {
-            foreach (GameObject objects in targetRoom.transform) {
-                if (objects.CompareTag("Left")) {
-                    target = objects.transform.position;
-                }
-            }
-            //if(entryPortal.Contains("lower"))
-            //    target = targetRoom.getLeftPortalPosition("lower");
-            //else if(entryPortal.Contains("upper"))
-            //    target = targetRoom.getLeftPortalPosition("upper");
-            //else if(entryPortal.Contains("basic"))
-            //    target = targetRoom.getLeftPortalPosition("basic");
+        else if (entryPortal.Contains("Right")) {
+            if(entryPortal.Contains("lower"))
+                target = targetRoom.getLeftPortalPosition("lower");
+            else if(entryPortal.Contains("upper"))
+                target = targetRoom.getLeftPortalPosition("upper");
+            else if(entryPortal.Contains("basic"))
+                target = targetRoom.getLeftPortalPosition("basic");
         }
-        else if (entryPortal == " Left") {
-            foreach (GameObject objects in targetRoom.transform) {
-                if (objects.CompareTag("Right")) {
-                    target = objects.transform.position;
-                }
-            }
+        else if (entryPortal.Contains("Left")) {
+            if (entryPortal.Contains("lower"))
+                target = targetRoom.getRightPortalPosition("lower");
+            else if (entryPortal.Contains("upper"))
+                target = targetRoom.getRightPortalPosition("upper");
+            else if (entryPortal.Contains("basic"))
+                target = targetRoom.getRightPortalPosition("basic");
         }
         return target;
-        //else if (entryPortal.Contains("Left")) {
-        //    if (entryPortal.Contains("lower"))
-        //        target = targetRoom.getRightPortalPosition("lower");
-        //    else if (entryPortal.Contains("upper"))
-        //        target = targetRoom.getRightPortalPosition("upper");
-        //    else if (entryPortal.Contains("basic"))
-        //        target = targetRoom.getRightPortalPosition("basic");
-        //}
-    }
-
-    public Room Teleport(Vector2Int targetRoomGrid) {
-        Room targetRoom = GetRoomScriptAt(targetRoomGrid);
-        
-        return targetRoom;
     }
     // 텔레포트할 방의 Vector2Int 값과 목적지 Portal의 이름을 매개변수로 받아서 목적지 Portal의 좌표를 return함
 }
