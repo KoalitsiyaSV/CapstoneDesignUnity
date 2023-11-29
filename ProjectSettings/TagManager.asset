@@ -9,10 +9,7 @@ TagManager:
   - Enemy
   - Platform
   - Bullet
-  - Left
-  - Right
-  - Top
-  - Bottom
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -23,9 +20,9 @@ TagManager:
   - Ground
   - Player
   - Enemy
+  - Neutral
   - Minimap
   - Platform
-  - 
   - 
   - 
   - 
