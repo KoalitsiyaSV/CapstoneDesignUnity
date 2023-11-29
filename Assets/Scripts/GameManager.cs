@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject targetObject;
+    public GameObject dialoguePanel;
+    public bool isTalk;
+
     public float playerMaxHP { get; private set; }
     public float playerCurHP { get; private set; }
     public float playerHPRatio { get; private set; }
@@ -48,14 +52,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        
-        
-        
-        
-    }
-
     //초기화, 현재는 플레이어 체력 관리만 함
     private void Initialize()
     {
@@ -70,6 +66,20 @@ public class GameManager : MonoBehaviour
         playerHPRatio = (playerCurHP / playerMaxHP) * 100f;
     }
 
+    public void DialogueAction(GameObject targetObj)
+    {
+        if (isTalk)
+        {
+            isTalk = false;
+        }
+        else
+        {
+            isTalk = true;
+            targetObject = targetObj;
+        }
+
+        dialoguePanel.SetActive(isTalk);
+    }
     
     ////UI
     //[Header("UI")]

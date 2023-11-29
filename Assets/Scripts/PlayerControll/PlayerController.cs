@@ -22,6 +22,11 @@ public class PlayerController : MonoBehaviour
     protected float doubleTapTime = 0.2f;
     protected bool isRun = false;
 
+    private float xMove;
+
+    private NPCDetection npcDetection;
+    private GameObject detectedObject;
+
     //private float lastAttackTime = 0;
     //private float maxComboCount = 2;
     //private float maxComboDelay = 0.1f;
@@ -33,13 +38,17 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
+        
+    }
+    protected void Start()
+    {
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
         colliderComponents = GetComponents<Collider2D>();
-    }
-    protected void Start()
-    {
+
+        npcDetection = GetComponent<NPCDetection>();
+
         currentSpeed = walkSpeed;
         canJump = true;
     }
@@ -47,13 +56,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     protected void Update()
     {
+        xMove = GameManager.Instance.isTalk? 0 : Input.GetAxisRaw("Horizontal");
+
         //점프 관련
         PlayerJump();
 
         //달리기 활성/비활성
         ToggleRun();
-        //}
 
+        detectedObject = npcDetection.GetTargetObject();
+
+        if (Input.GetKeyDown(KeyCode.F) && detectedObject != null)
+            GameManager.Instance.DialogueAction(detectedObject);
+        
         //if(Input.GetMouseButtonDown(0) && playerAnimator.GetBool("isAttack")) {
         //    playerAnimator.SetBool("isAttack2", true);
         //}
@@ -150,7 +165,7 @@ public class PlayerController : MonoBehaviour
     //플레이어 이동 제어 메서드
     private void PlayerMovement()
     {
-        float xMove = Input.GetAxis("Horizontal");
+        
 
         if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) xMove = 0;
 

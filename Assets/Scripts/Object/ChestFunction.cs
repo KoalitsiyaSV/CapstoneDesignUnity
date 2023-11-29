@@ -14,9 +14,13 @@ public class ChestFunction : MonoBehaviour
 
     [SerializeField] bool canInteract;
     [SerializeField] GameObject[] items;
+    [SerializeField] float spawnForce = 6f;
+    [SerializeField] float itemDropDelay = 0.083f;
+    [SerializeField] int spawnCount;
 
     private Animator anim;
     private string childObjectName = "OverheadImage";
+    private int currentSpawnCount = 0;
 
     private void Start()
     {
@@ -50,14 +54,36 @@ public class ChestFunction : MonoBehaviour
         anim.SetFloat("Speed", 1f);
 
         //아이템 드롭
-        ChestItemDrop();
+        InvokeRepeating("ChestItemDrop", 0.2f, itemDropDelay);
     }
 
     //아이템 드롭
     private void ChestItemDrop()
     {
+        if(currentSpawnCount >= spawnCount)
+        {
+            CancelInvoke("ChestItemDrop");
+            return;
+        }
+
         //랜덤 변수
-        int rnd = Random.Range(1, items.Length);
+        int rnd = Random.Range(0, items.Length);
+        float rndForceX = Random.Range(-2f, 2f);
+
+        Vector2 spawnPoint = transform.position;
+        Vector2 randomForce = new Vector2(rndForceX, spawnForce);
+
+        GameObject spawnItem = Instantiate(items[rnd], spawnPoint, Quaternion.identity);
+
+        Rigidbody2D itemRigidbody = spawnItem.GetComponent<Rigidbody2D>();
+
+        if (itemRigidbody != null)
+        {
+            itemRigidbody.AddForce(randomForce, ForceMode2D.Impulse);
+            currentSpawnCount++;
+        }
+        else
+            Debug.Log("Spawned Item Does Not Have A Rigidbody Component");
 
         Debug.Log("Item " + rnd + " Dropped!");
 
