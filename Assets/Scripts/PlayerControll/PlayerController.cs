@@ -10,21 +10,23 @@ public class PlayerController : MonoBehaviour
     protected Collider2D[] colliderComponents;
 
     [Header("test")]
-    public int comboCount = 0;
-    public float jumpForce = 10f;
-    public float fallenSpeed = 1f;
+    //[SerializeField] int comboCount = 0;
+    [SerializeField] float jumpForce = 10f;
+    //[SerializeField] float fallenSpeed = 1f;
 
     //달리기 관련 변수
     [Header("Run")]
-    public float walkSpeed = 6f;
-    public float runSpeed = 10f;
+    [SerializeField] float walkSpeed = 6f;
+    [SerializeField] float runSpeed = 10f;
     protected float currentSpeed;
     protected float doubleTapTime = 0.2f;
     protected bool isRun = false;
 
-    private float lastAttackTime = 0;
+    private float xMove;
+
+    //private float lastAttackTime = 0;
     //private float maxComboCount = 2;
-    private float maxComboDelay = 0.1f;
+    //private float maxComboDelay = 0.1f;
 
     public bool canDownJump;
     public bool canJump;
@@ -33,13 +35,15 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
+        
+    }
+    protected void Start()
+    {
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
         colliderComponents = GetComponents<Collider2D>();
-    }
-    protected void Start()
-    {
+
         currentSpeed = walkSpeed;
         canJump = true;
     }
@@ -47,13 +51,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     protected void Update()
     {
+        xMove = GameManager.Instance.isAction? 0 : Input.GetAxisRaw("Horizontal");
+
         //점프 관련
         PlayerJump();
 
         //달리기 활성/비활성
         ToggleRun();
-        //}
-
+        
         //if(Input.GetMouseButtonDown(0) && playerAnimator.GetBool("isAttack")) {
         //    playerAnimator.SetBool("isAttack2", true);
         //}
@@ -150,8 +155,6 @@ public class PlayerController : MonoBehaviour
     //플레이어 이동 제어 메서드
     private void PlayerMovement()
     {
-        float xMove = Input.GetAxis("Horizontal");
-
         if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) xMove = 0;
 
         float xSpeed = xMove * currentSpeed;
