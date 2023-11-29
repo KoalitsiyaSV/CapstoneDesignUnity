@@ -5,11 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class RoomManager : MonoBehaviour {
     [SerializeField] GameObject roomPrefab;
+    [SerializeField] GameObject[] roomPrefabList;
     [SerializeField] private int maxRooms = 15;
     [SerializeField] private int minRooms = 10;
 
-    int roomWidth = 130;
-    int roomHeight = 100;
+
+    int roomWidth = 100;
+    int roomHeight = 80;
+
+    int[] roomPrefabCount;
 
     [SerializeField] int gridSizeX = 15;
     [SerializeField] int gridSizeY = 15;
@@ -29,18 +33,16 @@ public class RoomManager : MonoBehaviour {
     private bool generationComplete = false;
 
     private bool checkOverlap = false;
-
-    private string[] portalPosition = new string[] { "lower", "lower", "lower", "upper", "upper", "upper", "basic" };
-
    
-    private void Start() {
+    private void Start() { // 1번 방 생성
         roomGrid = new int[gridSizeX, gridSizeY];
         roomQueue = new Queue<Vector2Int>();
 
         Vector2Int initialRoomIndex = new Vector2Int(gridSizeX / 2, gridSizeY / 2);
         StartRoomGenerationFromRoom(initialRoomIndex);
+        roomPrefabCountReset();
     }
-    private void Update() {
+    private void Update() { // minRooms 이상, maxRooms 이하로 방 생성
         if (roomQueue.Count > 0 && roomCount < maxRooms && !generationComplete) {
             Vector2Int roomIndex = roomQueue.Dequeue();
             int gridX = roomIndex.x;
@@ -58,7 +60,7 @@ public class RoomManager : MonoBehaviour {
         else if(!generationComplete && !checkOverlap) {
             for (int i = 1; i < roomObjects.Count; i++) {
                 if (roomObjects[0].transform.position == roomObjects[i].transform.position) {
-                    Debug.Log("Error. Regenerating Room");
+                    Debug.Log("Overlap Detected. Regenerating Room");
                     checkOverlap = false;
                     RegenerateRooms();
                     break;
@@ -66,7 +68,6 @@ public class RoomManager : MonoBehaviour {
                 else
                     Debug.Log("Checking Overlap /// No Overlap detected in this generation");
                     checkOverlap = true;
-
             }
         }
         else if (!generationComplete && checkOverlap) {
@@ -75,19 +76,20 @@ public class RoomManager : MonoBehaviour {
         }
     }
      
-    private void StartRoomGenerationFromRoom(Vector2Int roomIndex) {
+    private void StartRoomGenerationFromRoom(Vector2Int roomIndex) { // 1번방 생성 메소드
         roomQueue.Enqueue(roomIndex);
         int x = roomIndex.x;
         int y = roomIndex.y;
         roomGrid[x, y] = 1;
         roomCount++;
-        var initialRoom = Instantiate(roomPrefab, GetPositionFromGridIndex(roomIndex), Quaternion.identity);
+        var initialRoom = Instantiate(roomPrefabList[0], GetPositionFromGridIndex(roomIndex), Quaternion.identity);
         initialRoom.name = $"Room-{roomCount}";
         initialRoom.GetComponent<Room>().RoomIndex = roomIndex;
         roomObjects.Add(initialRoom);
     }
 
-    private bool TryGenerateRoom(Vector2Int roomIndex) {
+    private bool TryGenerateRoom(Vector2Int roomIndex) { // 2번방 ~ 이후 생성 메소드
+        GameObject prefab;
         int x = roomIndex.x;
         int y = roomIndex.y;
 
@@ -103,20 +105,22 @@ public class RoomManager : MonoBehaviour {
         roomQueue.Enqueue(roomIndex);
         roomGrid[x, y] = 1;
         roomCount++;
-
-        var newRoom = Instantiate(roomPrefab, GetPositionFromGridIndex(roomIndex), Quaternion.identity);
+        while(true) {
+            int i = Random.Range(1, roomPrefabList.Length);
+            if(roomPrefabCount[i] < 2) {
+                prefab = roomPrefabList[i];
+                roomPrefabCount[i]++;
+                break;
+            }
+        }
+        var newRoom = Instantiate(prefab, GetPositionFromGridIndex(roomIndex), Quaternion.identity);
         newRoom.GetComponent<Room>().RoomIndex = roomIndex;
         newRoom.name = $"Room-{roomCount}";
         roomObjects.Add(newRoom);
 
         OpenDoors(newRoom, x, y);
-        OpenSpawnPoint(newRoom, x, y);
         
         return true;
-    }
-    void OpenSpawnPoint(GameObject room, int x, int y) {
-        Room newRoom = room.GetComponent<Room>();
-        newRoom.SpawnSpawnPoint();
     }
     void OpenDoors(GameObject room, int x, int y) {
         Room newRoomScript = room.GetComponent<Room>();
@@ -126,31 +130,31 @@ public class RoomManager : MonoBehaviour {
         Room upRoomScript = GetRoomScriptAt(new Vector2Int(x, y + 1));
         Room downRoomScript = GetRoomScriptAt(new Vector2Int(x, y - 1));
 
-        int i = Random.Range(0, portalPosition.Length);
         //Determine which doors to open based on the direction
         if (x > 0 && roomGrid[x - 1, y] != 0) {
             //Neighbouring room to the left
-            newRoomScript.OpenLRDoor(Vector2Int.left, portalPosition[i], newRoomScript);
-            leftRoomScript.OpenLRDoor(Vector2Int.right, portalPosition[i], leftRoomScript);            
+            newRoomScript.OpenDoor(Vector2Int.left, newRoomScript);
+            leftRoomScript.OpenDoor(Vector2Int.right, leftRoomScript);            
         }
         if (x < gridSizeX - 1 && roomGrid[x + 1, y] != 0) {
             //Neighbouring room to the right
-            newRoomScript.OpenLRDoor(Vector2Int.right, portalPosition[i], newRoomScript);
-            rightRoomScript.OpenLRDoor(Vector2Int.left, portalPosition[i], rightRoomScript);
+            newRoomScript.OpenDoor(Vector2Int.right, newRoomScript);
+            rightRoomScript.OpenDoor(Vector2Int.left, rightRoomScript);
         }
         if (y > 0 && roomGrid[x, y - 1] != 0) {
             //Neighbouring room to the bottom
-            newRoomScript.OpenDoor(Vector2Int.down);
-            downRoomScript.OpenDoor(Vector2Int.up);
+            newRoomScript.OpenDoor(Vector2Int.down, newRoomScript);
+            downRoomScript.OpenDoor(Vector2Int.up, downRoomScript);
         }
         if (y < gridSizeY - 1 && roomGrid[x, y + 1] != 0) {
             //Neighbouring room to the top
-            newRoomScript.OpenDoor(Vector2Int.up);
-            upRoomScript.OpenDoor(Vector2Int.down);
+            newRoomScript.OpenDoor(Vector2Int.up, newRoomScript);
+            upRoomScript.OpenDoor(Vector2Int.down, upRoomScript);
         }
     }
 
     private void RegenerateRooms() {
+        roomPrefabCountReset();
         roomObjects.ForEach(Destroy);
         roomObjects.Clear();
         roomGrid = new int[gridSizeX, gridSizeY];
@@ -200,50 +204,18 @@ public class RoomManager : MonoBehaviour {
             }
         }
     }
-    public Vector3 teleportRoom(Vector2Int targetRoomGrid, string entryPortal) {
-        Room targetRoom = GetRoomScriptAt(targetRoomGrid);
-        Vector3 target = new Vector3();
-        if (entryPortal == "down") {
-            target = targetRoom.getDownPortalPosition;
-        }
-        else if (entryPortal == "up") {
-            target = targetRoom.getUpPortalPosition;
-        }
-        else if (entryPortal == " Right") {
-            foreach (GameObject objects in targetRoom.transform) {
-                if (objects.CompareTag("Left")) {
-                    target = objects.transform.position;
-                }
-            }
-            //if(entryPortal.Contains("lower"))
-            //    target = targetRoom.getLeftPortalPosition("lower");
-            //else if(entryPortal.Contains("upper"))
-            //    target = targetRoom.getLeftPortalPosition("upper");
-            //else if(entryPortal.Contains("basic"))
-            //    target = targetRoom.getLeftPortalPosition("basic");
-        }
-        else if (entryPortal == " Left") {
-            foreach (GameObject objects in targetRoom.transform) {
-                if (objects.CompareTag("Right")) {
-                    target = objects.transform.position;
-                }
-            }
-        }
-        return target;
-        //else if (entryPortal.Contains("Left")) {
-        //    if (entryPortal.Contains("lower"))
-        //        target = targetRoom.getRightPortalPosition("lower");
-        //    else if (entryPortal.Contains("upper"))
-        //        target = targetRoom.getRightPortalPosition("upper");
-        //    else if (entryPortal.Contains("basic"))
-        //        target = targetRoom.getRightPortalPosition("basic");
-        //}
-    }
-
+   
     public Room Teleport(Vector2Int targetRoomGrid) {
         Room targetRoom = GetRoomScriptAt(targetRoomGrid);
         
         return targetRoom;
     }
     // 텔레포트할 방의 Vector2Int 값과 목적지 Portal의 이름을 매개변수로 받아서 목적지 Portal의 좌표를 return함
+
+    private void roomPrefabCountReset() {
+        roomPrefabCount = new int[roomPrefabList.Length];
+        for (int i = 1; i < roomPrefabList.Length; i++) {
+            roomPrefabCount[i] = 0;
+        }
+    }
 }
