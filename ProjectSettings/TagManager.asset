@@ -24,10 +24,10 @@ TagManager:
   - Player
   - Enemy
   - Neutral
+  - Chest
   - Minimap
   - Platform
-  - 
-  - 
+  - Item
   - 
   - 
   - 

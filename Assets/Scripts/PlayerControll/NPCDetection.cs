@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 //NPC를 탐지하는 스크립트
 public class NPCDetection : MonoBehaviour
@@ -11,20 +12,10 @@ public class NPCDetection : MonoBehaviour
     */
 
     //현재 범위 안에 둘이상의 중립 NPC가 존재할 때의 처리는 없음
-    //private Queue<Transform> detectedNPCs = new Queue<Transform>();
+    private GameObject targetObject;
     private Transform overheadImage;
+    private string targetTag;
     private string targetString = "OverheadImage";
-    //private int targetColliderIndex = 3;
-
-    void Start()
-    {
-
-    }
-
-    private void Update()
-    {
-
-    }
 
     //탐지 범위 안에 NPC가 확인되었을 시
     private void OnTriggerEnter2D(Collider2D other)
@@ -34,9 +25,9 @@ public class NPCDetection : MonoBehaviour
             Debug.Log("Detected");
 
             //해당 NPC의 Transform과 OverheadImage라는 이름의 하위 오브젝트를 받아옴
-            //detectedNPCs.Enqueue(other.transform);
             Transform targetTransform = other.transform;
-            //overheadImage = detectedNPCs.Peek().Find(targetString);
+
+            targetObject = targetTransform.gameObject;
             overheadImage = targetTransform.Find(targetString);
 
             //overheadImage라는 이름의 하위 오브젝트가 NULL이 아닐 시 활성화
@@ -50,15 +41,22 @@ public class NPCDetection : MonoBehaviour
     {
         if (other.gameObject.CompareTag("NPC"))
         {
-            //if (overheadImage == null)
-            //    Debug.Log("Disappear");
-
+            Debug.Log("Disappear");
+                 
             //OverheadImage라는 이름의 하위 오브젝트가 NULL이 아닐 시 비활성화
             if (overheadImage != null)
             {
                 overheadImage.gameObject.SetActive(false);
-                //detectedNPCs.Dequeue();
+            }
+
+            if (targetObject != null)
+            {
+                targetObject = null;
             }
         }
+    }
+    public GameObject GetTargetObject()
+    {
+        return targetObject;
     }
 }
