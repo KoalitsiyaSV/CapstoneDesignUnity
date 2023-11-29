@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Item"), LayerMask.NameToLayer("Item"));
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Item"));
         Initialize();
     }
 

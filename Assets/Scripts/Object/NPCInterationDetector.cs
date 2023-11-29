@@ -4,13 +4,5 @@ using UnityEngine;
 
 public class NPCInterationDetector : PlayerDetector
 {
-    void Start()
-    {
-        
-    }
 
-    void Update()
-    {
-        
-    }
 }

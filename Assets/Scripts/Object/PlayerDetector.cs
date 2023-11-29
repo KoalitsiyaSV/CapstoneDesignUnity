@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerDetector : MonoBehaviour
 {
+    [Header("Detector Data")]
     [SerializeField] protected GameObject targetObject;
     [SerializeField] protected Transform overheadImage;
 
-    protected void Start()
+    protected virtual void Start()
     {
         overheadImage = this.transform.Find("OverheadImage");
 

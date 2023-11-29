@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 475208602624593219}
   - component: {fileID: 1053153756003286405}
   - component: {fileID: 2598827505154342412}
-  - component: {fileID: 2858740079677690897}
+  - component: {fileID: -2622660743889753891}
   m_Layer: 10
   m_Name: SmallChest
   m_TagString: Untagged
@@ -238,7 +238,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
---- !u!114 &2858740079677690897
+--- !u!114 &-2622660743889753891
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,16 +247,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8500739397618342791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5916d37fe87ee8c468ed51aba2aa2356, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e3a336c171f7124099b865d26c61637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canInteract: 0
+  targetObject: {fileID: 0}
+  overheadImage: {fileID: 0}
   items:
   - {fileID: 482694944638112833, guid: 9e8b08d532daef14d913a8f575c69bb0, type: 3}
-  - {fileID: 487183061885561533, guid: 131e64664b1729e43a46242ed1ed86bb, type: 3}
-  - {fileID: 487183061885561533, guid: 06cc2ec92228397469b4aec610371aaf, type: 3}
-  - {fileID: 487183061885561533, guid: ee018b2197edee94682fd539cbc98316, type: 3}
-  - {fileID: 487183061885561533, guid: 2a20e027c43a20d45ae81c698bf0d134, type: 3}
+  - {fileID: 482694944638112833, guid: a5814b28e6f7f194cb5712f66e2bc783, type: 3}
+  - {fileID: 482694944638112833, guid: cb8b7f39656f62c42bf32d34cecb2d32, type: 3}
+  - {fileID: 482694944638112833, guid: 654b9ed753365e7419cf4cccb2a697a3, type: 3}
+  - {fileID: 482694944638112833, guid: 0e97a5a9045f14d4ea66f104830881d8, type: 3}
   spawnForce: 6
   itemDropDelay: 0.083
   spawnCount: 1
+  CurrentSpawnCount: 0
