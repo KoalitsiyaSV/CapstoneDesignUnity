@@ -6,12 +6,20 @@ TagManager:
   tags:
   - Slope1
   - Slope2
+  - Bottom
   - Enemy
   - Platform
   - Bullet
   - NPC
   - Chest
   - Item
+  - Left
+  - Right
+  - Down
+  - Up
+  - Undefined
+  - TDArea
+  - LRArea
   layers:
   - Default
   - TransparentFX
