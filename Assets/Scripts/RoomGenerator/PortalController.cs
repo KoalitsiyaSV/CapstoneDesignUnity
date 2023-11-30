@@ -8,6 +8,7 @@ public class PortalController : MonoBehaviour
     private bool canPlayerTeleport;
     private GameObject PortalManager;
 
+
     private void Awake() {
         PortalManager = GameObject.Find("PortalManager");
         canPlayerTeleport = false;
@@ -15,6 +16,7 @@ public class PortalController : MonoBehaviour
     private void Update() {
         if (canPlayerTeleport && Input.GetKeyDown(KeyCode.UpArrow)) {
             PortalManager.GetComponent<PortalManager>().PlayerTeleportation(this.gameObject);
+
         } // Player가 Portal에 접촉하고, W를 누르면 입장한 Portal의 이름을 매개변수로 PlayerTeleportation을 호출.
     }
     private void OnTriggerEnter2D(Collider2D collision) {
