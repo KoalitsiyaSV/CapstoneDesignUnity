@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 878568297}
   - component: {fileID: 878568296}
   m_Layer: 0
-  m_Name: ' Main Camera'
+  m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -487,7 +487,7 @@ Camera:
   far clip plane: 1000
   field of view: 90
   orthographic: 1
-  orthographic size: 14.0625
+  orthographic size: 9.15625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -547,6 +547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44f6ebe65d0c2694f84f56feece0d8e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomManager: {fileID: 1855882895}
 --- !u!4 &976396228
 Transform:
   m_ObjectHideFlags: 0
@@ -845,7 +846,7 @@ Transform:
   m_GameObject: {fileID: 1080875473}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.48, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1111,6 +1112,7 @@ MonoBehaviour:
   minRooms: 10
   gridSizeX: 15
   gridSizeY: 15
+  player: {fileID: 1080875473}
 --- !u!4 &1855882897
 Transform:
   m_ObjectHideFlags: 0
