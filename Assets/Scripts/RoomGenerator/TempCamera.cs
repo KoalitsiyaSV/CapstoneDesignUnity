@@ -3,23 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TempCamera : MonoBehaviour {
-    // Start is called before the first frame update
-    Vector3 location;
 
-    [SerializeField] GameObject player;
-
-    private void LateUpdate() {
-        this.transform.position = Vector3.Lerp(this.transform.position, player.transform.position, 1f);
+    public void CameraMove(Vector3 position) {
+        position.z = -1;
+        this.transform.position = position;
+        this.transform.rotation = Quaternion.identity;
     }
-    //private void OnCollisionEnter2D(Collision2D collision) {
-    //    if (collision.gameObject.CompareTag("TDArea") || collision.gameObject.CompareTag("LRArea")) {
-    //        Vector3 location = this.transform.position;
-    //    }
+    private void Update() {
         
-    //}
-    //private void OnCollisionStay2D(Collision2D collision) {
-    //    if (collision.gameObject.CompareTag("TDArea") || collision.gameObject.CompareTag("LRArea")) {
-    //        this.transform.position = location;
-    //    }
-    //}
+    }
 }

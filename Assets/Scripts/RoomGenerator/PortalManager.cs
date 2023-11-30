@@ -10,11 +10,13 @@ public class PortalManager : MonoBehaviour
     private Vector2Int currentPlayerPosition; // Player의 현재 위치
     private GameObject RoomManager;
     private GameObject Player;
+    private GameObject Camera;
     
     
     private void Awake() {
         RoomManager = GameObject.Find("RoomManager");
         Player = GameObject.Find("Player");
+        Camera = GameObject.Find("Main Camera");
     }
     private void Start() {
         Vector2Int GridSize = RoomManager.GetComponent<RoomManager>().RoomGridSize;
@@ -28,6 +30,7 @@ public class PortalManager : MonoBehaviour
             foreach(Transform objects in destination.transform) {
                 if(objects.gameObject.CompareTag("Right")) {
                     Player.transform.position = objects.gameObject.transform.position;
+                    Camera.GetComponent<TempCamera>().CameraMove(destination.CalCulateCenter());
                 }
             }
         }
@@ -37,6 +40,7 @@ public class PortalManager : MonoBehaviour
             foreach (Transform objects in destination.transform) {
                 if (objects.gameObject.CompareTag("Left")) {
                     Player.transform.position = objects.gameObject.transform.position;
+                    Camera.GetComponent<TempCamera>().CameraMove(destination.CalCulateCenter());
                 }
             }
         }
@@ -46,6 +50,7 @@ public class PortalManager : MonoBehaviour
             foreach (Transform objects in destination.transform) {
                 if (objects.gameObject.CompareTag("Down")) {
                     Player.transform.position = objects.gameObject.transform.position;
+                    Camera.GetComponent<TempCamera>().CameraMove(destination.CalCulateCenter());
                 }
             }
         }
@@ -55,6 +60,7 @@ public class PortalManager : MonoBehaviour
             foreach (Transform objects in destination.transform) {
                 if (objects.gameObject.CompareTag("Up")) {
                     Player.transform.position = objects.gameObject.transform.position;
+                    Camera.GetComponent<TempCamera>().CameraMove(destination.CalCulateCenter());
                 }
             }
         }
