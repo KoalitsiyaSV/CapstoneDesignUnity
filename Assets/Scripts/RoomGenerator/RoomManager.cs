@@ -17,6 +17,7 @@ public class RoomManager : MonoBehaviour {
 
     [SerializeField] int gridSizeX = 15;
     [SerializeField] int gridSizeY = 15;
+    [SerializeField] GameObject player;
 
     public Vector2Int RoomGridSize { 
         get { return new Vector2Int(gridSizeX, gridSizeY); } 
@@ -35,6 +36,7 @@ public class RoomManager : MonoBehaviour {
     private bool checkOverlap = false;
    
     private void Start() { // 1번 방 생성
+        player.SetActive(false);
         roomGrid = new int[gridSizeX, gridSizeY];
         roomQueue = new Queue<Vector2Int>();
 
@@ -73,6 +75,10 @@ public class RoomManager : MonoBehaviour {
         else if (!generationComplete && checkOverlap) {
             Debug.Log($"Generation Complete, {roomCount} room created");
             generationComplete = true;
+            for(int i = 1; i < roomObjects.Count; i++) {
+                roomObjects[i].SetActive(false);
+            }
+            player.SetActive(true);
         }
     }
      

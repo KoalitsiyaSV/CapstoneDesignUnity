@@ -10,13 +10,12 @@ public class PortalManager : MonoBehaviour
     private Vector2Int currentPlayerPosition; // Player의 현재 위치
     private GameObject RoomManager;
     private GameObject Player;
-    private GameObject Camera;
+    [SerializeField] GameObject roomManager;
     
     
     private void Awake() {
         RoomManager = GameObject.Find("RoomManager");
         Player = GameObject.Find("Player");
-        Camera = GameObject.Find("Main Camera");
     }
     private void Start() {
         Vector2Int GridSize = RoomManager.GetComponent<RoomManager>().RoomGridSize;
@@ -24,43 +23,48 @@ public class PortalManager : MonoBehaviour
         currentPlayerPosition = playerSpawnPoint;
     }
     public void PlayerTeleportation(GameObject entry) {
+        float positionRevision = 3.6f;
         if(entry.CompareTag("Left")) {
             currentPlayerPosition.x--;
             Room destination = RoomManager.GetComponent<RoomManager>().Teleport(currentPlayerPosition);
+            destination.gameObject.SetActive(true);
             foreach(Transform objects in destination.transform) {
                 if(objects.gameObject.CompareTag("Right")) {
-                    Player.transform.position = objects.gameObject.transform.position;
-                    Camera.GetComponent<TempCamera>().CameraMove(destination.CalCulateCenter());
+                    Vector3 position = new Vector3(objects.position.x, objects.position.y + positionRevision, objects.position.z);
+                    Player.transform.position = position;
                 }
             }
         }
         else if (entry.CompareTag("Right")) {
             currentPlayerPosition.x++;
             Room destination = RoomManager.GetComponent<RoomManager>().Teleport(currentPlayerPosition);
+            destination.gameObject.SetActive(true);
             foreach (Transform objects in destination.transform) {
                 if (objects.gameObject.CompareTag("Left")) {
-                    Player.transform.position = objects.gameObject.transform.position;
-                    Camera.GetComponent<TempCamera>().CameraMove(destination.CalCulateCenter());
+                    Vector3 position = new Vector3(objects.position.x, objects.position.y + positionRevision, objects.position.z);
+                    Player.transform.position = position;
                 }
             }
         }
         else if (entry.CompareTag("Up")) {
             currentPlayerPosition.y++;
             Room destination = RoomManager.GetComponent<RoomManager>().Teleport(currentPlayerPosition);
+            destination.gameObject.SetActive(true);
             foreach (Transform objects in destination.transform) {
                 if (objects.gameObject.CompareTag("Down")) {
-                    Player.transform.position = objects.gameObject.transform.position;
-                    Camera.GetComponent<TempCamera>().CameraMove(destination.CalCulateCenter());
+                    Vector3 position = new Vector3(objects.position.x, objects.position.y + positionRevision, objects.position.z);
+                    Player.transform.position = position;
                 }
             }
         }
         else if (entry.CompareTag("Down")) {
             currentPlayerPosition.y--;
             Room destination = RoomManager.GetComponent<RoomManager>().Teleport(currentPlayerPosition);
+            destination.gameObject.SetActive(true);
             foreach (Transform objects in destination.transform) {
                 if (objects.gameObject.CompareTag("Up")) {
-                    Player.transform.position = objects.gameObject.transform.position;
-                    Camera.GetComponent<TempCamera>().CameraMove(destination.CalCulateCenter());
+                    Vector3 position = new Vector3(objects.position.x, objects.position.y + positionRevision, objects.position.z);
+                    Player.transform.position = position;
                 }
             }
         }

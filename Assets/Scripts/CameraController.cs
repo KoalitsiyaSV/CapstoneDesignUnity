@@ -34,17 +34,17 @@ public class CameraController : MonoBehaviour
     {
         //카메라 범위 제한
         //800x450에서는 y축에 3f를 더하면 적당한듯
-        //Vector3 desiredPosition = new Vector3(
-        //    Mathf.Clamp(player.position.x + cameraPosition.x, MinX + cameraHalfWidth, MaxX - cameraHalfWidth),
-        //    Mathf.Clamp(player.position.y + cameraPosition.y, MinY + cameraHalfHeight, MaxY - cameraHalfHeight) + 3f,
-        //    cameraPosition.z);
+        Vector3 desiredPosition = new Vector3(
+            Mathf.Clamp(player.position.x + cameraPosition.x, MinX + cameraHalfWidth, MaxX - cameraHalfWidth),
+            Mathf.Clamp(player.position.y + cameraPosition.y, MinY + cameraHalfHeight, MaxY - cameraHalfHeight) + 3f,
+            cameraPosition.z);
 
-        Vector3 newPositon = new Vector3(player.position.x, player.position.y, -10);
+        //Vector3 newPositon = new Vector3(player.position.x, player.position.y, -10);
 
         //카메라의 이동
-        //transform.position = player.transform.position + cameraPosition;
-        transform.position = Vector3.Lerp(transform.position, newPositon, 
-                          Time.deltaTime *2f);
+        transform.position = player.transform.position + cameraPosition;
+        //transform.position = Vector3.Lerp(transform.position, newPositon,
+        //                  Time.deltaTime * 2f);
 
         CurX = transform.position.x;
         CurY = cameraPosition.y;
