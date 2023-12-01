@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading;
 using UnityEngine;
 
+using Debug = UnityEngine.Debug;
 public class MageController : PlayerController
 {
     //public float speed;
