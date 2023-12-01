@@ -9,6 +9,9 @@ TagManager:
   - Bottom
   - Enemy
   - Platform
+  - Bullet
+  - trap
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -21,7 +24,7 @@ TagManager:
   - Enemy
   - Minimap
   - Platform
-  - 
+  - PlayerDamaged
   - 
   - 
   - 
