@@ -181,13 +181,42 @@ public class BookController : MonoBehaviour
     {
         bookPage = 1;
 
-        if (animator.GetBool("isReverse")) animator.SetBool("isReverse", false);
+    public void ToInventoryPage()
+    {
+        PageChanger(1, 1, false);
+    }
+
+    public void ToStatusPage()
+    {
+        PageChanger(2, 2, false);
+    }
+
+    public void ToSkillPage()
+    {
+        PageChanger(3, 3, false);
+    }
+
+    public void ToOptionPage()
+    {
+        PageChanger(4, 4, false);
+    }
+
+    private void PageChanger(int page, int count, bool reverse)
+    {
+        bookPage = page;
+
+        if(reverse)
+            if (!animator.GetBool("isReverse")) animator.SetBool("isReverse", true);
+        else
+            if (animator.GetBool("isReverse")) animator.SetBool("isReverse", false);
+
+        ControlCurrentPage();
 
         PageChanger();
 
         currentRepeatCount = 0;
         animator.SetBool("isTurnThePage", true);
-        repeatCount = 1;
+        repeatCount = count;
     }
 
     public void ToStatusPage()

@@ -151,6 +151,10 @@ public class EnemyController : MonoBehaviour
             Destroy(collision.gameObject);//�÷��̾��� �Ѿ��� �����Ѵ�
         }
     }
+    
+    void OnHit(int dmg)//�������� �߻���
+    {
+        Enemy_Life -= dmg;
 
     public void OnDamaged(int dmg)
     {
