@@ -10,6 +10,8 @@ TagManager:
   - Enemy
   - Platform
   - Bullet
+  - trap
+  - EnemyBullet
   - NPC
   - Chest
   - Item
@@ -20,6 +22,7 @@ TagManager:
   - Undefined
   - TDArea
   - LRArea
+  - trap
   layers:
   - Default
   - TransparentFX
@@ -35,6 +38,9 @@ TagManager:
   - Minimap
   - Platform
   - Item
+  - PlayerDamaged
+  - 
+  - 
   - 
   - 
   - 

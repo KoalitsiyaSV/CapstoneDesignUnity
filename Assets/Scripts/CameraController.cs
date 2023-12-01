@@ -19,12 +19,12 @@ public class CameraController : MonoBehaviour
 
     private Vector3 cameraPosition = new Vector3(0, 2, -10);
 
-    // Ä«¸Þ¶ó ³Êºñ, ³ôÀÌ
+    // Ä«ï¿½Þ¶ï¿½ ï¿½Êºï¿½, ï¿½ï¿½ï¿½ï¿½
     private float cameraHalfWidth, cameraHalfHeight;
 
     void Start()
     {
-        //Ä«¸Þ¶ó ¹üÀ§ Á¦ÇÑÀ» À§ÇÑ Ä«¸Þ¶óÀÇ ³Êºñ¿Í ³ôÀÌ ±¸ÇÏ±â
+        //Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ï¿½ï¿½ ï¿½Êºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
         cameraHalfWidth = Camera.main.aspect * Camera.main.orthographicSize;
         cameraHalfHeight = Camera.main.orthographicSize;
     }
@@ -32,8 +32,8 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Ä«¸Þ¶ó ¹üÀ§ Á¦ÇÑ
-        //800x450¿¡¼­´Â yÃà¿¡ 3f¸¦ ´õÇÏ¸é Àû´çÇÑµí
+        //Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        //800x450ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ yï¿½à¿¡ 3fï¿½ï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñµï¿½
         Vector3 desiredPosition = new Vector3(
             Mathf.Clamp(player.position.x + cameraPosition.x, MinX + cameraHalfWidth, MaxX - cameraHalfWidth),
             Mathf.Clamp(player.position.y + cameraPosition.y, MinY + cameraHalfHeight, MaxY - cameraHalfHeight) + 3f,
@@ -41,7 +41,7 @@ public class CameraController : MonoBehaviour
 
         //Vector3 newPositon = new Vector3(player.position.x, player.position.y, -10);
 
-        //Ä«¸Þ¶óÀÇ ÀÌµ¿
+        //Ä«ï¿½Þ¶ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         transform.position = player.transform.position + cameraPosition;
         //transform.position = Vector3.Lerp(transform.position, newPositon,
         //                  Time.deltaTime * 2f);
