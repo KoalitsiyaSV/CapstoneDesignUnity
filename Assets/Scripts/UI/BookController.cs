@@ -44,11 +44,11 @@ public class BookController : MonoBehaviour
         previousBtn.gameObject.SetActive(false);
         nextBtn.gameObject.SetActive(false);
 
-        for(int i = 0; i < 5; i++)
+        for (int i = 0; i < 5; i++)
         {
             pages[i].gameObject.SetActive(false);
         }
-        
+
     }
 
     private void OnEnable()
@@ -113,7 +113,7 @@ public class BookController : MonoBehaviour
 
     private void BookOpen()
     {
-        animator.SetBool("isOpen",true);
+        animator.SetBool("isOpen", true);
     }
 
     public void BookClose()
@@ -163,101 +163,17 @@ public class BookController : MonoBehaviour
     {
         bookPage = page;
 
-        if(reverse)
+        if (reverse)
             if (!animator.GetBool("isReverse")) animator.SetBool("isReverse", true);
-        else
+            else
             if (animator.GetBool("isReverse")) animator.SetBool("isReverse", false);
 
         ControlCurrentPage();
-
-        PageChanger();
 
         currentRepeatCount = 0;
         animator.SetBool("isTurnThePage", true);
         repeatCount = count;
     }
-
-    public void ToInventoryPage()
-    {
-        bookPage = 1;
-
-    public void ToInventoryPage()
-    {
-        PageChanger(1, 1, false);
-    }
-
-    public void ToStatusPage()
-    {
-        PageChanger(2, 2, false);
-    }
-
-    public void ToSkillPage()
-    {
-        PageChanger(3, 3, false);
-    }
-
-    public void ToOptionPage()
-    {
-        PageChanger(4, 4, false);
-    }
-
-    private void PageChanger(int page, int count, bool reverse)
-    {
-        bookPage = page;
-
-        if(reverse)
-            if (!animator.GetBool("isReverse")) animator.SetBool("isReverse", true);
-        else
-            if (animator.GetBool("isReverse")) animator.SetBool("isReverse", false);
-
-        ControlCurrentPage();
-
-        PageChanger();
-
-        currentRepeatCount = 0;
-        animator.SetBool("isTurnThePage", true);
-        repeatCount = count;
-    }
-
-    public void ToStatusPage()
-    {
-        bookPage = 2;
-
-        if (animator.GetBool("isReverse")) animator.SetBool("isReverse", false);
-
-        PageChanger();
-
-        currentRepeatCount = 0;
-        animator.SetBool("isTurnThePage", true);
-        repeatCount = 2;
-    }
-
-    public void ToSkillPage()
-    {
-        bookPage = 3;
-
-        if (animator.GetBool("isReverse")) animator.SetBool("isReverse", false);
-
-        PageChanger();
-
-        currentRepeatCount = 0;
-        animator.SetBool("isTurnThePage", true);
-        repeatCount = 3;
-    }
-
-    public void ToOptionPage()
-    {
-        bookPage = 4;
-
-        if (animator.GetBool("isReverse")) animator.SetBool("isReverse", false);
-
-        PageChanger();
-
-        currentRepeatCount = 0;
-        animator.SetBool("isTurnThePage", true);
-        repeatCount = 4;
-    }
-
 
     private void ActivateCloseBtn()
     {
@@ -270,15 +186,15 @@ public class BookController : MonoBehaviour
         previousBtn.gameObject.SetActive(true);
     }
 
-    private void ActivateNextBtn() 
-    {  
+    private void ActivateNextBtn()
+    {
         nextBtn.gameObject.SetActive(true);
     }
 
-    // �ִϸ��̼� Ŭ�� �̺�Ʈ���� ���
+    // 애니메이션 클립 이벤트에서 사용
     private void RepeatCount()
     {
-        if(animator.GetBool("isReverse"))
+        if (animator.GetBool("isReverse"))
         {
             currentRepeatCount++;
         }
@@ -290,7 +206,7 @@ public class BookController : MonoBehaviour
 
     private void ControlCurrentPage()
     {
-        for(int i = 0; i < 5; i++)
+        for (int i = 0; i < 5; i++)
         {
             pages[i].gameObject.SetActive(false);
         }
