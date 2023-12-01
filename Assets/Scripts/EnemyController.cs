@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
-        //Invoke("Think", 2);
+        //Invoke("Think", 2);//추후 에너미 타입에 따라 다르게 할거임
     }
 
     /*void Update() //매 프레임마다 호출

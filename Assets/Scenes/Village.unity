@@ -29956,7 +29956,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1195398707}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BulletPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
