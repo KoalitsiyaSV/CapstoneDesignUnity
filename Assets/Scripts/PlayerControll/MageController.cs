@@ -1,39 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Reflection;
 using System.Threading;
 using UnityEngine;
 
+using Debug = UnityEngine.Debug;
 public class MageController : PlayerController
 {
     //public float speed;
-    //½ÇÀç·Î ÇÑ¹ß ½ð ´ÙÀ½ ÃæÀü µô·¹ÀÌ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     [Header("AttackA")]
     public float power;
     public float startSpeed;
     public float increaseSpeed;
     public float maxSpeed;
-    public float maxShotDelay;  //»ç¿ëÀÚ ÁöÁ¤ µô·¹ÀÌ
-    public float curShotDelay;
+    public float maxShotDelay;  //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public float skill_A_Delay; //ï¿½âº» ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public float skill_B_Delay; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public float SkillSpeed_A;
-    public GameObject bulletObjA;//ÇÁ¸®Æé º¯¼ö 1
-    public Transform posA;//½ºÅ³ »ý¼º À§Ä¡, ¼º°øÀû
+    public GameObject bulletObjA;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 1
+    public Transform posA;//ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    public Transform BoxPos;
+    public Vector2 BoxSize;
+    public int Range_Attack_dmg;
 
     // Start is called before the first frame update
-    protected override void Start()
+    void Start()
     {
         base.Start();   
     }
     
     // Update is called once per frame
-    protected override void Update()
+    void Update()
     {
         base.Update();
 
         //Fire(Vector2.right);
         Relode();
 
-        Vector2 playerDirection = Vector2.right;// ±âº»°ªÀº ¿À¸¥ÂÊ ¹æÇâ
+        Vector2 playerDirection = Vector2.right;// ï¿½âº»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
        
         if(transform.localScale.x < 0)
         {
@@ -43,33 +51,66 @@ public class MageController : PlayerController
             playerDirection = Vector2.right;
         }
 
+        //Attack_Fire part
         if (!base.isRun && Input.GetMouseButtonDown(0))
             Fire(playerDirection);
+
+        //Attack_Range part
+        if (Input.GetMouseButtonDown(1))
+        {
+            Range_Attack();
+        }
+
     }
 
-    protected override void FixedUpdate()
+    private void FixedUpdate()
     {
         base.FixedUpdate();
+    }
+
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    void Range_Attack()
+    {
+        if (skill_B_Delay < maxShotDelay+1)//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ delayï¿½ï¿½ 0.2ï¿½ï¿½ ï¿½âº» ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½
+            return;
+        Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(BoxPos.position, BoxSize, 0);//point = ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡, size= ï¿½Ú½ï¿½Å©ï¿½ï¿½, angle = ï¿½Ú½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½
+        foreach (Collider2D collider in collider2Ds)//collider2Dsï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Enemyï¿½ï¿½ ï¿½ï¿½ï¿½
+        {
+            if (collider.CompareTag("Enemy"))
+            {
+                //Debug.Log(collider.tag);
+                EnemyController collider_Enemy = collider.gameObject.GetComponent<EnemyController>();
+                collider_Enemy.OnDamaged(Range_Attack_dmg);
+            }
+        }
+        skill_B_Delay = 0;
     }
 
     void Fire(Vector2 direction)
     {
         //if (!Input.GetButton("Fire1"))
         //    return;
-        if (curShotDelay < maxShotDelay)    //Áï ÁöÁ¤ µô·¡ÀÌ½Ã°£º¸´Ù ½ÇÁ¦ µô·¡ÀÌ½Ã°£ÀÌ ´õ ÀûÀ¸¸é ¹ß»ç°¡ µÇÁö ¾Ê´Â´Ù.
+        if (skill_A_Delay < maxShotDelay)    //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ç°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
             return;
 
-        GameObject bullet = Instantiate(bulletObjA/*»ý¼ºÇÑ ÇÁ¸®ÆÕ º¯¼ö*/, posA.position/*»ý¼ºÀ§Ä¡´Â ÇÃ·¹ÀÌ¾îÀ§Ä¡*/, transform.rotation/*¹æÇâÀº ÇÃ·¹ÀÌ¾î ¹æÇâÀ¸·Î*/);
+        GameObject bullet = Instantiate(bulletObjA/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½*/, posA.position/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½Ä¡*/, transform.rotation/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/);
 
-        Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>(); //bulletÀÇ rigidbody¸¦ °¡Á®¿Â´Ù.
-        ////°¡¼Óµµ Ç×¸ñ ¿©±â¿¡ DaltaTime * SkillSpeed_A
+        Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>(); //bulletï¿½ï¿½ rigidbodyï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+        ////ï¿½ï¿½ï¿½Óµï¿½ ï¿½×¸ï¿½ ï¿½ï¿½ï¿½â¿¡ DaltaTime * SkillSpeed_A
         rigid.velocity = direction * SkillSpeed_A;
-        //rigid.AddForce(direction * SkillSpeed_A, ForceMode2D.Impulse);//ÈûÀ¸·Î ½ð´Ù.
+        //rigid.AddForce(direction * SkillSpeed_A, ForceMode2D.Impulse);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
         
-        curShotDelay = 0;//ÇÑ¹ß ½î°í ´Ù½Ã ÀåÀüÇÏ´Â ·ÎÁ÷
+        skill_A_Delay = 0;//ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
     void Relode()
     {
-        curShotDelay += Time.deltaTime;
+        skill_A_Delay += Time.deltaTime;
+        skill_B_Delay += Time.deltaTime;
+    }
+    
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(BoxPos.position, BoxSize);
     }
 }

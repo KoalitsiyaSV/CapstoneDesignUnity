@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Plugins/BackGroundScroller.prefab.meta
 guid: e0fdce83398d83043a755bec08089b9f
+========
+guid: 3f1e74d518e4a2d40bac6ae4a72dd608
+>>>>>>>> origin/Development:Assets/Sprites/Maps/Tiles/Palletes/Cave Palette.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 
