@@ -2,9 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("대화 시스템 관련")]
+    public DialogueManager dialogueManager;
+    public GameObject targetObject;
+    public GameObject dialoguePanel;
+    public TypeEffect dialogueEffect;
+    public bool isAction;
+    public int dialogueIndex;
+
     public float playerMaxHP { get; private set; }
     public float playerCurHP { get; private set; }
     public float playerHPRatio { get; private set; }
@@ -30,6 +39,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        //layerName끼리 충돌판정이 생기지 않도록 함
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Item"), LayerMask.NameToLayer("Item"));
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Item"));
         Initialize();
     }
 
@@ -48,14 +60,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        
-        
-        
-        
-    }
-
     //초기화, 현재는 플레이어 체력 관리만 함
     private void Initialize()
     {
@@ -68,6 +72,39 @@ public class GameManager : MonoBehaviour
     {
         playerCurHP -= dmgAmount;
         playerHPRatio = (playerCurHP / playerMaxHP) * 100f;
+    }
+
+    public void DialogueAction(ObjectData objectData)
+    {
+        Talk(objectData.id);
+
+        dialoguePanel.SetActive(isAction);
+    }
+    
+    private void Talk(int npcId)
+    {
+        string dialogueData = dialogueManager.GetDialogue(npcId, dialogueIndex);
+
+        if(dialogueData == null)
+        {
+            NPCManager.instance.activeNpcFunction();
+
+            //isAction = false;
+            //dialogueIndex = 0;
+            return;
+        }
+
+        dialoguePanel.SetActive(true);
+
+        dialogueEffect.SetDialogue(dialogueData);
+
+        isAction = true;
+        dialogueIndex++;
+    }
+
+    public void SceneChange(int changeSceneIndex)
+    {
+        SceneManager.LoadScene(changeSceneIndex);
     }
 
     ////UI

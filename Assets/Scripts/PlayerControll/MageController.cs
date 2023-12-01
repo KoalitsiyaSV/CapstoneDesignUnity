@@ -9,20 +9,20 @@ using Debug = UnityEngine.Debug;
 public class MageController : PlayerController
 {
     //public float speed;
-    //½ÇÀç·Î ÇÑ¹ß ½ð ´ÙÀ½ ÃæÀü µô·¹ÀÌ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     [Header("AttackA")]
     public float power;
     public float startSpeed;
     public float increaseSpeed;
     public float maxSpeed;
-    public float maxShotDelay;  //»ç¿ëÀÚ ÁöÁ¤ µô·¹ÀÌ
-    public float skill_A_Delay; //±âº» °ø°Ý µô·¹ÀÌ
-    public float skill_B_Delay; //¹üÀ§ °ø°Ý ÁöÁ¤ µô·¹ÀÌ
+    public float maxShotDelay;  //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public float skill_A_Delay; //ï¿½âº» ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public float skill_B_Delay; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public float SkillSpeed_A;
-    public GameObject bulletObjA;//ÇÁ¸®Æé º¯¼ö 1
-    public Transform posA;//½ºÅ³ »ý¼º À§Ä¡
-    //¹üÀ§ °ø°ÝÀ» À§ÇÑ º¯¼ö
+    public GameObject bulletObjA;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 1
+    public Transform posA;//ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public Transform BoxPos;
     public Vector2 BoxSize;
     public int Range_Attack_dmg;
@@ -41,7 +41,7 @@ public class MageController : PlayerController
         //Fire(Vector2.right);
         Relode();
 
-        Vector2 playerDirection = Vector2.right;// ±âº»°ªÀº ¿À¸¥ÂÊ ¹æÇâ
+        Vector2 playerDirection = Vector2.right;// ï¿½âº»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
        
         if(transform.localScale.x < 0)
         {
@@ -68,13 +68,13 @@ public class MageController : PlayerController
         base.FixedUpdate();
     }
 
-    //¹üÀ§ °ø°Ý ±¸Çö
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     void Range_Attack()
     {
-        if (skill_B_Delay < maxShotDelay+1)//¹üÀ§ °ø°Ý delay´Â 0.2°¡ ±âº» °ø°Ý µô·¹ÀÌÀÎ°Å °í·ÁÇÏ¿© ³Ö¾î¾ßÇÔ
+        if (skill_B_Delay < maxShotDelay+1)//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ delayï¿½ï¿½ 0.2ï¿½ï¿½ ï¿½âº» ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½
             return;
-        Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(BoxPos.position, BoxSize, 0);//point = ¹Ú½º »ý¼º À§Ä¡, size= ¹Ú½ºÅ©±â, angle = ¹Ú½ºÀÇ È¸Àü
-        foreach (Collider2D collider in collider2Ds)//collider2DsÀÇ °ªÁß Enemy¸¸ °ñ¶ó³¿
+        Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(BoxPos.position, BoxSize, 0);//point = ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡, size= ï¿½Ú½ï¿½Å©ï¿½ï¿½, angle = ï¿½Ú½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½
+        foreach (Collider2D collider in collider2Ds)//collider2Dsï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Enemyï¿½ï¿½ ï¿½ï¿½ï¿½
         {
             if (collider.CompareTag("Enemy"))
             {
@@ -90,17 +90,17 @@ public class MageController : PlayerController
     {
         //if (!Input.GetButton("Fire1"))
         //    return;
-        if (skill_A_Delay < maxShotDelay)    //Áï ÁöÁ¤ µô·¡ÀÌ½Ã°£º¸´Ù ½ÇÁ¦ µô·¡ÀÌ½Ã°£ÀÌ ´õ ÀûÀ¸¸é ¹ß»ç°¡ µÇÁö ¾Ê´Â´Ù.
+        if (skill_A_Delay < maxShotDelay)    //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ç°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
             return;
 
-        GameObject bullet = Instantiate(bulletObjA/*»ý¼ºÇÑ ÇÁ¸®ÆÕ º¯¼ö*/, posA.position/*»ý¼ºÀ§Ä¡´Â ÇÃ·¹ÀÌ¾îÀ§Ä¡*/, transform.rotation/*¹æÇâÀº ÇÃ·¹ÀÌ¾î ¹æÇâÀ¸·Î*/);
+        GameObject bullet = Instantiate(bulletObjA/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½*/, posA.position/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½Ä¡*/, transform.rotation/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/);
 
-        Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>(); //bulletÀÇ rigidbody¸¦ °¡Á®¿Â´Ù.
-        ////°¡¼Óµµ Ç×¸ñ ¿©±â¿¡ DaltaTime * SkillSpeed_A
+        Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>(); //bulletï¿½ï¿½ rigidbodyï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+        ////ï¿½ï¿½ï¿½Óµï¿½ ï¿½×¸ï¿½ ï¿½ï¿½ï¿½â¿¡ DaltaTime * SkillSpeed_A
         rigid.velocity = direction * SkillSpeed_A;
-        //rigid.AddForce(direction * SkillSpeed_A, ForceMode2D.Impulse);//ÈûÀ¸·Î ½ð´Ù.
+        //rigid.AddForce(direction * SkillSpeed_A, ForceMode2D.Impulse);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
         
-        skill_A_Delay = 0;//ÇÑ¹ß ½î°í ´Ù½Ã ÀåÀüÇÏ´Â ·ÎÁ÷
+        skill_A_Delay = 0;//ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
     void Relode()
     {

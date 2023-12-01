@@ -18,7 +18,7 @@ public class BookController : MonoBehaviour
     private Transform previousBtn;
     private Transform nextBtn;
 
-    //¸ñÂ÷ = page 0, ÀÎº¥Åä¸® = page 1, ½ºÅ×ÀÌÅÍ½º = page 2, ½ºÅ³ = page 3, ¼³Á¤Ã¢ = page 4(last)
+    //ï¿½ï¿½ï¿½ï¿½ = page 0, ï¿½Îºï¿½ï¿½ä¸® = page 1, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í½ï¿½ = page 2, ï¿½ï¿½Å³ = page 3, ï¿½ï¿½ï¿½ï¿½Ã¢ = page 4(last)
     private Transform[] pages;
     private Transform iventoryPage;
 
@@ -131,28 +131,50 @@ public class BookController : MonoBehaviour
 
     public void PreviousPage()
     {
-        bookPage--;
-
-        if (!animator.GetBool("isReverse")) animator.SetBool("isReverse", true);
-
-        PageChanger();
-
-        currentRepeatCount = 0;
-        animator.SetBool("isTurnThePage", true);
-        repeatCount = 1;
+        PageChanger(--bookPage, 1, true);
     }
 
     public void NextPage()
     {
-        bookPage++;
+        PageChanger(++bookPage, 1, false);
+    }
 
-        if (animator.GetBool("isReverse")) animator.SetBool("isReverse", false);
+    public void ToInventoryPage()
+    {
+        PageChanger(1, 1, false);
+    }
+
+    public void ToStatusPage()
+    {
+        PageChanger(2, 2, false);
+    }
+
+    public void ToSkillPage()
+    {
+        PageChanger(3, 3, false);
+    }
+
+    public void ToOptionPage()
+    {
+        PageChanger(4, 4, false);
+    }
+
+    private void PageChanger(int page, int count, bool reverse)
+    {
+        bookPage = page;
+
+        if(reverse)
+            if (!animator.GetBool("isReverse")) animator.SetBool("isReverse", true);
+        else
+            if (animator.GetBool("isReverse")) animator.SetBool("isReverse", false);
+
+        ControlCurrentPage();
 
         PageChanger();
 
         currentRepeatCount = 0;
         animator.SetBool("isTurnThePage", true);
-        repeatCount = 1;
+        repeatCount = count;
     }
 
     public void ToInventoryPage()
@@ -224,7 +246,7 @@ public class BookController : MonoBehaviour
         nextBtn.gameObject.SetActive(true);
     }
 
-    // ¾Ö´Ï¸ÞÀÌ¼Ç Å¬¸³ ÀÌº¥Æ®¿¡¼­ »ç¿ë
+    // ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ Å¬ï¿½ï¿½ ï¿½Ìºï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
     private void RepeatCount()
     {
         if(animator.GetBool("isReverse"))
@@ -250,10 +272,5 @@ public class BookController : MonoBehaviour
     private void ActivateCurrentPage()
     {
         pages[bookPage].gameObject.SetActive(true);
-    }
-
-    private void PageChanger()
-    {
-        ControlCurrentPage();
     }
 }

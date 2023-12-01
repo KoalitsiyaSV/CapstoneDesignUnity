@@ -14,9 +14,9 @@ public class EnemyController : MonoBehaviour
     Animator anim;
     Rigidbody2D rigid;
 
-    [Header("¸ó½ºÅÍ")]
+    [Header("ï¿½ï¿½ï¿½ï¿½")]
     public int ememy_Type;
-    public int nextMove;    //´Ù½Ã ÀÌµ¿ÇÏ´Âµ¥ °É¸®´Â ½Ã°£
+    public int nextMove;    //ï¿½Ù½ï¿½ ï¿½Ìµï¿½ï¿½Ï´Âµï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
     public float enemy_Life;
     public float raycastLength;
     //11/29test
@@ -27,14 +27,14 @@ public class EnemyController : MonoBehaviour
     public int enemy_Attack_dmg;
     //Long Distance Attack
     //public float enemy_Distance;
-    public float enemy_AttackDistance;//Enemy °ø°Ý»ç°Å¸®
-    public float enemy_Attack_Delay;  //°ø°Ý µô·¹ÀÌ
-    public float max_Attack_Delay;    //ÁöÁ¤ ÃÖ°í °ø°Ý µô·¹ÀÌ
+    public float enemy_AttackDistance;//Enemy ï¿½ï¿½ï¿½Ý»ï¿½Å¸ï¿½
+    public float enemy_Attack_Delay;  //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public float max_Attack_Delay;    //ï¿½ï¿½ï¿½ï¿½ ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public GameObject bullet_E;         
     public float bullet_E_Speed;
     public Transform bullet_Pos;
     
-    //public Sprite[] sprites;//ÃßÈÄ EnemyÃß°¡½Ã »ç¿ëÇÒ Sprite¹è¿­
+    //public Sprite[] sprites;//ï¿½ï¿½ï¿½ï¿½ Enemyï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Spriteï¿½è¿­
 
     // Start is called before the first frame update
     void Awake()
@@ -42,15 +42,15 @@ public class EnemyController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
-        //Invoke("Think", 2);//ÃßÈÄ ¿¡³Ê¹Ì Å¸ÀÔ¿¡ µû¶ó ´Ù¸£°Ô ÇÒ°ÅÀÓ
+        //Invoke("Think", 2);//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ê¹ï¿½ Å¸ï¿½Ô¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
     }
 
-    //void Update() //¸Å ÇÁ·¹ÀÓ¸¶´Ù È£Ãâ
+    //void Update() //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ó¸ï¿½ï¿½ï¿½ È£ï¿½ï¿½
     //{
     //   
     //}
 
-    void FixedUpdate()//¹°¸® ¿£Áø ¾÷µ¥ÀÌÆ® ÁÖ±â¿Í µ¿±âÈ­ => ÁÖ·Î ¹°¸® ¿£Áø °ü·Ã ÀÛ¾÷¿¡ »ç¿ëµÊ => ½Ã°£ °£°ÝÀÌ ÀÏÁ¤ÇÏ°Ô À¯ÁöµÇ¸ç, ÇÁ·¹ÀÓ ·¹ÀÌÆ®¿¡ ¿µÇâÀ» ¹ÞÁö ¾ÊÀ½
+    void FixedUpdate()//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ö±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ => ï¿½Ö·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ => ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         Destroy_Enemy();
         Enemy_Relode();
@@ -68,18 +68,18 @@ public class EnemyController : MonoBehaviour
         Enemy_Attack(EnemyDirection);
         if (ememy_Type == 1)
         {
-            //ÀÌ°É·Î ¿òÁ÷ÀÌ´Â°É °è¼Ó ¾÷µ¥ÀÌÆ® ÇÏ¸é¼­ ÀÌµ¿½ÃÅ´, Move
+            //ï¿½Ì°É·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´Â°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï¸é¼­ ï¿½Ìµï¿½ï¿½ï¿½Å´, Move
             rigid.velocity = new Vector2(nextMove, rigid.velocity.y);
 
-            //Áö´É ³ôÀÌ±â ºÎºÐ, PlatForm Check
-            Vector2 frontVec = new Vector2(rigid.position.x + nextMove * 0.3f, rigid.position.y);//ÀÌ°É·Î À§Ä¡¼¼ºÎ ÁöÁ¤ °¡´É
-            //RayCast Çü¼º
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½Îºï¿½, PlatForm Check
+            Vector2 frontVec = new Vector2(rigid.position.x + nextMove * 0.3f, rigid.position.y);//ï¿½Ì°É·ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            //RayCast ï¿½ï¿½ï¿½ï¿½
             Debug.DrawRay(frontVec, Vector3.down, new Color(0, 1, 0));
-            //·¹ÀÌ¿¡ ¸ÂÀº °ÍÀÇ Á¤º¸¸¦ ¹ÞÀ½
-            RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, raycastLength, LayerMask.GetMask("Default")); //Default·Î ÀÓ½Ã º¯°æ
-            if (rayHit.collider == null)    //¾Õ¿¡ PlatformÀÌ¸§ÀÇ Å¸ÀÏÀÌ ¾ø´Ù(null)
+            //ï¿½ï¿½ï¿½Ì¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, raycastLength, LayerMask.GetMask("Default")); //Defaultï¿½ï¿½ ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            if (rayHit.collider == null)    //ï¿½Õ¿ï¿½ Platformï¿½Ì¸ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(null)
             {
-                //Debug.Log("°¡Áö¸¶¿ë");
+                //Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                 nextMove *= -1;
                 CancelInvoke();
                 Invoke("Think", 2);
@@ -88,10 +88,10 @@ public class EnemyController : MonoBehaviour
     }
     void Think()
     {
-        nextMove = Random.Range(-1, 2); //·£´ý¿¡¼­ ÃÖ¼Ú°ªÀº »ó°üÀÌ ¾øÁö¸¸, ÃÖ´ë°ªÀº ¸ñÇ¥ÀÎ 1ÀÌ ¾Æ´Ñ 2°¡ µé¾î°¡¾ßÇÔ         
+        nextMove = Random.Range(-1, 2); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼Ú°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ö´ë°ªï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ 1ï¿½ï¿½ ï¿½Æ´ï¿½ 2ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ï¿½ï¿½         
         //float nextThinkTime = Random.Range(2f, 5f);
         TransformAnim();
-        Invoke("Think", 2); //Àç±ÍÇÔ¼ö
+        Invoke("Think", 2); //ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½
     }
 
     private void TransformAnim()
@@ -122,11 +122,11 @@ public class EnemyController : MonoBehaviour
         }
     }
     
-    void OnHit(int dmg)//¸ÂÃèÀ»¶§ ¹ß»ýÇÔ
+    void OnHit(int dmg)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½
     {
         enemy_Life -= dmg;
 
-        //Ãæµ¹½Ã ¹ÝÂ¦È¿°ú
+        //ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½Â¦È¿ï¿½ï¿½
         spriteRenderer.color = new Color(1, 1, 1, 0.4f);
         Invoke("OffDamaged", 0.2f);
     }
@@ -134,29 +134,33 @@ public class EnemyController : MonoBehaviour
     {
         if (enemy_Life <= 0)
         {
-            Destroy(gameObject);//º»ÀÎ °´Ã¼ ÆÄ±«
+            Destroy(gameObject);//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½Ä±ï¿½
         }
     }
+    
+    void OnHit(int dmg)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½
+    {
+        Enemy_Life -= dmg;
 
-    void OnTriggerEnter2D(Collider2D collision)//Ãæµ¹ ¹ß»ý½Ã EnemyÀÇ Enemy_Life °¨¼Ò
+    void OnTriggerEnter2D(Collider2D collision)//ï¿½æµ¹ ï¿½ß»ï¿½ï¿½ï¿½ Enemyï¿½ï¿½ Enemy_Life ï¿½ï¿½ï¿½ï¿½
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            BulletController bullet = collision.gameObject.GetComponent<BulletController>();  //ÀÌ ºÎºÐÀÌ ´Ù¸¥ ½ºÅ©¸³Æ®ÀÇ º¯¼ö È£ÃâÇØ¼­ °ª ÁöÁ¤ÇØ ³Ö°í ÇÏ´Â ºÎºÐ Á¦ÀÏÁß¿ä!
+            BulletController bullet = collision.gameObject.GetComponent<BulletController>();  //ï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö°ï¿½ ï¿½Ï´ï¿½ ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½!
             OnHit(bullet.dmg);
-            Destroy(collision.gameObject);//ÇÃ·¹ÀÌ¾îÀÇ ÃÑ¾ËÀ» »èÁ¦ÇÑ´Ù
+            Destroy(collision.gameObject);//ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
         }
     }
 
     public void OnDamaged(int dmg)
     {
-        //dmg¸¸Å­ Ã¼·Â°¨¼Ò
+        //dmgï¿½ï¿½Å­ Ã¼ï¿½Â°ï¿½ï¿½ï¿½
         enemy_Life -= dmg;
-        //gameObject.layer = ; //¸ó½ºÅÍ ÇÇ°Ý ·¹ÀÌ¾î
+        //gameObject.layer = ; //ï¿½ï¿½ï¿½ï¿½ ï¿½Ç°ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½
 
-        //ÇÇ°Ý½Ã »öÀ» º¯°æ½ÃÅ´
+        //ï¿½Ç°Ý½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Å´
         spriteRenderer.color = new Color(1, 1, 1, 0.4f);
-        //ÇØ´ç ½Ã°£ ÈÄ¿¡ OffDamaged¹ß»ý
+        //ï¿½Ø´ï¿½ ï¿½Ã°ï¿½ ï¿½Ä¿ï¿½ OffDamagedï¿½ß»ï¿½
         Invoke("OffDamaged", 1);
         //anim.SetBool("Enemy_Damaged", true);
     }
@@ -171,12 +175,12 @@ public class EnemyController : MonoBehaviour
         //Enemy is detect Player
         Vector2 rayStartPos = new Vector2(rigid.position.x - attackRayLength/2, rigid.position.y-0.4f);
         //Debug.DrawRay(rayStartPos, Vector3.right * attackRayLength, Color.red);
-        RaycastHit2D rayHit_attack = Physics2D.Raycast(rayStartPos, Vector3.right, attackRayLength, LayerMask.GetMask("Player")); //Layer°¡ PlayerÀÎ ¿ÀºêÁ§Æ® Å½Áö
+        RaycastHit2D rayHit_attack = Physics2D.Raycast(rayStartPos, Vector3.right, attackRayLength, LayerMask.GetMask("Player")); //Layerï¿½ï¿½ Playerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Å½ï¿½ï¿½
         if (rayHit_attack.collider != null)
         {
             if (Vector2.Distance(transform.position, rayHit_attack.collider.transform.position) < enemy_AttackDistance)
             {
-                //ÇÃ·¹ÀÌ¾îÀÇ À§Ä¡¿¡ ¹× ÁÂÇ¥¿¡ µû¸¥ ¹æÇâ ¼³Á¤
+                //ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 if((transform.position.x - rayHit_attack.collider.transform.position.x)> 0)
                 {
                     transform.localScale = new Vector2(1, 1);
@@ -197,7 +201,7 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
-    //EnemyÀÇ ¿ø°Å¸® °ø°Ý ¹ß»ç
+    //Enemyï¿½ï¿½ ï¿½ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½
     void Fire_Enemy(Vector2 direction) {
         if (enemy_Attack_Delay < max_Attack_Delay)
             return;
@@ -206,7 +210,7 @@ public class EnemyController : MonoBehaviour
         Rigidbody2D rigid_B = bullet_Enemy.GetComponent<Rigidbody2D>();
         SpriteRenderer sprite_B = bullet_Enemy.GetComponent<SpriteRenderer>();
 
-        //ÃÑ¾ËÀÇSpriteRenderer¸¦ ÅëÇØ º¸ÀÌ´Â ÀÌ¹ÌÁö¸¦ ±×´ë·Î È¤Àº ¹ÝÀüÇÏ¿© È­»ìÀÌ ³¯¾Æ°¡´Â°ÍÀ» Ç¥ÇöÇÕ´Ï´Ù. 
+        //ï¿½Ñ¾ï¿½ï¿½ï¿½SpriteRendererï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×´ï¿½ï¿½ È¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ È­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½Â°ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½Õ´Ï´ï¿½. 
         if (direction == Vector2.left)
         {
             sprite_B.flipX = true;
