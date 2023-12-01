@@ -138,10 +138,6 @@ public class EnemyController : MonoBehaviour
         }
     }
     
-    void OnHit(int dmg)//�������� �߻���
-    {
-        Enemy_Life -= dmg;
-
     void OnTriggerEnter2D(Collider2D collision)//�浹 �߻��� Enemy�� Enemy_Life ����
     {
         if (collision.gameObject.tag == "Bullet")
@@ -151,10 +147,6 @@ public class EnemyController : MonoBehaviour
             Destroy(collision.gameObject);//�÷��̾��� �Ѿ��� �����Ѵ�
         }
     }
-    
-    void OnHit(int dmg)//�������� �߻���
-    {
-        Enemy_Life -= dmg;
 
     public void OnDamaged(int dmg)
     {
