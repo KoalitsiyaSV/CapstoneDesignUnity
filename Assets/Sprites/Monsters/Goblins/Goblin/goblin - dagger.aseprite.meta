@@ -1,0 +1,3664 @@
+fileFormatVersion: 2
+guid: 51232099c61932d45b85b6828eabc9e9
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: goblin - dagger_Frame_0
+    originalName: 
+    pivot: {x: 0.5625, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 302
+      width: 16
+      height: 15
+    spriteID: 3219d6e054b9b9f44a162fea194a7102
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 302}
+  - name: goblin - dagger_Frame_1
+    originalName: 
+    pivot: {x: 0.5294118, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 211
+      width: 17
+      height: 15
+    spriteID: ddadf5f3a0b5e16418085b02464e5a93
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 211}
+  - name: goblin - dagger_Frame_2
+    originalName: 
+    pivot: {x: 0.47058824, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 377
+      width: 17
+      height: 16
+    spriteID: fc249e4774d6f0948b73fbaa5e72fd13
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 377}
+  - name: goblin - dagger_Frame_3
+    originalName: 
+    pivot: {x: 0.47058824, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 401
+      width: 17
+      height: 16
+    spriteID: 27b45810f2eee2a47ba4f7c0af15ec7a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 401}
+  - name: goblin - dagger_Frame_4
+    originalName: 
+    pivot: {x: 0.5294118, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 425
+      width: 17
+      height: 16
+    spriteID: 39c7c769c517960438bd7ec12edd361a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 425}
+  - name: goblin - dagger_Frame_5
+    originalName: 
+    pivot: {x: 0.5294118, y: -1.117647}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 280
+      width: 17
+      height: 17
+    spriteID: dacea393e69e93f46acb73faade61456
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 280}
+  - name: goblin - dagger_Frame_6
+    originalName: 
+    pivot: {x: 0.5882353, y: -1.117647}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 305
+      width: 17
+      height: 17
+    spriteID: f6b833ea27f998b449604311ca8931a6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 305}
+  - name: goblin - dagger_Frame_7
+    originalName: 
+    pivot: {x: 0.625, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 67
+      width: 16
+      height: 16
+    spriteID: 648a24597b4eaad49b503f94cc992c2b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 67}
+  - name: goblin - dagger_Frame_8
+    originalName: 
+    pivot: {x: 0.53846157, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 239
+      width: 13
+      height: 15
+    spriteID: caa4991b96e38d6438ccbb934a31a929
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 239}
+  - name: goblin - dagger_Frame_9
+    originalName: 
+    pivot: {x: 0.53846157, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 274
+      width: 13
+      height: 16
+    spriteID: 0d4b2051285836148a3c374042124dc5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 274}
+  - name: goblin - dagger_Frame_10
+    originalName: 
+    pivot: {x: 0.53846157, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 298
+      width: 13
+      height: 16
+    spriteID: a0eb8d862cedd09429668f2d8cde8e68
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 298}
+  - name: goblin - dagger_Frame_11
+    originalName: 
+    pivot: {x: 0.53846157, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 262
+      width: 13
+      height: 15
+    spriteID: 155d6697efed1ce4383ef35fcdab6f10
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 262}
+  - name: goblin - dagger_Frame_12
+    originalName: 
+    pivot: {x: 0.53846157, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 285
+      width: 13
+      height: 15
+    spriteID: 3e4b67a8b6c243044973f76c51c6eceb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 285}
+  - name: goblin - dagger_Frame_13
+    originalName: 
+    pivot: {x: 0.53846157, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 322
+      width: 13
+      height: 16
+    spriteID: 76690678b00f83547bb8cfc996997659
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 322}
+  - name: goblin - dagger_Frame_14
+    originalName: 
+    pivot: {x: 0.53846157, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 346
+      width: 13
+      height: 16
+    spriteID: f9ccf383a296b414ba7840ad229c1ccb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 346}
+  - name: goblin - dagger_Frame_15
+    originalName: 
+    pivot: {x: 0.53846157, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 308
+      width: 13
+      height: 15
+    spriteID: f5e124e5141700a4ea8f5d8af8a88d7a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 308}
+  - name: goblin - dagger_Frame_16
+    originalName: 
+    pivot: {x: 0.53846157, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 370
+      width: 13
+      height: 16
+    spriteID: 2b631e87231775847810ea3c132e12d2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 370}
+  - name: goblin - dagger_Frame_17
+    originalName: 
+    pivot: {x: 0.53846157, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 394
+      width: 13
+      height: 16
+    spriteID: a0205b2adc413c447afa2ac44e9b1de9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 394}
+  - name: goblin - dagger_Frame_18
+    originalName: 
+    pivot: {x: 0.5, y: -1.5000001}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 173
+      width: 14
+      height: 14
+    spriteID: 9edf25c043471594190a3eace45d3bef
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 173}
+  - name: goblin - dagger_Frame_19
+    originalName: 
+    pivot: {x: 0.5, y: -1.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 94
+      width: 14
+      height: 16
+    spriteID: 9609f0bb208563a4bb5bf0028d22c100
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 94}
+  - name: goblin - dagger_Frame_20
+    originalName: 
+    pivot: {x: 0.53846157, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 418
+      width: 13
+      height: 16
+    spriteID: c4eb271fbeb9ec049b9b9e7adbc1c0be
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 418}
+  - name: goblin - dagger_Frame_21
+    originalName: 
+    pivot: {x: 0.5, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 377
+      width: 12
+      height: 16
+    spriteID: 6e0b81de2831c1a4bb39c77660176237
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 377}
+  - name: goblin - dagger_Frame_22
+    originalName: 
+    pivot: {x: 0.5714286, y: -1.5000001}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 195
+      width: 14
+      height: 14
+    spriteID: c70be386083e4ba4bad0e1ed49630d84
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 195}
+  - name: goblin - dagger_Frame_23
+    originalName: 
+    pivot: {x: 0.5714286, y: -1.4000001}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 228
+      width: 14
+      height: 15
+    spriteID: 5549d2ebd1d782e42abec4aec83c83d5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 228}
+  - name: goblin - dagger_Frame_24
+    originalName: 
+    pivot: {x: 0.5625, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 325
+      width: 16
+      height: 15
+    spriteID: 8e6c7bb18cfb55947aced11633d52c37
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 325}
+  - name: goblin - dagger_Frame_25
+    originalName: 
+    pivot: {x: 0.53846157, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 442
+      width: 13
+      height: 16
+    spriteID: 60ea81fb49e6a244b981f8b13b7751c3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 442}
+  - name: goblin - dagger_Frame_26
+    originalName: 
+    pivot: {x: 0.71428573, y: -1.117647}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 485
+      width: 14
+      height: 17
+    spriteID: 26ef5822252ad824a81b3768879aafff
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 485}
+  - name: goblin - dagger_Frame_27
+    originalName: 
+    pivot: {x: 0.5625, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 348
+      width: 16
+      height: 15
+    spriteID: 3f36088f5bbb770489bd4a224921e227
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 348}
+  - name: goblin - dagger_Frame_28
+    originalName: 
+    pivot: {x: 0.42857146, y: -1.4615386}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 401
+      width: 14
+      height: 13
+    spriteID: ebe2350d111450c488aa6d44c93d68ee
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 401}
+  - name: goblin - dagger_Frame_29
+    originalName: 
+    pivot: {x: 0.4615385, y: -1.5833334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 464
+      width: 13
+      height: 12
+    spriteID: a5f3c52d1b75d3140a739d4c39114a9e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 464}
+  - name: goblin - dagger_Frame_30
+    originalName: 
+    pivot: {x: 0.4615385, y: -1.4615386}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 422
+      width: 13
+      height: 13
+    spriteID: 84c603399b4d47242910936c8cf15a45
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 422}
+  - name: goblin - dagger_Frame_31
+    originalName: 
+    pivot: {x: 0.4615385, y: -1.4615386}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 443
+      width: 13
+      height: 13
+    spriteID: c379df9cb035d67459e44de315b263c7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 443}
+  - name: goblin - dagger_Frame_32
+    originalName: 
+    pivot: {x: 0.3125, y: -1.4615386}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 466
+      width: 16
+      height: 13
+    spriteID: acf46b1b5b41cb04aaf59a7a65e8a288
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 466}
+  - name: goblin - dagger_Frame_33
+    originalName: 
+    pivot: {x: 0.11111111, y: -2.1111112}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 163
+      y: 4
+      width: 18
+      height: 9
+    spriteID: 8b8a1969fde76e44eb6cb32ca136711b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 163, y: 4}
+  - name: goblin - dagger_Frame_34
+    originalName: 
+    pivot: {x: 0.11111111, y: -2.375}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 163
+      y: 55
+      width: 18
+      height: 8
+    spriteID: f14945cb43cdd2940aae8120e6d6e331
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 163, y: 55}
+  - name: goblin - dagger_Frame_35
+    originalName: 
+    pivot: {x: 0.11111111, y: -2.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 189
+      y: 170
+      width: 18
+      height: 7
+    spriteID: 5d5b1f5c0e369ac44af2ab8d01437e91
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 189, y: 170}
+  - name: goblin - dagger_Frame_36
+    originalName: 
+    pivot: {x: 0.10526316, y: -2.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 189
+      y: 140
+      width: 19
+      height: 7
+    spriteID: 857849f948daa3445bbe562d2b086673
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 189, y: 140}
+  - name: goblin - dagger_Frame_37
+    originalName: 
+    pivot: {x: 0.1, y: -2.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 189
+      y: 20
+      width: 20
+      height: 7
+    spriteID: 8f1269d4c706e5b4ab36795eb73a35c0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 189, y: 20}
+  - name: goblin - dagger_Frame_38
+    originalName: 
+    pivot: {x: 0.1, y: -2.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 189
+      y: 35
+      width: 20
+      height: 7
+    spriteID: 621135b803f14934393f056d2bcacd12
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 189, y: 35}
+  - name: goblin - dagger_Frame_39
+    originalName: 
+    pivot: {x: 0.4666667, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 25
+      width: 15
+      height: 15
+    spriteID: b3649c0a5e3ed9c47a73520334c056b9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 25}
+  - name: goblin - dagger_Frame_40
+    originalName: 
+    pivot: {x: 0.5, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 251
+      width: 14
+      height: 15
+    spriteID: 1ef61540dc5758340ad05621561f27b7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 251}
+  - name: goblin - dagger_Frame_41
+    originalName: 
+    pivot: {x: 0.4615385, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 487
+      width: 13
+      height: 16
+    spriteID: 856d036b2a8eee445a191688e2b3f74f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 487}
+  - name: goblin - dagger_Frame_42
+    originalName: 
+    pivot: {x: 0.3846154, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 29
+      width: 13
+      height: 16
+    spriteID: c9fb9435d1e434748958d321738d78da
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 29}
+  - name: goblin - dagger_Frame_43
+    originalName: 
+    pivot: {x: 0.3846154, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 53
+      width: 13
+      height: 16
+    spriteID: 6d2e9b5608a90e84e8588e14c9215314
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 53}
+  - name: goblin - dagger_Frame_44
+    originalName: 
+    pivot: {x: 0.3888889, y: -1.117647}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 412
+      width: 18
+      height: 17
+    spriteID: 5d7532379e5e3984d973bca5aef8bb6d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 412}
+  - name: goblin - dagger_Frame_45
+    originalName: 
+    pivot: {x: 0.5, y: -1.117647}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 28
+      width: 20
+      height: 17
+    spriteID: 83711d40fecd57447b2ace608b3f2333
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 28}
+  - name: goblin - dagger_Frame_46
+    originalName: 
+    pivot: {x: 0.5, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 197
+      width: 20
+      height: 16
+    spriteID: 135a3a435c63eee4bb2854aaf3cb8bea
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 197}
+  - name: goblin - dagger_Frame_47
+    originalName: 
+    pivot: {x: 0.45000002, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 221
+      width: 20
+      height: 16
+    spriteID: 2dd80ef351d88424c9339df2f384f1bb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 221}
+  - name: goblin - dagger_Frame_48
+    originalName: 
+    pivot: {x: 0.45000002, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 462
+      width: 20
+      height: 15
+    spriteID: 136b0faea594353468e4e9bd924f4a35
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 462}
+  - name: goblin - dagger_Frame_49
+    originalName: 
+    pivot: {x: 0.40909094, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 103
+      width: 22
+      height: 15
+    spriteID: 5152480beaf819a4b93553aad818d0f0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 103}
+  - name: goblin - dagger_Frame_50
+    originalName: 
+    pivot: {x: 0.47368422, y: -1.117647}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 172
+      width: 19
+      height: 17
+    spriteID: 6dd1c1ccdf17db0489e2846ffe3b2464
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 172}
+  - name: goblin - dagger_Frame_51
+    originalName: 
+    pivot: {x: 0.40909094, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 22
+      height: 16
+    spriteID: 6315c96eefc61a14ba2594f022758e5f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: goblin - dagger_Frame_52
+    originalName: 
+    pivot: {x: 0.45000002, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 245
+      width: 20
+      height: 16
+    spriteID: 5b29f844b5848484d95145e0bdb87b7c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 245}
+  - name: goblin - dagger_Frame_53
+    originalName: 
+    pivot: {x: 0.45000002, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 269
+      width: 20
+      height: 16
+    spriteID: 188f0e7a093d704448d47d3875d50479
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 269}
+  - name: goblin - dagger_Frame_54
+    originalName: 
+    pivot: {x: 0.45000002, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 293
+      width: 20
+      height: 16
+    spriteID: 259cfd49cf6dc0b449ac707a5ca9fe47
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 293}
+  - name: goblin - dagger_Frame_55
+    originalName: 
+    pivot: {x: 0.45000002, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 485
+      width: 20
+      height: 15
+    spriteID: 49ca32a91a79c2748b2a79a3b739c3d2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 485}
+  - name: goblin - dagger_Frame_56
+    originalName: 
+    pivot: {x: 0.45000002, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 4
+      width: 20
+      height: 15
+    spriteID: d182c3ae0658a8143a89c91feb90d42e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 4}
+  - name: goblin - dagger_Frame_57
+    originalName: 
+    pivot: {x: 0.4, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 317
+      width: 20
+      height: 16
+    spriteID: a17620d8c3d2b5f48a94fd9f1c14ba66
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 317}
+  - name: goblin - dagger_Frame_58
+    originalName: 
+    pivot: {x: 0.4, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 341
+      width: 20
+      height: 16
+    spriteID: 5208b821a4a31bd4d8a533eea9b74dd6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 341}
+  - name: goblin - dagger_Frame_59
+    originalName: 
+    pivot: {x: 0.45000002, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 365
+      width: 20
+      height: 16
+    spriteID: e5e0129608c60ad4dbcf9dd904b433e7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 365}
+  - name: goblin - dagger_Frame_60
+    originalName: 
+    pivot: {x: 0.45000002, y: -1.117647}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 53
+      width: 20
+      height: 17
+    spriteID: 862f10dc7a8e4824ba39219d3f936e03
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 53}
+  - name: goblin - dagger_Frame_61
+    originalName: 
+    pivot: {x: 0.5, y: -1.117647}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 78
+      width: 20
+      height: 17
+    spriteID: ea9900135c21cac44a1c1e8a7f23cf3c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 78}
+  - name: goblin - dagger_Frame_62
+    originalName: 
+    pivot: {x: 0.44444445, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 330
+      width: 18
+      height: 16
+    spriteID: 2198f488c84d5f94bab0217e6b056554
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 330}
+  - name: goblin - dagger_Frame_63
+    originalName: 
+    pivot: {x: 0.53846157, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 331
+      width: 13
+      height: 15
+    spriteID: 2b0488e5295cd584ca5e8eb2e4e0afa6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 331}
+  - name: goblin - dagger_Frame_64
+    originalName: 
+    pivot: {x: 0.4666667, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 371
+      width: 15
+      height: 16
+    spriteID: 62d37cd7b643c3f48acc9fbd255f86ad
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 371}
+  - name: goblin - dagger_Frame_65
+    originalName: 
+    pivot: {x: 0.4375, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 91
+      width: 16
+      height: 16
+    spriteID: 7b07395acce58eb4d81a05efc8fa3b79
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 91}
+  - name: goblin - dagger_Frame_66
+    originalName: 
+    pivot: {x: 0.4375, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 395
+      width: 16
+      height: 15
+    spriteID: 961173d97555b934f88bb222f1e192db
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 395}
+  - name: goblin - dagger_Frame_67
+    originalName: 
+    pivot: {x: 0.4666667, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 48
+      width: 15
+      height: 15
+    spriteID: 8d5f5b5cf36b9bc4186ce284ae27a5ea
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 48}
+  - name: goblin - dagger_Frame_68
+    originalName: 
+    pivot: {x: 0.53846157, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 77
+      width: 13
+      height: 16
+    spriteID: ad440aa499463d2438b2cee136ffe0a5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 77}
+  - name: goblin - dagger_Frame_69
+    originalName: 
+    pivot: {x: 0.53846157, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 101
+      width: 13
+      height: 16
+    spriteID: c0cd08674b55702459ec75e6e0ea1f72
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 101}
+  - name: goblin - dagger_Frame_70
+    originalName: 
+    pivot: {x: 0.53846157, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 354
+      width: 13
+      height: 15
+    spriteID: 0c8cb51eacb1ef94786969988f05f3a0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 354}
+  - name: goblin - dagger_Frame_71
+    originalName: 
+    pivot: {x: 0.4666667, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 418
+      width: 15
+      height: 16
+    spriteID: 789d7121c43524e4ea4dc3be52e45dbc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 418}
+  - name: goblin - dagger_Frame_72
+    originalName: 
+    pivot: {x: 0.4375, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 115
+      width: 16
+      height: 16
+    spriteID: 5f4288d131197ad4a9ce55de68f8e6d9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 115}
+  - name: goblin - dagger_Frame_73
+    originalName: 
+    pivot: {x: 0.3888889, y: -1.5000001}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 259
+      width: 18
+      height: 14
+    spriteID: 0e4d57396aea5a64fa1201dbfcb13305
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 259}
+  - name: goblin - dagger_Frame_74
+    originalName: 
+    pivot: {x: 0.4117647, y: -1.25}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 449
+      width: 17
+      height: 16
+    spriteID: 9ba11727d2030694ab982053f9204d15
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 449}
+  - name: goblin - dagger_Frame_75
+    originalName: 
+    pivot: {x: 0.4375, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 139
+      width: 16
+      height: 16
+    spriteID: e967f73a29b80e14c898f58b80418eb5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 139}
+  - name: goblin - dagger_Frame_76
+    originalName: 
+    pivot: {x: 0.42857146, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 118
+      width: 14
+      height: 16
+    spriteID: 787c8748d2c93ac4d878dd41fd290e23
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 118}
+  - name: goblin - dagger_Frame_77
+    originalName: 
+    pivot: {x: 0.5714286, y: -1.5000001}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 217
+      width: 14
+      height: 14
+    spriteID: 140f7e4ec461cf642b7c751d019951f8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 217}
+  - name: goblin - dagger_Frame_78
+    originalName: 
+    pivot: {x: 0.53333336, y: -1.4000001}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 71
+      width: 15
+      height: 15
+    spriteID: 241e9a755a06220428f1a86ec424ff8f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 71}
+  - name: goblin - dagger_Frame_79
+    originalName: 
+    pivot: {x: 0.45000002, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 27
+      width: 20
+      height: 15
+    spriteID: 09f20a5b7ded21e4dbdb62682c6d0911
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 27}
+  - name: goblin - dagger_Frame_80
+    originalName: 
+    pivot: {x: 0.45000002, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 50
+      width: 20
+      height: 15
+    spriteID: f49040487cdc6604db4b0ef69ab9d869
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 50}
+  - name: goblin - dagger_Frame_81
+    originalName: 
+    pivot: {x: 0.35, y: -1.3333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 73
+      width: 20
+      height: 15
+    spriteID: 07f71c253367a8546b78dbe6dd45e4c1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 73}
+  - name: goblin - dagger_Frame_82
+    originalName: 
+    pivot: {x: 0.40000004, y: -1.1111112}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 473
+      width: 15
+      height: 18
+    spriteID: 134fbde64633cca4493693a55c035817
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 473}
+  - name: goblin - dagger_Frame_83
+    originalName: 
+    pivot: {x: 0.22727273, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 126
+      width: 22
+      height: 15
+    spriteID: 34add8c5c996ef24886eb242cba70423
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 126}
+  - name: goblin - dagger_Frame_84
+    originalName: 
+    pivot: {x: 0.27272728, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 149
+      width: 22
+      height: 15
+    spriteID: eb9ef8e3b68282545b343b77035554ee
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 149}
+  - name: goblin - dagger_Frame_85
+    originalName: 
+    pivot: {x: 0.35, y: -1.3333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 96
+      width: 20
+      height: 15
+    spriteID: 500d3009c3f1edf4b8ce4f559f7e9bc5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 96}
+  - name: goblin - dagger_Frame_86
+    originalName: 
+    pivot: {x: 0.4, y: -1.3333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 119
+      width: 20
+      height: 15
+    spriteID: ed49c4f527279474b8ac2ff8f4f26670
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 119}
+  - name: goblin - dagger_Frame_87
+    originalName: 
+    pivot: {x: 0.45000002, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 142
+      width: 20
+      height: 15
+    spriteID: cf5fb1a2921f20d488e97c6a38d05c39
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 142}
+  - name: goblin - dagger_Frame_88
+    originalName: 
+    pivot: {x: 0.4375, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 163
+      width: 16
+      height: 16
+    spriteID: 98d9001e76f8e7842a5dc6aff4a1c0fd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 163}
+  - name: goblin - dagger_Frame_89
+    originalName: 
+    pivot: {x: 0.5555556, y: -1.117647}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 437
+      width: 18
+      height: 17
+    spriteID: ef62494fc1392d949a74f97dcaadd065
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 437}
+  - name: goblin - dagger_Frame_90
+    originalName: 
+    pivot: {x: 0.45000002, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 165
+      width: 20
+      height: 15
+    spriteID: 13d45446b9bbcf24c9ca4c1d3e3fcc7d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 165}
+  - name: goblin - dagger_Frame_91
+    originalName: 
+    pivot: {x: 0.4, y: -1.4615386}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 4
+      width: 20
+      height: 13
+    spriteID: fe1453b2220cd684890bd34e2b79c58c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 4}
+  - name: goblin - dagger_Frame_92
+    originalName: 
+    pivot: {x: 0.3529412, y: -1.5833334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 138
+      y: 4
+      width: 17
+      height: 12
+    spriteID: f563ba7cfb32c3f42ae31eb6d3158280
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 138, y: 4}
+  - name: goblin - dagger_Frame_93
+    originalName: 
+    pivot: {x: 0.3529412, y: -1.4615386}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 166
+      width: 17
+      height: 13
+    spriteID: 58f737a14037deb4a83baef0533220fd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 166}
+  - name: goblin - dagger_Frame_94
+    originalName: 
+    pivot: {x: 0.3529412, y: -1.4615386}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 187
+      width: 17
+      height: 13
+    spriteID: 026f6ff7a420f2243902403cdb96f9ac
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 187}
+  - name: goblin - dagger_Frame_95
+    originalName: 
+    pivot: {x: 0.2777778, y: -1.4615386}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 4
+      width: 18
+      height: 13
+    spriteID: 877cd3c5c6ebea74f8a6217f6002077c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 4}
+  - name: goblin - dagger_Frame_96
+    originalName: 
+    pivot: {x: 0.1, y: -2.1111112}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 499
+      width: 20
+      height: 9
+    spriteID: e685495c9e448304da6c8838ed2be2c8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 499}
+  - name: goblin - dagger_Frame_97
+    originalName: 
+    pivot: {x: 0.1, y: -2.375}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 189
+      y: 4
+      width: 20
+      height: 8
+    spriteID: 51bf1fca1013b9c4b8c48b04c951eb20
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 189, y: 4}
+  - name: goblin - dagger_Frame_98
+    originalName: 
+    pivot: {x: 0.1, y: -2.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 189
+      y: 50
+      width: 20
+      height: 7
+    spriteID: 173bb1b29667af04bb49f99576755c63
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 189, y: 50}
+  - name: goblin - dagger_Frame_99
+    originalName: 
+    pivot: {x: 0.1, y: -2.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 189
+      y: 65
+      width: 20
+      height: 7
+    spriteID: 7bf24da6cc3e7284dad28f4d13cff946
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 189, y: 65}
+  - name: goblin - dagger_Frame_100
+    originalName: 
+    pivot: {x: 0.1, y: -2.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 189
+      y: 80
+      width: 20
+      height: 7
+    spriteID: da0b8a7219d3bb0489d43a5d347f4420
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 189, y: 80}
+  - name: goblin - dagger_Frame_101
+    originalName: 
+    pivot: {x: 0.1, y: -2.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 189
+      y: 95
+      width: 20
+      height: 7
+    spriteID: fc1af1a9960683b4881715317bb07349
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 189, y: 95}
+  - name: goblin - dagger_Frame_102
+    originalName: 
+    pivot: {x: 0.42105263, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 354
+      width: 19
+      height: 15
+    spriteID: 0a3a6c05ca696df45941f981181f5d55
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 354}
+  - name: goblin - dagger_Frame_103
+    originalName: 
+    pivot: {x: 0.4375, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 442
+      width: 16
+      height: 15
+    spriteID: f3315460b7898f54098468301573168a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 442}
+  - name: goblin - dagger_Frame_104
+    originalName: 
+    pivot: {x: 0.4615385, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 125
+      width: 13
+      height: 16
+    spriteID: 9c95a5c4d0177644b94d8d7752bbdf50
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 125}
+  - name: goblin - dagger_Frame_105
+    originalName: 
+    pivot: {x: 0.3846154, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 149
+      width: 13
+      height: 16
+    spriteID: 94b1425bba1107245ac61d3fddcd99cc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 149}
+  - name: goblin - dagger_Frame_106
+    originalName: 
+    pivot: {x: 0.42857146, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 142
+      width: 14
+      height: 16
+    spriteID: 8d84909231506644fa71abf609ce31da
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 142}
+  - name: goblin - dagger_Frame_107
+    originalName: 
+    pivot: {x: 0.42857146, y: -1.117647}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 4
+      width: 14
+      height: 17
+    spriteID: 22941f07dbd9f364093a60e29cd3832a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 4}
+  - name: goblin - dagger_Frame_108
+    originalName: 
+    pivot: {x: 0.4666667, y: -1.117647}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 234
+      width: 15
+      height: 17
+    spriteID: 8d9b4c972d2ac3e4d98c36ffc69a89c5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 234}
+  - name: goblin - dagger_Frame_109
+    originalName: 
+    pivot: {x: 0.5, y: -1.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 187
+      width: 16
+      height: 16
+    spriteID: b3b6af27c6e78764fb2017e4e56f4f99
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 187}
+  - name: goblin - dagger_Frame_110
+    originalName: 
+    pivot: {x: 0.45000002, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 188
+      width: 20
+      height: 15
+    spriteID: 8106971d504a8d645a607489e1fb35a5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 188}
+  - name: goblin - dagger_Frame_111
+    originalName: 
+    pivot: {x: 0.42857143, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 389
+      width: 21
+      height: 15
+    spriteID: 7cf8b8138818d0d48beffd9a6a6b1b51
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 389}
+  - name: goblin - dagger_Frame_112
+    originalName: 
+    pivot: {x: 0.35, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 211
+      width: 20
+      height: 15
+    spriteID: 03c7b588e5762394f9d80944baa60127
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 211}
+  - name: goblin - dagger_Frame_113
+    originalName: 
+    pivot: {x: 0.35, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 234
+      width: 20
+      height: 15
+    spriteID: b33e97bc4fe9d3f4c8cadb86291a2672
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 234}
+  - name: goblin - dagger_Frame_114
+    originalName: 
+    pivot: {x: 0.35, y: -1.2666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 257
+      width: 20
+      height: 15
+    spriteID: 480b0fa0446043a49b740094dff1f9c0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 34, y: 257}
+  - name: goblin - dagger_Frame_115
+    originalName: 
+    pivot: {x: 0.31578946, y: -1.4615386}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 281
+      width: 19
+      height: 13
+    spriteID: 05e9f6e7bb226454fb16dd952404d5ce
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 281}
+  - name: goblin - dagger_Frame_116
+    originalName: 
+    pivot: {x: 0.3, y: -1.5833334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 465
+      width: 20
+      height: 12
+    spriteID: 39d5498d1dc6a4444bbdb835b2c6d57f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 465}
+  - name: goblin - dagger_Frame_117
+    originalName: 
+    pivot: {x: 0.3, y: -1.4615386}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 25
+      width: 20
+      height: 13
+    spriteID: 07764b4be4549b344afde9adf74ced93
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 25}
+  - name: goblin - dagger_Frame_118
+    originalName: 
+    pivot: {x: 0.3, y: -1.4615386}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 46
+      width: 20
+      height: 13
+    spriteID: 470abf7cb6fa9b143bf31e301d986f69
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 46}
+  - name: goblin - dagger_Frame_119
+    originalName: 
+    pivot: {x: 0.22222222, y: -1.5833334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 112
+      y: 208
+      width: 18
+      height: 12
+    spriteID: 4db32cde0f445634580402f1ddf7140d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 112, y: 208}
+  - name: goblin - dagger_Frame_120
+    originalName: 
+    pivot: {x: 0.11111111, y: -2.1111112}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 163
+      y: 21
+      width: 18
+      height: 9
+    spriteID: 2abff1cc908b05b40b2cd11c84ea1289
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 163, y: 21}
+  - name: goblin - dagger_Frame_121
+    originalName: 
+    pivot: {x: 0.11111111, y: -2.1111112}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 163
+      y: 38
+      width: 18
+      height: 9
+    spriteID: 0f1b4c28cd01fb741bc5c63d322408d6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 163, y: 38}
+  - name: goblin - dagger_Frame_122
+    originalName: 
+    pivot: {x: 0.11111111, y: -2.375}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 163
+      y: 71
+      width: 18
+      height: 8
+    spriteID: e461e652022d2694bbbb554ce5a32d9e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 163, y: 71}
+  - name: goblin - dagger_Frame_123
+    originalName: 
+    pivot: {x: 0.10526316, y: -2.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 189
+      y: 155
+      width: 19
+      height: 7
+    spriteID: 3464cdfad374f784c9d26dfe520dd164
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 189, y: 155}
+  - name: goblin - dagger_Frame_124
+    originalName: 
+    pivot: {x: 0.1, y: -2.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 189
+      y: 110
+      width: 20
+      height: 7
+    spriteID: 6d04087512e2f9e4a86a79284f5e3209
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 189, y: 110}
+  - name: goblin - dagger_Frame_125
+    originalName: 
+    pivot: {x: 0.1, y: -2.7142859}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 189
+      y: 125
+      width: 20
+      height: 7
+    spriteID: 986d8111a66ad594b8fd33cf79d2c761
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 189, y: 125}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 281736316
+    name: goblin - dagger
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: goblin - dagger_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 23
+        y: 19
+        width: 16
+        height: 15
+      spriteId: 3219d6e054b9b9f44a162fea194a7102
+    - name: goblin - dagger_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 23
+        y: 19
+        width: 17
+        height: 15
+      spriteId: ddadf5f3a0b5e16418085b02464e5a93
+    - name: goblin - dagger_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 24
+        y: 19
+        width: 17
+        height: 16
+      spriteId: fc249e4774d6f0948b73fbaa5e72fd13
+    - name: goblin - dagger_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 24
+        y: 19
+        width: 17
+        height: 16
+      spriteId: 27b45810f2eee2a47ba4f7c0af15ec7a
+    - name: goblin - dagger_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 23
+        y: 19
+        width: 17
+        height: 16
+      spriteId: 39c7c769c517960438bd7ec12edd361a
+    - name: goblin - dagger_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 23
+        y: 19
+        width: 17
+        height: 17
+      spriteId: dacea393e69e93f46acb73faade61456
+    - name: goblin - dagger_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 22
+        y: 19
+        width: 17
+        height: 17
+      spriteId: f6b833ea27f998b449604311ca8931a6
+    - name: goblin - dagger_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 22
+        y: 19
+        width: 16
+        height: 16
+      spriteId: 648a24597b4eaad49b503f94cc992c2b
+    - name: goblin - dagger_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 25
+        y: 19
+        width: 13
+        height: 15
+      spriteId: caa4991b96e38d6438ccbb934a31a929
+    - name: goblin - dagger_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 25
+        y: 19
+        width: 13
+        height: 16
+      spriteId: 0d4b2051285836148a3c374042124dc5
+    - name: goblin - dagger_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 25
+        y: 19
+        width: 13
+        height: 16
+      spriteId: a0eb8d862cedd09429668f2d8cde8e68
+    - name: goblin - dagger_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 25
+        y: 19
+        width: 13
+        height: 15
+      spriteId: 155d6697efed1ce4383ef35fcdab6f10
+    - name: goblin - dagger_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 25
+        y: 19
+        width: 13
+        height: 15
+      spriteId: 3e4b67a8b6c243044973f76c51c6eceb
+    - name: goblin - dagger_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 25
+        y: 19
+        width: 13
+        height: 16
+      spriteId: 76690678b00f83547bb8cfc996997659
+    - name: goblin - dagger_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 25
+        y: 19
+        width: 13
+        height: 16
+      spriteId: f9ccf383a296b414ba7840ad229c1ccb
+    - name: goblin - dagger_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 25
+        y: 19
+        width: 13
+        height: 15
+      spriteId: f5e124e5141700a4ea8f5d8af8a88d7a
+    - name: goblin - dagger_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 25
+        y: 19
+        width: 13
+        height: 16
+      spriteId: 2b631e87231775847810ea3c132e12d2
+    - name: goblin - dagger_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 25
+        y: 19
+        width: 13
+        height: 16
+      spriteId: a0205b2adc413c447afa2ac44e9b1de9
+    - name: goblin - dagger_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 25
+        y: 21
+        width: 14
+        height: 14
+      spriteId: 9edf25c043471594190a3eace45d3bef
+    - name: goblin - dagger_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 25
+        y: 20
+        width: 14
+        height: 16
+      spriteId: 9609f0bb208563a4bb5bf0028d22c100
+    - name: goblin - dagger_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 25
+        y: 19
+        width: 13
+        height: 16
+      spriteId: c4eb271fbeb9ec049b9b9e7adbc1c0be
+    - name: goblin - dagger_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 26
+        y: 19
+        width: 12
+        height: 16
+      spriteId: 6e0b81de2831c1a4bb39c77660176237
+    - name: goblin - dagger_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 24
+        y: 21
+        width: 14
+        height: 14
+      spriteId: c70be386083e4ba4bad0e1ed49630d84
+    - name: goblin - dagger_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 24
+        y: 21
+        width: 14
+        height: 15
+      spriteId: 5549d2ebd1d782e42abec4aec83c83d5
+    - name: goblin - dagger_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 23
+        y: 19
+        width: 16
+        height: 15
+      spriteId: 8e6c7bb18cfb55947aced11633d52c37
+    - name: goblin - dagger_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 25
+        y: 19
+        width: 13
+        height: 16
+      spriteId: 60ea81fb49e6a244b981f8b13b7751c3
+    - name: goblin - dagger_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 22
+        y: 19
+        width: 14
+        height: 17
+      spriteId: 26ef5822252ad824a81b3768879aafff
+    - name: goblin - dagger_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 23
+        y: 19
+        width: 16
+        height: 15
+      spriteId: 3f36088f5bbb770489bd4a224921e227
+    - name: goblin - dagger_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 26
+        y: 19
+        width: 14
+        height: 13
+      spriteId: ebe2350d111450c488aa6d44c93d68ee
+    - name: goblin - dagger_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 26
+        y: 19
+        width: 13
+        height: 12
+      spriteId: a5f3c52d1b75d3140a739d4c39114a9e
+    - name: goblin - dagger_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 26
+        y: 19
+        width: 13
+        height: 13
+      spriteId: 84c603399b4d47242910936c8cf15a45
+    - name: goblin - dagger_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 26
+        y: 19
+        width: 13
+        height: 13
+      spriteId: c379df9cb035d67459e44de315b263c7
+    - name: goblin - dagger_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 27
+        y: 19
+        width: 16
+        height: 13
+      spriteId: acf46b1b5b41cb04aaf59a7a65e8a288
+    - name: goblin - dagger_Frame_33
+      frameIndex: 33
+      cellRect:
+        x: 30
+        y: 19
+        width: 18
+        height: 9
+      spriteId: 8b8a1969fde76e44eb6cb32ca136711b
+    - name: goblin - dagger_Frame_34
+      frameIndex: 34
+      cellRect:
+        x: 30
+        y: 19
+        width: 18
+        height: 8
+      spriteId: f14945cb43cdd2940aae8120e6d6e331
+    - name: goblin - dagger_Frame_35
+      frameIndex: 35
+      cellRect:
+        x: 30
+        y: 19
+        width: 18
+        height: 7
+      spriteId: 5d5b1f5c0e369ac44af2ab8d01437e91
+    - name: goblin - dagger_Frame_36
+      frameIndex: 36
+      cellRect:
+        x: 30
+        y: 19
+        width: 19
+        height: 7
+      spriteId: 857849f948daa3445bbe562d2b086673
+    - name: goblin - dagger_Frame_37
+      frameIndex: 37
+      cellRect:
+        x: 30
+        y: 19
+        width: 20
+        height: 7
+      spriteId: 8f1269d4c706e5b4ab36795eb73a35c0
+    - name: goblin - dagger_Frame_38
+      frameIndex: 38
+      cellRect:
+        x: 30
+        y: 19
+        width: 20
+        height: 7
+      spriteId: 621135b803f14934393f056d2bcacd12
+    - name: goblin - dagger_Frame_39
+      frameIndex: 39
+      cellRect:
+        x: 25
+        y: 19
+        width: 15
+        height: 15
+      spriteId: b3649c0a5e3ed9c47a73520334c056b9
+    - name: goblin - dagger_Frame_40
+      frameIndex: 40
+      cellRect:
+        x: 25
+        y: 19
+        width: 14
+        height: 15
+      spriteId: 1ef61540dc5758340ad05621561f27b7
+    - name: goblin - dagger_Frame_41
+      frameIndex: 41
+      cellRect:
+        x: 26
+        y: 19
+        width: 13
+        height: 16
+      spriteId: 856d036b2a8eee445a191688e2b3f74f
+    - name: goblin - dagger_Frame_42
+      frameIndex: 42
+      cellRect:
+        x: 27
+        y: 19
+        width: 13
+        height: 16
+      spriteId: c9fb9435d1e434748958d321738d78da
+    - name: goblin - dagger_Frame_43
+      frameIndex: 43
+      cellRect:
+        x: 27
+        y: 19
+        width: 13
+        height: 16
+      spriteId: 6d2e9b5608a90e84e8588e14c9215314
+    - name: goblin - dagger_Frame_44
+      frameIndex: 44
+      cellRect:
+        x: 25
+        y: 19
+        width: 18
+        height: 17
+      spriteId: 5d7532379e5e3984d973bca5aef8bb6d
+    - name: goblin - dagger_Frame_45
+      frameIndex: 45
+      cellRect:
+        x: 22
+        y: 19
+        width: 20
+        height: 17
+      spriteId: 83711d40fecd57447b2ace608b3f2333
+    - name: goblin - dagger_Frame_46
+      frameIndex: 46
+      cellRect:
+        x: 22
+        y: 19
+        width: 20
+        height: 16
+      spriteId: 135a3a435c63eee4bb2854aaf3cb8bea
+    - name: goblin - dagger_Frame_47
+      frameIndex: 47
+      cellRect:
+        x: 23
+        y: 19
+        width: 20
+        height: 16
+      spriteId: 2dd80ef351d88424c9339df2f384f1bb
+    - name: goblin - dagger_Frame_48
+      frameIndex: 48
+      cellRect:
+        x: 23
+        y: 19
+        width: 20
+        height: 15
+      spriteId: 136b0faea594353468e4e9bd924f4a35
+    - name: goblin - dagger_Frame_49
+      frameIndex: 49
+      cellRect:
+        x: 23
+        y: 19
+        width: 22
+        height: 15
+      spriteId: 5152480beaf819a4b93553aad818d0f0
+    - name: goblin - dagger_Frame_50
+      frameIndex: 50
+      cellRect:
+        x: 23
+        y: 19
+        width: 19
+        height: 17
+      spriteId: 6dd1c1ccdf17db0489e2846ffe3b2464
+    - name: goblin - dagger_Frame_51
+      frameIndex: 51
+      cellRect:
+        x: 23
+        y: 19
+        width: 22
+        height: 16
+      spriteId: 6315c96eefc61a14ba2594f022758e5f
+    - name: goblin - dagger_Frame_52
+      frameIndex: 52
+      cellRect:
+        x: 23
+        y: 19
+        width: 20
+        height: 16
+      spriteId: 5b29f844b5848484d95145e0bdb87b7c
+    - name: goblin - dagger_Frame_53
+      frameIndex: 53
+      cellRect:
+        x: 23
+        y: 19
+        width: 20
+        height: 16
+      spriteId: 188f0e7a093d704448d47d3875d50479
+    - name: goblin - dagger_Frame_54
+      frameIndex: 54
+      cellRect:
+        x: 23
+        y: 19
+        width: 20
+        height: 16
+      spriteId: 259cfd49cf6dc0b449ac707a5ca9fe47
+    - name: goblin - dagger_Frame_55
+      frameIndex: 55
+      cellRect:
+        x: 23
+        y: 19
+        width: 20
+        height: 15
+      spriteId: 49ca32a91a79c2748b2a79a3b739c3d2
+    - name: goblin - dagger_Frame_56
+      frameIndex: 56
+      cellRect:
+        x: 23
+        y: 19
+        width: 20
+        height: 15
+      spriteId: d182c3ae0658a8143a89c91feb90d42e
+    - name: goblin - dagger_Frame_57
+      frameIndex: 57
+      cellRect:
+        x: 24
+        y: 19
+        width: 20
+        height: 16
+      spriteId: a17620d8c3d2b5f48a94fd9f1c14ba66
+    - name: goblin - dagger_Frame_58
+      frameIndex: 58
+      cellRect:
+        x: 24
+        y: 19
+        width: 20
+        height: 16
+      spriteId: 5208b821a4a31bd4d8a533eea9b74dd6
+    - name: goblin - dagger_Frame_59
+      frameIndex: 59
+      cellRect:
+        x: 23
+        y: 19
+        width: 20
+        height: 16
+      spriteId: e5e0129608c60ad4dbcf9dd904b433e7
+    - name: goblin - dagger_Frame_60
+      frameIndex: 60
+      cellRect:
+        x: 23
+        y: 19
+        width: 20
+        height: 17
+      spriteId: 862f10dc7a8e4824ba39219d3f936e03
+    - name: goblin - dagger_Frame_61
+      frameIndex: 61
+      cellRect:
+        x: 22
+        y: 19
+        width: 20
+        height: 17
+      spriteId: ea9900135c21cac44a1c1e8a7f23cf3c
+    - name: goblin - dagger_Frame_62
+      frameIndex: 62
+      cellRect:
+        x: 24
+        y: 19
+        width: 18
+        height: 16
+      spriteId: 2198f488c84d5f94bab0217e6b056554
+    - name: goblin - dagger_Frame_63
+      frameIndex: 63
+      cellRect:
+        x: 25
+        y: 19
+        width: 13
+        height: 15
+      spriteId: 2b0488e5295cd584ca5e8eb2e4e0afa6
+    - name: goblin - dagger_Frame_64
+      frameIndex: 64
+      cellRect:
+        x: 25
+        y: 19
+        width: 15
+        height: 16
+      spriteId: 62d37cd7b643c3f48acc9fbd255f86ad
+    - name: goblin - dagger_Frame_65
+      frameIndex: 65
+      cellRect:
+        x: 25
+        y: 19
+        width: 16
+        height: 16
+      spriteId: 7b07395acce58eb4d81a05efc8fa3b79
+    - name: goblin - dagger_Frame_66
+      frameIndex: 66
+      cellRect:
+        x: 25
+        y: 19
+        width: 16
+        height: 15
+      spriteId: 961173d97555b934f88bb222f1e192db
+    - name: goblin - dagger_Frame_67
+      frameIndex: 67
+      cellRect:
+        x: 25
+        y: 19
+        width: 15
+        height: 15
+      spriteId: 8d5f5b5cf36b9bc4186ce284ae27a5ea
+    - name: goblin - dagger_Frame_68
+      frameIndex: 68
+      cellRect:
+        x: 25
+        y: 19
+        width: 13
+        height: 16
+      spriteId: ad440aa499463d2438b2cee136ffe0a5
+    - name: goblin - dagger_Frame_69
+      frameIndex: 69
+      cellRect:
+        x: 25
+        y: 19
+        width: 13
+        height: 16
+      spriteId: c0cd08674b55702459ec75e6e0ea1f72
+    - name: goblin - dagger_Frame_70
+      frameIndex: 70
+      cellRect:
+        x: 25
+        y: 19
+        width: 13
+        height: 15
+      spriteId: 0c8cb51eacb1ef94786969988f05f3a0
+    - name: goblin - dagger_Frame_71
+      frameIndex: 71
+      cellRect:
+        x: 25
+        y: 19
+        width: 15
+        height: 16
+      spriteId: 789d7121c43524e4ea4dc3be52e45dbc
+    - name: goblin - dagger_Frame_72
+      frameIndex: 72
+      cellRect:
+        x: 25
+        y: 19
+        width: 16
+        height: 16
+      spriteId: 5f4288d131197ad4a9ce55de68f8e6d9
+    - name: goblin - dagger_Frame_73
+      frameIndex: 73
+      cellRect:
+        x: 25
+        y: 21
+        width: 18
+        height: 14
+      spriteId: 0e4d57396aea5a64fa1201dbfcb13305
+    - name: goblin - dagger_Frame_74
+      frameIndex: 74
+      cellRect:
+        x: 25
+        y: 20
+        width: 17
+        height: 16
+      spriteId: 9ba11727d2030694ab982053f9204d15
+    - name: goblin - dagger_Frame_75
+      frameIndex: 75
+      cellRect:
+        x: 25
+        y: 19
+        width: 16
+        height: 16
+      spriteId: e967f73a29b80e14c898f58b80418eb5
+    - name: goblin - dagger_Frame_76
+      frameIndex: 76
+      cellRect:
+        x: 26
+        y: 19
+        width: 14
+        height: 16
+      spriteId: 787c8748d2c93ac4d878dd41fd290e23
+    - name: goblin - dagger_Frame_77
+      frameIndex: 77
+      cellRect:
+        x: 24
+        y: 21
+        width: 14
+        height: 14
+      spriteId: 140f7e4ec461cf642b7c751d019951f8
+    - name: goblin - dagger_Frame_78
+      frameIndex: 78
+      cellRect:
+        x: 24
+        y: 21
+        width: 15
+        height: 15
+      spriteId: 241e9a755a06220428f1a86ec424ff8f
+    - name: goblin - dagger_Frame_79
+      frameIndex: 79
+      cellRect:
+        x: 23
+        y: 19
+        width: 20
+        height: 15
+      spriteId: 09f20a5b7ded21e4dbdb62682c6d0911
+    - name: goblin - dagger_Frame_80
+      frameIndex: 80
+      cellRect:
+        x: 23
+        y: 19
+        width: 20
+        height: 15
+      spriteId: f49040487cdc6604db4b0ef69ab9d869
+    - name: goblin - dagger_Frame_81
+      frameIndex: 81
+      cellRect:
+        x: 25
+        y: 20
+        width: 20
+        height: 15
+      spriteId: 07f71c253367a8546b78dbe6dd45e4c1
+    - name: goblin - dagger_Frame_82
+      frameIndex: 82
+      cellRect:
+        x: 26
+        y: 20
+        width: 15
+        height: 18
+      spriteId: 134fbde64633cca4493693a55c035817
+    - name: goblin - dagger_Frame_83
+      frameIndex: 83
+      cellRect:
+        x: 27
+        y: 19
+        width: 22
+        height: 15
+      spriteId: 34add8c5c996ef24886eb242cba70423
+    - name: goblin - dagger_Frame_84
+      frameIndex: 84
+      cellRect:
+        x: 26
+        y: 19
+        width: 22
+        height: 15
+      spriteId: eb9ef8e3b68282545b343b77035554ee
+    - name: goblin - dagger_Frame_85
+      frameIndex: 85
+      cellRect:
+        x: 25
+        y: 20
+        width: 20
+        height: 15
+      spriteId: 500d3009c3f1edf4b8ce4f559f7e9bc5
+    - name: goblin - dagger_Frame_86
+      frameIndex: 86
+      cellRect:
+        x: 24
+        y: 20
+        width: 20
+        height: 15
+      spriteId: ed49c4f527279474b8ac2ff8f4f26670
+    - name: goblin - dagger_Frame_87
+      frameIndex: 87
+      cellRect:
+        x: 23
+        y: 19
+        width: 20
+        height: 15
+      spriteId: cf5fb1a2921f20d488e97c6a38d05c39
+    - name: goblin - dagger_Frame_88
+      frameIndex: 88
+      cellRect:
+        x: 25
+        y: 19
+        width: 16
+        height: 16
+      spriteId: 98d9001e76f8e7842a5dc6aff4a1c0fd
+    - name: goblin - dagger_Frame_89
+      frameIndex: 89
+      cellRect:
+        x: 22
+        y: 19
+        width: 18
+        height: 17
+      spriteId: ef62494fc1392d949a74f97dcaadd065
+    - name: goblin - dagger_Frame_90
+      frameIndex: 90
+      cellRect:
+        x: 23
+        y: 19
+        width: 20
+        height: 15
+      spriteId: 13d45446b9bbcf24c9ca4c1d3e3fcc7d
+    - name: goblin - dagger_Frame_91
+      frameIndex: 91
+      cellRect:
+        x: 24
+        y: 19
+        width: 20
+        height: 13
+      spriteId: fe1453b2220cd684890bd34e2b79c58c
+    - name: goblin - dagger_Frame_92
+      frameIndex: 92
+      cellRect:
+        x: 26
+        y: 19
+        width: 17
+        height: 12
+      spriteId: f563ba7cfb32c3f42ae31eb6d3158280
+    - name: goblin - dagger_Frame_93
+      frameIndex: 93
+      cellRect:
+        x: 26
+        y: 19
+        width: 17
+        height: 13
+      spriteId: 58f737a14037deb4a83baef0533220fd
+    - name: goblin - dagger_Frame_94
+      frameIndex: 94
+      cellRect:
+        x: 26
+        y: 19
+        width: 17
+        height: 13
+      spriteId: 026f6ff7a420f2243902403cdb96f9ac
+    - name: goblin - dagger_Frame_95
+      frameIndex: 95
+      cellRect:
+        x: 27
+        y: 19
+        width: 18
+        height: 13
+      spriteId: 877cd3c5c6ebea74f8a6217f6002077c
+    - name: goblin - dagger_Frame_96
+      frameIndex: 96
+      cellRect:
+        x: 30
+        y: 19
+        width: 20
+        height: 9
+      spriteId: e685495c9e448304da6c8838ed2be2c8
+    - name: goblin - dagger_Frame_97
+      frameIndex: 97
+      cellRect:
+        x: 30
+        y: 19
+        width: 20
+        height: 8
+      spriteId: 51bf1fca1013b9c4b8c48b04c951eb20
+    - name: goblin - dagger_Frame_98
+      frameIndex: 98
+      cellRect:
+        x: 30
+        y: 19
+        width: 20
+        height: 7
+      spriteId: 173bb1b29667af04bb49f99576755c63
+    - name: goblin - dagger_Frame_99
+      frameIndex: 99
+      cellRect:
+        x: 30
+        y: 19
+        width: 20
+        height: 7
+      spriteId: 7bf24da6cc3e7284dad28f4d13cff946
+    - name: goblin - dagger_Frame_100
+      frameIndex: 100
+      cellRect:
+        x: 30
+        y: 19
+        width: 20
+        height: 7
+      spriteId: da0b8a7219d3bb0489d43a5d347f4420
+    - name: goblin - dagger_Frame_101
+      frameIndex: 101
+      cellRect:
+        x: 30
+        y: 19
+        width: 20
+        height: 7
+      spriteId: fc1af1a9960683b4881715317bb07349
+    - name: goblin - dagger_Frame_102
+      frameIndex: 102
+      cellRect:
+        x: 24
+        y: 19
+        width: 19
+        height: 15
+      spriteId: 0a3a6c05ca696df45941f981181f5d55
+    - name: goblin - dagger_Frame_103
+      frameIndex: 103
+      cellRect:
+        x: 25
+        y: 19
+        width: 16
+        height: 15
+      spriteId: f3315460b7898f54098468301573168a
+    - name: goblin - dagger_Frame_104
+      frameIndex: 104
+      cellRect:
+        x: 26
+        y: 19
+        width: 13
+        height: 16
+      spriteId: 9c95a5c4d0177644b94d8d7752bbdf50
+    - name: goblin - dagger_Frame_105
+      frameIndex: 105
+      cellRect:
+        x: 27
+        y: 19
+        width: 13
+        height: 16
+      spriteId: 94b1425bba1107245ac61d3fddcd99cc
+    - name: goblin - dagger_Frame_106
+      frameIndex: 106
+      cellRect:
+        x: 26
+        y: 19
+        width: 14
+        height: 16
+      spriteId: 8d84909231506644fa71abf609ce31da
+    - name: goblin - dagger_Frame_107
+      frameIndex: 107
+      cellRect:
+        x: 26
+        y: 19
+        width: 14
+        height: 17
+      spriteId: 22941f07dbd9f364093a60e29cd3832a
+    - name: goblin - dagger_Frame_108
+      frameIndex: 108
+      cellRect:
+        x: 25
+        y: 19
+        width: 15
+        height: 17
+      spriteId: 8d9b4c972d2ac3e4d98c36ffc69a89c5
+    - name: goblin - dagger_Frame_109
+      frameIndex: 109
+      cellRect:
+        x: 24
+        y: 19
+        width: 16
+        height: 16
+      spriteId: b3b6af27c6e78764fb2017e4e56f4f99
+    - name: goblin - dagger_Frame_110
+      frameIndex: 110
+      cellRect:
+        x: 23
+        y: 19
+        width: 20
+        height: 15
+      spriteId: 8106971d504a8d645a607489e1fb35a5
+    - name: goblin - dagger_Frame_111
+      frameIndex: 111
+      cellRect:
+        x: 23
+        y: 19
+        width: 21
+        height: 15
+      spriteId: 7cf8b8138818d0d48beffd9a6a6b1b51
+    - name: goblin - dagger_Frame_112
+      frameIndex: 112
+      cellRect:
+        x: 25
+        y: 19
+        width: 20
+        height: 15
+      spriteId: 03c7b588e5762394f9d80944baa60127
+    - name: goblin - dagger_Frame_113
+      frameIndex: 113
+      cellRect:
+        x: 25
+        y: 19
+        width: 20
+        height: 15
+      spriteId: b33e97bc4fe9d3f4c8cadb86291a2672
+    - name: goblin - dagger_Frame_114
+      frameIndex: 114
+      cellRect:
+        x: 25
+        y: 19
+        width: 20
+        height: 15
+      spriteId: 480b0fa0446043a49b740094dff1f9c0
+    - name: goblin - dagger_Frame_115
+      frameIndex: 115
+      cellRect:
+        x: 26
+        y: 19
+        width: 19
+        height: 13
+      spriteId: 05e9f6e7bb226454fb16dd952404d5ce
+    - name: goblin - dagger_Frame_116
+      frameIndex: 116
+      cellRect:
+        x: 26
+        y: 19
+        width: 20
+        height: 12
+      spriteId: 39d5498d1dc6a4444bbdb835b2c6d57f
+    - name: goblin - dagger_Frame_117
+      frameIndex: 117
+      cellRect:
+        x: 26
+        y: 19
+        width: 20
+        height: 13
+      spriteId: 07764b4be4549b344afde9adf74ced93
+    - name: goblin - dagger_Frame_118
+      frameIndex: 118
+      cellRect:
+        x: 26
+        y: 19
+        width: 20
+        height: 13
+      spriteId: 470abf7cb6fa9b143bf31e301d986f69
+    - name: goblin - dagger_Frame_119
+      frameIndex: 119
+      cellRect:
+        x: 28
+        y: 19
+        width: 18
+        height: 12
+      spriteId: 4db32cde0f445634580402f1ddf7140d
+    - name: goblin - dagger_Frame_120
+      frameIndex: 120
+      cellRect:
+        x: 30
+        y: 19
+        width: 18
+        height: 9
+      spriteId: 2abff1cc908b05b40b2cd11c84ea1289
+    - name: goblin - dagger_Frame_121
+      frameIndex: 121
+      cellRect:
+        x: 30
+        y: 19
+        width: 18
+        height: 9
+      spriteId: 0f1b4c28cd01fb741bc5c63d322408d6
+    - name: goblin - dagger_Frame_122
+      frameIndex: 122
+      cellRect:
+        x: 30
+        y: 19
+        width: 18
+        height: 8
+      spriteId: e461e652022d2694bbbb554ce5a32d9e
+    - name: goblin - dagger_Frame_123
+      frameIndex: 123
+      cellRect:
+        x: 30
+        y: 19
+        width: 19
+        height: 7
+      spriteId: 3464cdfad374f784c9d26dfe520dd164
+    - name: goblin - dagger_Frame_124
+      frameIndex: 124
+      cellRect:
+        x: 30
+        y: 19
+        width: 20
+        height: 7
+      spriteId: 6d04087512e2f9e4a86a79284f5e3209
+    - name: goblin - dagger_Frame_125
+      frameIndex: 125
+      cellRect:
+        x: 30
+        y: 19
+        width: 20
+        height: 7
+      spriteId: 986d8111a66ad594b8fd33cf79d2c761
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 64, y: 64}

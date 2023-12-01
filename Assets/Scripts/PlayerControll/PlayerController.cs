@@ -108,10 +108,17 @@ public class PlayerController : MonoBehaviour
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, true);
         }
 
-        //11.09 test
-        if (collision.gameObject.layer == 8)
+        if (collision.gameObject.layer == 8)//Enemy와 충돌하였을때 받는 데미지
         {
-            OnPlayer_Enemy_Damaged(collision.transform.position);
+            EnemyController enemy = collision.gameObject.GetComponent<EnemyController>();
+            OnPlayer_Enemy_Damaged(enemy.enemy_Attack_dmg);
+        }
+
+        if (collision.gameObject.tag == "EnemyBullet")
+        {
+            Bullet_Enemy enemyBullet = collision.gameObject.GetComponent<Bullet_Enemy>();
+            OnPlayer_Enemy_Damaged(enemyBullet.eb_dmg);
+            Destroy(collision.gameObject);
         }
     }
 
@@ -122,6 +129,8 @@ public class PlayerController : MonoBehaviour
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, false);
             //if (colliderComponents[0].isTrigger) ReverseTrigger();
         }
+
+
     }
 
     //콜리젼 컨트롤
@@ -148,11 +157,10 @@ public class PlayerController : MonoBehaviour
     }
     //11.09부분 시작
     //피격시 발생하는 함수, +무적시간 부여
-    void OnPlayer_Enemy_Damaged(Vector2 targetPos)
+    void OnPlayer_Enemy_Damaged(int dmg)
     {
-        if (!isPlayerDamaged)
+        if (!isPlayerDamaged)//매개 변수 변경으로 무적 및 원상복귀 구현
         {
-            Debug.Log("적에게 맞았습니다");
             isPlayerDamaged = true;
             //피격시 레이어 변경(PlayerDamaged로)
             //gameObject.layer = 11;
@@ -160,6 +168,8 @@ public class PlayerController : MonoBehaviour
             //playerRigidbody.AddForce(new Vector2(1, 5) * 7, ForceMode2D.Impulse);
             //색 변경
             playerSpriteRenderer.color = new Color(1, 1, 1, 0.4f);
+            //채력 감소
+            GameManager.Instance.PlayerTakeDamage(dmg);
             //아래로 무적시간 주고, 피격 해제
             Invoke("OffPlayerDamaged", 3);
         }

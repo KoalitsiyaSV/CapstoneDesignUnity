@@ -11,6 +11,7 @@ TagManager:
   - Platform
   - Bullet
   - trap
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
