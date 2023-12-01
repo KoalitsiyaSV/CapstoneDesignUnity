@@ -9,6 +9,17 @@ TagManager:
   - Bottom
   - Enemy
   - Platform
+  - Bullet
+  - NPC
+  - Chest
+  - Item
+  - Left
+  - Right
+  - Down
+  - Up
+  - Undefined
+  - TDArea
+  - LRArea
   layers:
   - Default
   - TransparentFX
@@ -19,11 +30,11 @@ TagManager:
   - Ground
   - Player
   - Enemy
+  - Neutral
+  - Chest
   - Minimap
   - Platform
-  - 
-  - 
-  - 
+  - Item
   - 
   - 
   - 
