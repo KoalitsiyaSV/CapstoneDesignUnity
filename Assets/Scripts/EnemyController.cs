@@ -130,6 +130,7 @@ public class EnemyController : MonoBehaviour
         spriteRenderer.color = new Color(1, 1, 1, 0.4f);
         Invoke("OffDamaged", 0.2f);
     }
+
     void Destroy_Enemy()
     {
         if (enemy_Life <= 0)
@@ -137,10 +138,6 @@ public class EnemyController : MonoBehaviour
             Destroy(gameObject);//���� ��ü �ı�
         }
     }
-    
-    void OnHit(int dmg)//�������� �߻���
-    {
-        Enemy_Life -= dmg;
 
     void OnTriggerEnter2D(Collider2D collision)//�浹 �߻��� Enemy�� Enemy_Life ����
     {
@@ -152,10 +149,6 @@ public class EnemyController : MonoBehaviour
         }
     }
     
-    void OnHit(int dmg)//�������� �߻���
-    {
-        Enemy_Life -= dmg;
-
     public void OnDamaged(int dmg)
     {
         //dmg��ŭ ü�°���

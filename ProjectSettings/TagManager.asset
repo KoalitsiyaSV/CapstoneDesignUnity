@@ -10,7 +10,6 @@ TagManager:
   - Enemy
   - Platform
   - Bullet
-  - trap
   - EnemyBullet
   - NPC
   - Chest
@@ -39,9 +38,6 @@ TagManager:
   - Platform
   - Item
   - PlayerDamaged
-  - 
-  - 
-  - 
   - 
   - 
   - 
