@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Item"), LayerMask.NameToLayer("Item"));
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Item"));
         Initialize();
+
     }
 
     private void Awake()
@@ -60,13 +61,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     //초기화, 현재는 플레이어 체력 관리만 함
-    private void Initialize()
-    {
-        playerMaxHP = PlayerData.Instance.playerHP;
-        playerCurHP = playerMaxHP;
-        playerHPRatio = 100f;
-    }
+    /* private void Initialize()
+     {
+         playerMaxHP = PlayerData.Instance.playerHP;
+         playerCurHP = playerMaxHP;
+         playerHPRatio = 100f;
+     }*/
 
     public void PlayerTakeDamage(int dmgAmount)
     {
