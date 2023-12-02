@@ -363,6 +363,11 @@ SpriteAtlas:
     - 5b4a87372f4db0342b930cf59da9ad2f: -198726019
     - 5b4a87372f4db0342b930cf59da9ad2f: -482096500
     - 5b4a87372f4db0342b930cf59da9ad2f: -1430321658
+    - 40d39c3c763dba04ba27249afef5c775: 1115928427
+    - 40d39c3c763dba04ba27249afef5c775: 599042902
+    - 40d39c3c763dba04ba27249afef5c775: -1848180495
+    - 40d39c3c763dba04ba27249afef5c775: 1427424504
+    - 40d39c3c763dba04ba27249afef5c775: 1311795562
     - 45e559dcd6128e9449a04fdd0f97af8a: -1066056200
     - 45e559dcd6128e9449a04fdd0f97af8a: -580030938
     - 45e559dcd6128e9449a04fdd0f97af8a: 1286988988
@@ -812,6 +817,11 @@ SpriteAtlas:
   - {fileID: -198726019, guid: 5b4a87372f4db0342b930cf59da9ad2f, type: 3}
   - {fileID: -482096500, guid: 5b4a87372f4db0342b930cf59da9ad2f, type: 3}
   - {fileID: -1430321658, guid: 5b4a87372f4db0342b930cf59da9ad2f, type: 3}
+  - {fileID: 1115928427, guid: 40d39c3c763dba04ba27249afef5c775, type: 3}
+  - {fileID: 599042902, guid: 40d39c3c763dba04ba27249afef5c775, type: 3}
+  - {fileID: -1848180495, guid: 40d39c3c763dba04ba27249afef5c775, type: 3}
+  - {fileID: 1427424504, guid: 40d39c3c763dba04ba27249afef5c775, type: 3}
+  - {fileID: 1311795562, guid: 40d39c3c763dba04ba27249afef5c775, type: 3}
   - {fileID: -1066056200, guid: 45e559dcd6128e9449a04fdd0f97af8a, type: 3}
   - {fileID: -580030938, guid: 45e559dcd6128e9449a04fdd0f97af8a, type: 3}
   - {fileID: 1286988988, guid: 45e559dcd6128e9449a04fdd0f97af8a, type: 3}
@@ -1260,6 +1270,11 @@ SpriteAtlas:
   - tilesetDungeon_60
   - tilesetDungeon_32
   - tilesetDungeon_61
+  - tilesetDungeonBG_1
+  - tilesetDungeonBG_0
+  - tilesetDungeonBG_3
+  - tilesetDungeonBG_2
+  - tilesetDungeonBG_4
   - tilesetVillage_20
   - tilesetVillage_21
   - tilesetVillage_22
