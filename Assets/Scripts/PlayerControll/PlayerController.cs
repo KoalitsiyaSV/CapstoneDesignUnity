@@ -4,8 +4,11 @@ using System.Diagnostics;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 using UnityEngine.UI;
+
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] GameObject playerSprite;
+
     protected Rigidbody2D playerRigidbody;
     protected Animator playerAnimator;
     protected SpriteRenderer playerSpriteRenderer;
@@ -24,9 +27,10 @@ public class PlayerController : MonoBehaviour
     protected float doubleTapTime = 0.2f;
     protected bool isRun = false;
 
-    private float lastAttackTime = 0;
-    //private float maxComboCount = 2;
-    private float maxComboDelay = 0.1f;
+    protected float xMove;
+
+    //공격 관련
+    [SerializeField] bool isContinueComboAttack = false;
 
     public bool canDownJump;
     public bool canJump;
@@ -37,9 +41,10 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
+        playerAnimator = playerSprite.GetComponent<Animator>();
+        playerSpriteRenderer = playerSprite.GetComponent<SpriteRenderer>();
+
         playerRigidbody = GetComponent<Rigidbody2D>();
-        playerAnimator = GetComponent<Animator>();
-        playerSpriteRenderer = GetComponent<SpriteRenderer>();
         colliderComponents = GetComponents<Collider2D>();
     }
     protected void Start()
@@ -47,50 +52,17 @@ public class PlayerController : MonoBehaviour
         currentSpeed = walkSpeed;
         canJump = true;
     }
-
+    
     // Update is called once per frame
-    protected void Update()
+    protected virtual void Update()
     {
+        xMove = GameManager.Instance.isAction ? 0 : Input.GetAxisRaw("Horizontal");
+
         //점프 관련
         PlayerJump();
 
         //달리기 활성/비활성
         ToggleRun();
-        //}
-
-        //if(Input.GetMouseButtonDown(0) && playerAnimator.GetBool("isAttack")) {
-        //    playerAnimator.SetBool("isAttack2", true);
-        //}
-        //else if (Input.GetMouseButtonDown(0)) {
-        //playerAnimator.SetBool("isAttack", true);
-        //}
-
-        //콤보 어택 관련
-        //if (Time.time - lastAttackTime > maxComboDelay)
-        //{
-        //    playerAnimator.SetBool("isAttack", false);
-        //    playerAnimator.SetBool("isAttack2", false);
-        //    comboCount = 0;
-        //}
-
-        //if (Input.GetMouseButtonDown(0) && comboCount < 2)
-        //{
-        //    lastAttackTime = Time.time;
-
-        //    comboCount++;
-
-        //    if(comboCount == 1)
-        //    {
-        //        playerAnimator.SetBool("isAttack", true);
-        //        maxComboDelay = playerAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length - 0.1f;
-        //    }
-        //    else if(comboCount == 2)
-        //    {
-        //        playerAnimator.SetBool("isAttack", false);
-        //        playerAnimator.SetBool("isAttack2", true);
-        //        maxComboDelay = playerAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length - 0.1f;
-        //    }
-        //}
     }
 
     protected void FixedUpdate()
@@ -129,8 +101,6 @@ public class PlayerController : MonoBehaviour
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, false);
             //if (colliderComponents[0].isTrigger) ReverseTrigger();
         }
-
-
     }
 
     //콜리젼 컨트롤
@@ -215,8 +185,6 @@ public class PlayerController : MonoBehaviour
     //플레이어 이동 제어 메서드
     private void PlayerMovement()
     {
-        float xMove = Input.GetAxis("Horizontal");
-
         if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) xMove = 0;
 
         float xSpeed = xMove * currentSpeed;
@@ -316,27 +284,62 @@ public class PlayerController : MonoBehaviour
         colliderComponents[0].isTrigger = !colliderComponents[0].isTrigger;
         isTriggerReversed = !isTriggerReversed;
     }
+
+    //공격 입력 후에도 짧은 시간 이동이 가능하도록 하기 위함
+    private void PlayerDuringAction()
+    {
+        GameManager.Instance.isAction = true;
+    }
+
+    private void PlayerEndAction()
+    {
+        GameManager.Instance.isAction = false;
+    }
+
+    //공격 시작
+    protected void StartAttackAnim()
+    {
+        playerAnimator.SetBool("isAttack", true);
+        Invoke("PlayerDuringAction", 0.4f);
+    }
+
+    //공격 종료
+    protected void EndAttackAnim()
+    {
+        playerAnimator.SetBool("isAttack", false);
+        Invoke("PlayerEndAction", 0.2f);
+    }
+
+    //콤보 어택 체크 시작
+    protected void CheckStartComboAttack()
+    {
+        isContinueComboAttack = false;
+
+        Debug.Log("Attack Check Start");
+        StartCoroutine(CheckComboAttack());    
+    }
+
+    //콤보 어택 체크 종료
+    protected void CheckEndComboAttack()
+    {
+        if (!isContinueComboAttack)
+            EndAttackAnim();
+    }
+
+    //공격 입력 체크
+    IEnumerator CheckComboAttack()
+    { 
+        yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+        isContinueComboAttack = true;
+    }
+
+    protected virtual void StartSkillAnim()
+    {
+        playerAnimator.SetBool("isSkill", true);
+    }
+
+    protected virtual void EndSkillAnim()
+    {
+        playerAnimator.SetBool("isSkill", false);
+    }
 }
-
-// ComboAttack Test1
-
-//    public void return1()
-//    {
-//        if(comboCount >= 2)
-//        {
-//            playerAnimator.SetBool("isAttack2", true);
-//        }
-//        else
-//        {
-//            playerAnimator.SetBool("isAttack", false);
-//            comboCount = 0;
-//        }
-//    }
-
-//    public void return2()
-//    {
-//        playerAnimator.SetBool("isAttack", false);
-//        playerAnimator.SetBool("isAttack2", false);
-//        comboCount = 0;
-//    }
-//}
