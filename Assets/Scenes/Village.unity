@@ -29972,7 +29972,7 @@ Transform:
   m_GameObject: {fileID: 1195398706}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.51, y: -1.57, z: 0}
+  m_LocalPosition: {x: 1.64, y: -1.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31241,9 +31241,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.00078125
     y: 0
-    width: 1
+    width: 0.9984375
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -32004,7 +32004,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4afd5772cd2b83c4fb70a9b3caa0a630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comboCount: 0
   jumpForce: 6
+  fallenSpeed: 1
   walkSpeed: 6
   runSpeed: 10
   canDownJump: 0
@@ -32014,10 +32016,14 @@ MonoBehaviour:
   increaseSpeed: 0
   maxSpeed: 0
   maxShotDelay: 0.2
-  curShotDelay: 0
+  skill_A_Delay: 0
+  skill_B_Delay: 0
   SkillSpeed_A: 25
   bulletObjA: {fileID: 5519100674333707876, guid: 4e21f5a0a71c1de48ade376f5150fe8b, type: 3}
   posA: {fileID: 1195398707}
+  BoxPos: {fileID: 1195398707}
+  BoxSize: {x: 0, y: 0}
+  Range_Attack_dmg: 0
 --- !u!70 &1427921507
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -37506,10 +37512,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc3b905f6140bb4aad55089b746099b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyType: 0
+  ememy_Type: 0
   nextMove: 2
-  Enemy_Life: 3
+  enemy_Life: 0
   raycastLength: 0
+  attackRayLength: 0
+  enemy_Move_Speed: 0
+  enemy_Attack_dmg: 0
+  enemy_AttackDistance: 0
+  enemy_Attack_Delay: 0
+  max_Attack_Delay: 0
+  bullet_E: {fileID: 0}
+  bullet_E_Speed: 0
+  bullet_Pos: {fileID: 0}
 --- !u!1 &2136912709
 GameObject:
   m_ObjectHideFlags: 0
@@ -37769,6 +37784,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HeavyArmor
       objectReference: {fileID: 0}
+    - target: {fileID: 7166256175622287294, guid: 4f261374f8765114cb14d7027086cc76, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8002409931192667103, guid: 4f261374f8765114cb14d7027086cc76, type: 3}
       propertyPath: m_LocalPosition.x
       value: 47.23683
@@ -37922,6 +37941,10 @@ PrefabInstance:
     - target: {fileID: 2492337512317257854, guid: a27e6b8cf111be441bddb2079952915f, type: 3}
       propertyPath: m_Name
       value: Bat
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084946686825469134, guid: a27e6b8cf111be441bddb2079952915f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
