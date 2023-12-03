@@ -6,20 +6,19 @@ using UnityEngine;
 // PortalController는 Portal의 기능이 담긴 스크립트
 public class PortalController : MonoBehaviour
 {
-    private bool canPlayerTeleport;
+    [SerializeField] bool canPlayerTeleport;
     private bool isPortalActive;
     private GameObject PortalManager;
-    private Tilemap tilemap;
+
 
     private void Awake() {
         PortalManager = GameObject.Find("PortalManager");
-        tilemap = this.gameObject.transform.GetComponent<Tilemap>();
 
         canPlayerTeleport = false;
         isPortalActive = true;
     }
     private void Update() {
-        if (canPlayerTeleport && isPortalActive && Input.GetKeyDown(KeyCode.W)) {
+        if (canPlayerTeleport && Input.GetKeyDown(KeyCode.W)) {
             PortalManager.GetComponent<PortalManager>().PlayerTeleportation(this.gameObject);
         } // Player가 Portal에 접촉하고, W를 누르면 입장한 Portal의 이름을 매개변수로 PlayerTeleportation을 호출.
     }
