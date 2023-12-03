@@ -22,6 +22,7 @@ TagManager:
   - TDArea
   - LRArea
   - trap
+  - Top
   layers:
   - Default
   - TransparentFX

@@ -11,11 +11,11 @@ public class PortalManager : MonoBehaviour
     private GameObject RoomManager;
     private GameObject Player;
     [SerializeField] GameObject roomManager;
+    [SerializeField] GameObject PlayerObj;
     
     
     private void Awake() {
         RoomManager = GameObject.Find("RoomManager");
-        Player = GameObject.Find("Player");
     }
     private void Start() {
         Vector2Int GridSize = RoomManager.GetComponent<RoomManager>().RoomGridSize;
@@ -26,12 +26,13 @@ public class PortalManager : MonoBehaviour
         float positionRevision = 3.6f;
         if(entry.CompareTag("Left")) {
             currentPlayerPosition.x--;
-            Room destination = RoomManager.GetComponent<RoomManager>().Teleport(currentPlayerPosition);
-            destination.gameObject.SetActive(true);
-            foreach(Transform objects in destination.transform) {
+            Room destination = RoomManager.GetComponent<RoomManager>().Teleport(currentPlayerPosition); //이거는 그 옆방 룸 자체 받아오는거에요
+            destination.gameObject.SetActive(true); //룸 활성화하고
+            foreach(Transform objects in destination.transform) {//네네 거기서 right만
                 if(objects.gameObject.CompareTag("Right")) {
                     Vector3 position = new Vector3(objects.position.x, objects.position.y + positionRevision, objects.position.z);
-                    Player.transform.position = position;
+                    Debug.Log("teleport");
+                    PlayerObj.transform.position = position; //네네
                 }
             }
         }
@@ -42,7 +43,7 @@ public class PortalManager : MonoBehaviour
             foreach (Transform objects in destination.transform) {
                 if (objects.gameObject.CompareTag("Left")) {
                     Vector3 position = new Vector3(objects.position.x, objects.position.y + positionRevision, objects.position.z);
-                    Player.transform.position = position;
+                    PlayerObj.transform.position = position;
                 }
             }
         }
@@ -53,7 +54,7 @@ public class PortalManager : MonoBehaviour
             foreach (Transform objects in destination.transform) {
                 if (objects.gameObject.CompareTag("Down")) {
                     Vector3 position = new Vector3(objects.position.x, objects.position.y + positionRevision, objects.position.z);
-                    Player.transform.position = position;
+                    PlayerObj.transform.position = position;
                 }
             }
         }
@@ -64,7 +65,7 @@ public class PortalManager : MonoBehaviour
             foreach (Transform objects in destination.transform) {
                 if (objects.gameObject.CompareTag("Up")) {
                     Vector3 position = new Vector3(objects.position.x, objects.position.y + positionRevision, objects.position.z);
-                    Player.transform.position = position;
+                    PlayerObj.transform.position = position;
                 }
             }
         }

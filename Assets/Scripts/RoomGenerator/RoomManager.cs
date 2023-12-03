@@ -8,7 +8,7 @@ public class RoomManager : MonoBehaviour {
     [SerializeField] GameObject[] roomPrefabList;
     [SerializeField] private int maxRooms = 15;
     [SerializeField] private int minRooms = 10;
-
+    
 
     int roomWidth = 100;
     int roomHeight = 80;
@@ -34,6 +34,7 @@ public class RoomManager : MonoBehaviour {
     private bool generationComplete = false;
 
     private bool checkOverlap = false;
+
    
     private void Start() { // 1번 방 생성
         player.SetActive(false);
