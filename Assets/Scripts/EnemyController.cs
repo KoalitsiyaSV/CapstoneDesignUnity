@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
     Animator anim;
     Rigidbody2D rigid;
 
-    [Header("����")]
+    [Header("Head")]
     public int ememy_Type;
     public int nextMove;    //�ٽ� �̵��ϴµ� �ɸ��� �ð�
     public float enemy_Life;
@@ -150,33 +150,32 @@ public class EnemyController : MonoBehaviour
     
     public void OnDamaged(int dmg)
     {
-        //dmg��ŭ ü�°���
+        //dmaged
         enemy_Life -= dmg;
         //gameObject.layer = ; //���� �ǰ� ���̾�
 
-        //�ǰݽ� ���� �����Ŵ
         spriteRenderer.color = new Color(1, 1, 1, 0.4f);
-        //�ش� �ð� �Ŀ� OffDamaged�߻�
         Invoke("OffDamaged", 1);
-        //anim.SetBool("Enemy_Damaged", true);
+        //anim.SetBool("Enemy_Damaged", true);//만약일반 몬스터라면 이거 필요, 보스몹에 지금은 없음
     }
     void OffDamaged()
     {
         spriteRenderer.color = new Color(1, 1, 1, 1);
-        //anim.SetBool("Enemy_Damaged", false);
+        //anim.SetBool("Enemy_Damaged", false);//만약일반 몬스터라면 이거 필요, 보스몹에 지금은 없음
     }
 
     void Enemy_Attack(Vector2 direction)
     {
         //Enemy is detect Player
         Vector2 rayStartPos = new Vector2(rigid.position.x - attackRayLength/2, rigid.position.y-0.4f);
-        //Debug.DrawRay(rayStartPos, Vector3.right * attackRayLength, Color.red);
+        Debug.DrawRay(rayStartPos, Vector3.right * attackRayLength, Color.red);
+        //Debug.Log("요기요");
         RaycastHit2D rayHit_attack = Physics2D.Raycast(rayStartPos, Vector3.right, attackRayLength, LayerMask.GetMask("Player")); //Layer�� Player�� ������Ʈ Ž��
         if (rayHit_attack.collider != null)
         {
             if (Vector2.Distance(transform.position, rayHit_attack.collider.transform.position) < enemy_AttackDistance)
             {
-                //�÷��̾��� ��ġ�� �� ��ǥ�� ���� ���� ����
+                //해당하는 플레이어에 따라 방향 변경
                 if((transform.position.x - rayHit_attack.collider.transform.position.x)> 0)
                 {
                     transform.localScale = new Vector2(1, 1);
@@ -185,9 +184,21 @@ public class EnemyController : MonoBehaviour
                 {
                     transform.localScale = new Vector2(-1, 1);
                 }
-                //shot bullet
-                anim.SetBool("Enemy_Attack", true);
-                Fire_Enemy(direction);
+                
+                if(ememy_Type == 2)//shot bullet
+                {
+                    anim.SetBool("Enemy_Attack", true);
+                    Fire_Enemy(direction);
+                }
+                if (ememy_Type == 3)
+                {
+                    int nextAttack = Random.Range(1, 3);
+                    if(nextAttack == 1)
+                        anim.SetBool("Enemy_Attack_1", true);
+                    else
+                        anim.SetBool("Enemy_Attack_2", true);
+                }
+
             }
             else
             {
