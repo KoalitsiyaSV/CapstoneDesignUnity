@@ -14,9 +14,14 @@ public class GameManager : MonoBehaviour
     public bool isAction;
     public int dialogueIndex;
 
+    //플레이어 스테이터스
     public float playerMaxHP { get; private set; }
     public float playerCurHP { get; private set; }
     public float playerHPRatio { get; private set; }
+    public float playerAttackPoint { get; private set; }
+    public float playerArmorPoint { get; private set; }
+    public float playerMovementSpeedScale { get; private set; }
+    public float playerPotionAmount { get; private set; }
 
     //싱글톤 인스턴스
     private static GameManager _instance = null;
@@ -41,8 +46,8 @@ public class GameManager : MonoBehaviour
     {
         //layerName끼리 충돌판정이 생기지 않도록 함
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Item"), LayerMask.NameToLayer("Item"));
-        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Item"));
-        Initialize();
+        //Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Item"));
+        InitializePlayerStatus();
     }
 
     private void Awake()
@@ -60,20 +65,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //초기화, 현재는 플레이어 체력 관리만 함
-    private void Initialize()
+    //초기화, 현재는 플레이어 체력 관리만 함 + 다른 스테이터스 추가 되었음. 장비 장착 등으로 인한 스테이터스 변화도 이걸 활용하면 가능할듯
+    private void InitializePlayerStatus()
     {
-        playerMaxHP = PlayerData.Instance.playerHP;
+        playerMaxHP = PlayerData.Instance.playerHealthPoint;
         playerCurHP = playerMaxHP;
         playerHPRatio = 100f;
+
+        playerAttackPoint = PlayerData.Instance.playerAttackPoint;
+        playerArmorPoint = PlayerData.Instance.playerArmorPoint;
+        playerMovementSpeedScale = PlayerData.Instance.playerMovementSpeedScale;
     }
 
+    //플레이어가 데미지를 받는 기능
     public void PlayerTakeDamage(int dmgAmount)
     {
         playerCurHP -= dmgAmount;
         playerHPRatio = (playerCurHP / playerMaxHP) * 100f;
     }
 
+    //대화를 시작하는 기능
     public void DialogueAction(ObjectData objectData)
     {
         Talk(objectData.id);
@@ -81,6 +92,7 @@ public class GameManager : MonoBehaviour
         dialoguePanel.SetActive(isAction);
     }
     
+    //npcId에 해당하는 npc와 대화하는 기능
     private void Talk(int npcId)
     {
         string dialogueData = dialogueManager.GetDialogue(npcId, dialogueIndex);
@@ -102,6 +114,7 @@ public class GameManager : MonoBehaviour
         dialogueIndex++;
     }
 
+    //씬 변경
     public void SceneChange(int changeSceneIndex)
     {
         SceneManager.LoadScene(changeSceneIndex);

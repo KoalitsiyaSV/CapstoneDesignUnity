@@ -23,6 +23,7 @@ TagManager:
   - LRArea
   - trap
   - Top
+  - FieldItem
   layers:
   - Default
   - TransparentFX

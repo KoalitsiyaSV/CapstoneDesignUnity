@@ -74,6 +74,20 @@ public class PlayerMoveController : MonoBehaviour
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("FieldItem"))
+        {
+            Debug.Log("Item Detected");
+            
+            FieldItem fieldItem = collision.GetComponent<FieldItem>();
+
+            if (fieldItem.canPickUp)
+            {
+                fieldItem.item.use();
+
+                fieldItem.DestroyItem();
+            }
+        }
+
         //if (collision.CompareTag("Platform"))
         //{
         //    //playerAnimator.SetBool("isJump", false);
@@ -94,12 +108,25 @@ public class PlayerMoveController : MonoBehaviour
         //}
     }
 
-    protected void OnTriggerExit2D(Collider2D collision)
+    protected void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Platform"))
         {
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, false);
-            //if (colliderComponents[0].isTrigger) ReverseTrigger();
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, true);
+        }
+
+        if (collision.CompareTag("FieldItem"))
+        {
+            Debug.Log("Item Stay Detected");
+
+            FieldItem fieldItem = collision.GetComponent<FieldItem>();
+
+            if (fieldItem.canPickUp)
+            {
+                fieldItem.item.use();
+
+                fieldItem.DestroyItem();
+            }
         }
     }
 
@@ -181,14 +208,6 @@ public class PlayerMoveController : MonoBehaviour
 
             playerAnimator.SetBool("isWalk", false);
             playerAnimator.SetBool("isRun", false);
-        }
-    }
-
-    protected void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Platform"))
-        {
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, true);
         }
     }
 
