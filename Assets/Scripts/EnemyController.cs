@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using Unity.VisualScripting;
+
 //using System.Diagnostics;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
@@ -14,7 +16,7 @@ public class EnemyController : MonoBehaviour
     Animator anim;
     Rigidbody2D rigid;
 
-    [Header("����")]
+    [Header("Head")]
     public int ememy_Type;
     public int nextMove;    //�ٽ� �̵��ϴµ� �ɸ��� �ð�
     public float enemy_Life;
@@ -33,9 +35,10 @@ public class EnemyController : MonoBehaviour
     public GameObject bullet_E;         
     public float bullet_E_Speed;
     public Transform bullet_Pos;
-    
-    //public Sprite[] sprites;//���� Enemy�߰��� ����� Sprite�迭
-
+    //test1203
+    public bool E_follow= false;
+    public bool E_attacked = false;
+    public bool Is_Attacked = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -47,14 +50,14 @@ public class EnemyController : MonoBehaviour
 
     //void Update() //�� �����Ӹ��� ȣ��
     //{
-    //   
+    //    
     //}
 
     void FixedUpdate()//���� ���� ������Ʈ �ֱ�� ����ȭ => �ַ� ���� ���� ���� �۾��� ���� => �ð� ������ �����ϰ� �����Ǹ�, ������ ����Ʈ�� ������ ���� ����
     {
         Destroy_Enemy();
         Enemy_Relode();
-
+        TransformAnim();
         Vector2 EnemyDirection = Vector2.left;
         if (transform.localScale.x < 0)
         {
@@ -66,6 +69,7 @@ public class EnemyController : MonoBehaviour
         }
 
         Enemy_Attack(EnemyDirection);
+
         if (ememy_Type == 1)
         {
             //�̰ɷ� �����̴°� ��� ������Ʈ �ϸ鼭 �̵���Ŵ, Move
@@ -96,7 +100,7 @@ public class EnemyController : MonoBehaviour
 
     private void TransformAnim()
     {
-        if (nextMove > 0)
+        /*if (nextMove > 0)
         {
             transform.localScale = new Vector2(1, 1);
             anim.SetBool("isWalk", true);
@@ -109,9 +113,64 @@ public class EnemyController : MonoBehaviour
         else if (nextMove == 0)
         {
             anim.SetBool("isWalk", false);
+        }*/
+        
+
+        if (E_follow)
+        {
+            anim.SetBool("Enemy_Walk", true);
+        }
+        else
+        {
+            anim.SetBool("Enemy_Walk", false);
+        }
+
+        if (Is_Attacked == true)
+        {
+            if(anim.GetBool("Enemy_Attack_1")==false && anim.GetBool("Enemy_Attack_2") == false)
+            {
+                anim.SetBool("Enemy_Walk", true);
+                Is_Attacked = false;
+            }
+        }
+        /*
+        if (anim.GetBool("Enemy_Attack_1") == false && anim.GetBool("Enemy_Attack_2") == false && E_attacked == false)
+        {
+            Debug.Log("action");
+            anim.SetBool("Enemy_Walk", false);
+        } 
+         */
+
+        //if (anim.GetBool("Enemy_Attack_1") && anim.GetBool("Enemy_Attack_2") == false)
+        //{
+        //    anim.SetBool("Enemy_walk", false);
+        //}
+
+        //if (Mathf.Abs(rigid.velocity.x) < 0.2f)
+        //    anim.SetBool("Enemy_walk", false);
+        //else
+        //    anim.SetBool("Enemy_walk", true);
+    }
+    private void anim_Attack()//해당하는 메소드는 에니메이터에서 이벤트를 통해서 호출하는중
+    {
+        if (E_attacked && anim.GetBool("Enemy_Attack_1"))
+        {
+            
+            E_attacked = false;
+            anim.SetBool("Enemy_Attack_1", false);
+            anim.SetBool("Enemy_Attack_2", false);
+            anim.SetBool("Enemy_Walk", true);
+            Debug.Log("action");
+        }
+        else if (E_attacked && anim.GetBool("Enemy_Attack_2"))
+        {
+            E_attacked = false;
+            anim.SetBool("Enemy_Attack_1", false);
+            anim.SetBool("Enemy_Attack_2", false);
+            anim.SetBool("Enemy_Walk", true);
+            Debug.Log("action");
         }
     }
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -150,34 +209,37 @@ public class EnemyController : MonoBehaviour
     
     public void OnDamaged(int dmg)
     {
-        //dmg��ŭ ü�°���
+        //dmaged
         enemy_Life -= dmg;
         //gameObject.layer = ; //���� �ǰ� ���̾�
 
-        //�ǰݽ� ���� �����Ŵ
         spriteRenderer.color = new Color(1, 1, 1, 0.4f);
-        //�ش� �ð� �Ŀ� OffDamaged�߻�
         Invoke("OffDamaged", 1);
-        //anim.SetBool("Enemy_Damaged", true);
+        //anim.SetBool("Enemy_Damaged", true);//만약일반 몬스터라면 이거 필요, 보스몹에 지금은 없음
     }
     void OffDamaged()
     {
         spriteRenderer.color = new Color(1, 1, 1, 1);
-        //anim.SetBool("Enemy_Damaged", false);
+        //anim.SetBool("Enemy_Damaged", false);//만약일반 몬스터라면 이거 필요, 보스몹에 지금은 없음
     }
 
     void Enemy_Attack(Vector2 direction)
     {
         //Enemy is detect Player
         Vector2 rayStartPos = new Vector2(rigid.position.x - attackRayLength/2, rigid.position.y-0.4f);
-        //Debug.DrawRay(rayStartPos, Vector3.right * attackRayLength, Color.red);
+        Debug.DrawRay(rayStartPos, Vector3.right * attackRayLength, Color.red);
+        
         RaycastHit2D rayHit_attack = Physics2D.Raycast(rayStartPos, Vector3.right, attackRayLength, LayerMask.GetMask("Player")); //Layer�� Player�� ������Ʈ Ž��
+        
         if (rayHit_attack.collider != null)
         {
+
+            int nextAttack = Random.Range(1, 3);
             if (Vector2.Distance(transform.position, rayHit_attack.collider.transform.position) < enemy_AttackDistance)
             {
-                //�÷��̾��� ��ġ�� �� ��ǥ�� ���� ���� ����
-                if((transform.position.x - rayHit_attack.collider.transform.position.x)> 0)
+                E_follow = false;//해당하는 범위에 들어왔으니 Idle
+                //해당하는 플레이어에 따라 방향 변경
+                if ((transform.position.x - rayHit_attack.collider.transform.position.x)> 0)
                 {
                     transform.localScale = new Vector2(1, 1);
                 }
@@ -185,15 +247,47 @@ public class EnemyController : MonoBehaviour
                 {
                     transform.localScale = new Vector2(-1, 1);
                 }
-                //shot bullet
-                anim.SetBool("Enemy_Attack", true);
-                Fire_Enemy(direction);
+                
+                if(ememy_Type == 2)//shot bullet
+                {
+                    anim.SetBool("Enemy_Attack", true);
+                    Fire_Enemy(direction);
+                }
+
+                if (ememy_Type == 3)//보스몹 근접공격
+                {
+                    if (enemy_Attack_Delay <= max_Attack_Delay)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        E_attacked = true;
+                        //Debug.Log("ee");
+                        if (nextAttack == 1)
+                        {
+                            anim.SetBool("Enemy_Attack_2", true);
+                            enemy_Attack_Delay = 0;
+                        }
+                        else
+                        {
+                            anim.SetBool("Enemy_Attack_1", true);
+                            enemy_Attack_Delay = 0;
+                        }
+                    }
+                    //anim_Attack();
+                }
+
             }
-            else
+            else//만약 공격 사거리 내부에 적이 없다면, 따라간다.
             {
+                E_follow = true;//해당하는 범위로 가기위해 walk
                 //Enemy follow Player
-                Vector3 targetPos = new Vector3(rayHit_attack.collider.transform.position.x, transform.position.y, transform.position.z);
-                transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * enemy_Move_Speed);
+                if (!E_attacked)//만약공격을 하고 있다면 멈취야 하기 때문에, 공격중이 아닐 경우에만 움직이게 함
+                {
+                    Vector3 targetPos = new Vector3(rayHit_attack.collider.transform.position.x, transform.position.y, transform.position.z);
+                    transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * enemy_Move_Speed);
+                }
             }
         }
     }
@@ -218,9 +312,8 @@ public class EnemyController : MonoBehaviour
         bullet_Enemy.eb_dmg = enemy_Attack_dmg;
         rigid_B.velocity = direction * bullet_E_Speed;
         enemy_Attack_Delay = 0;
-        anim.SetBool("Enemy_Attack", false);
+        //anim.SetBool("Enemy_Attack", false);
     }
-
     void Enemy_Relode()
     {
         enemy_Attack_Delay += Time.deltaTime;
