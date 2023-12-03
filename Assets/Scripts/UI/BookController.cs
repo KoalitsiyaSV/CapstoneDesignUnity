@@ -18,7 +18,7 @@ public class BookController : MonoBehaviour
     private Transform previousBtn;
     private Transform nextBtn;
 
-    //¸ñÂ÷ = page 0, ÀÎº¥Åä¸® = page 1, ½ºÅ×ÀÌÅÍ½º = page 2, ½ºÅ³ = page 3, ¼³Á¤Ã¢ = page 4(last)
+    //ï¿½ï¿½ï¿½ï¿½ = page 0, ï¿½Îºï¿½ï¿½ä¸® = page 1, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í½ï¿½ = page 2, ï¿½ï¿½Å³ = page 3, ï¿½ï¿½ï¿½ï¿½Ã¢ = page 4(last)
     private Transform[] pages;
     private Transform iventoryPage;
 
@@ -44,11 +44,11 @@ public class BookController : MonoBehaviour
         previousBtn.gameObject.SetActive(false);
         nextBtn.gameObject.SetActive(false);
 
-        for(int i = 0; i < 5; i++)
+        for (int i = 0; i < 5; i++)
         {
             pages[i].gameObject.SetActive(false);
         }
-        
+
     }
 
     private void OnEnable()
@@ -113,7 +113,7 @@ public class BookController : MonoBehaviour
 
     private void BookOpen()
     {
-        animator.SetBool("isOpen",true);
+        animator.SetBool("isOpen", true);
     }
 
     public void BookClose()
@@ -163,9 +163,9 @@ public class BookController : MonoBehaviour
     {
         bookPage = page;
 
-        if(reverse)
+        if (reverse)
             if (!animator.GetBool("isReverse")) animator.SetBool("isReverse", true);
-        else
+            else
             if (animator.GetBool("isReverse")) animator.SetBool("isReverse", false);
 
         ControlCurrentPage();
@@ -186,15 +186,15 @@ public class BookController : MonoBehaviour
         previousBtn.gameObject.SetActive(true);
     }
 
-    private void ActivateNextBtn() 
-    {  
+    private void ActivateNextBtn()
+    {
         nextBtn.gameObject.SetActive(true);
     }
 
-    // ¾Ö´Ï¸ÞÀÌ¼Ç Å¬¸³ ÀÌº¥Æ®¿¡¼­ »ç¿ë
+    // ì• ë‹ˆë©”ì´ì…˜ í´ë¦½ ì´ë²¤íŠ¸ì—ì„œ ì‚¬ìš©
     private void RepeatCount()
     {
-        if(animator.GetBool("isReverse"))
+        if (animator.GetBool("isReverse"))
         {
             currentRepeatCount++;
         }
@@ -206,7 +206,7 @@ public class BookController : MonoBehaviour
 
     private void ControlCurrentPage()
     {
-        for(int i = 0; i < 5; i++)
+        for (int i = 0; i < 5; i++)
         {
             pages[i].gameObject.SetActive(false);
         }
