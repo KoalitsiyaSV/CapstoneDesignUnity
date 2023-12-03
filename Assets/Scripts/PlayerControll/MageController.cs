@@ -111,6 +111,6 @@ public class MageController : PlayerController
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(BoxPos.position, BoxSize);
+        //Gizmos.DrawWireCube(BoxPos.position, BoxSize);
     }
 }
