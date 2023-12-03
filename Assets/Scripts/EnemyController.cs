@@ -138,7 +138,6 @@ public class EnemyController : MonoBehaviour
             Destroy(gameObject);//���� ��ü �ı�
         }
     }
-
     void OnTriggerEnter2D(Collider2D collision)//�浹 �߻��� Enemy�� Enemy_Life ����
     {
         if (collision.gameObject.tag == "Bullet")
