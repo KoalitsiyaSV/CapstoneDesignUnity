@@ -46,7 +46,8 @@ public class GameManager : MonoBehaviour
     {
         //layerName끼리 충돌판정이 생기지 않도록 함
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Item"), LayerMask.NameToLayer("Item"));
-        //Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Item"));
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Item"));
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerMovement"), LayerMask.NameToLayer("Enemy"));
         InitializePlayerStatus();
     }
 

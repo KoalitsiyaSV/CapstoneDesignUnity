@@ -18,7 +18,6 @@ public class EnemyController : MonoBehaviour
     protected Collider2D[] enemyColliderComponents;
 
     [Header("Head")]
-    public int enemyType;
     public int nextMove;    //�ٽ� �̵��ϴµ� �ɸ��� �ð�
     public float enemy_Life;
     public float raycastLength;
@@ -32,10 +31,11 @@ public class EnemyController : MonoBehaviour
     public int enemy_Attack_dmg;
     //Long Distance Attack
     //public float enemy_Distance;
+    [Header("Enemy Type")]
+    [SerializeField] protected int enemyType; //0 = Patrol, 1 = Sleep
 
     [Header("Enemy Status")]
     public float enemyAttackRange;//Enemy ���ݻ�Ÿ�
-    public float enemyAttackCoolTime;  //���� ������
     public float max_Attack_Delay;    //���� �ְ� ���� ������
     public GameObject bullet_E;         
     public float bullet_E_Speed;
@@ -48,10 +48,18 @@ public class EnemyController : MonoBehaviour
     //public bool Is_Attacked = false;
 
     [Header("Enemy Action Control")]
-    [SerializeField] protected bool enemyDirection;//true = 오른쪽을 바라봄, false = 왼쪽을 바라봄
+    [SerializeField] protected bool enemyDirection = false;//true = 오른쪽을 바라봄, false = 왼쪽을 바라봄
     [SerializeField] protected Transform targetObj;
     [SerializeField] protected bool isAction = false;
     [SerializeField] protected bool canAttack = true;
+    protected int enemyPatternCount;
+    protected float enemyAttackCooldown;
+    protected float enemyAttackCoolTime;
+
+    //[Header("Patrol Test")]
+    //[SerializeField] float enemyPatrolWaitTime;
+    //[SerializeField] float enemyPatrolTime;
+    //protected Transform patrolSpot;
 
     // Start is called before the first frame update
     protected virtual void Awake()
@@ -60,6 +68,9 @@ public class EnemyController : MonoBehaviour
         enemyAnimator = GetComponent<Animator>();
         enemyRigidbody = GetComponent<Rigidbody2D>();
         enemyColliderComponents = GetComponents<Collider2D>();
+
+        //enemyPatrolTime = enemyPatrolWaitTime;
+        //patrolSpot.position = new Vector2(Random.Range(-5,5), transform.position.y);
     }
 
     //void Update() //�� �����Ӹ��� ȣ��
@@ -70,7 +81,9 @@ public class EnemyController : MonoBehaviour
     void FixedUpdate()//���� ���� ������Ʈ �ֱ�� ����ȭ => �ַ� ���� ���� ���� �۾��� ���� => �ð� ������ �����ϰ� �����Ǹ�, ������ ����Ʈ�� ������ ���� ����
     {
         Destroy_Enemy();
+
         Enemy_Relode();
+
         TransformAnim();
         
         //Vector2 EnemyDirection = Vector2.left;
@@ -83,27 +96,37 @@ public class EnemyController : MonoBehaviour
         //    EnemyDirection = Vector2.left;
         //}
 
-        OnDetectPlayer();
+        AfterPlayerDetect();
 
-        if (enemyType == 1)
-        {
-            //�̰ɷ� �����̴°� ��� ������Ʈ �ϸ鼭 �̵���Ŵ, Move
-            enemyRigidbody.velocity = new Vector2(nextMove, enemyRigidbody.velocity.y);
+        //if (targetObj == null)
+        //{
+        //    if (enemyType == 0)
+        //    {
+        //        Patrol();
+        //    }
+        //}
+        //else
+        //    AfterPlayerDetect();
 
-            //���� ���̱� �κ�, PlatForm Check
-            Vector2 frontVec = new Vector2(enemyRigidbody.position.x + nextMove * 0.3f, enemyRigidbody.position.y);//�̰ɷ� ��ġ���� ���� ����
-            //RayCast ����
-            Debug.DrawRay(frontVec, Vector3.down, new Color(0, 1, 0));
-            //���̿� ���� ���� ������ ����
-            RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, raycastLength, LayerMask.GetMask("Default")); //Default�� �ӽ� ����
-            if (rayHit.collider == null)    //�տ� Platform�̸��� Ÿ���� ����(null)
-            {
-                //Debug.Log("��������");
-                nextMove *= -1;
-                CancelInvoke();
-                Invoke("Think", 2);
-            }
-        }
+        //if (enemyType == 1)
+        //{
+        //    //�̰ɷ� �����̴°� ��� ������Ʈ �ϸ鼭 �̵���Ŵ, Move
+        //    enemyRigidbody.velocity = new Vector2(nextMove, enemyRigidbody.velocity.y);
+
+        //    //���� ���̱� �κ�, PlatForm Check
+        //    Vector2 frontVec = new Vector2(enemyRigidbody.position.x + nextMove * 0.3f, enemyRigidbody.position.y);//�̰ɷ� ��ġ���� ���� ����
+        //    //RayCast ����
+        //    Debug.DrawRay(frontVec, Vector3.down, new Color(0, 1, 0));
+        //    //���̿� ���� ���� ������ ����
+        //    RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, raycastLength, LayerMask.GetMask("Default")); //Default�� �ӽ� ����
+        //    if (rayHit.collider == null)    //�տ� Platform�̸��� Ÿ���� ����(null)
+        //    {
+        //        //Debug.Log("��������");
+        //        nextMove *= -1;
+        //        CancelInvoke();
+        //        Invoke("Think", 2);
+        //    }
+        //}
     }
 
     void Think()
@@ -224,11 +247,11 @@ public class EnemyController : MonoBehaviour
             OnHit(bullet.dmg);
             Destroy(collision.gameObject);//�÷��̾��� �Ѿ��� �����Ѵ�
         }
-        if (enemyColliderComponents[1].isActiveAndEnabled && collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Player Hit");
-            GameManager.Instance.PlayerTakeDamage(10);
-        }
+        //if (enemyColliderComponents[1].isActiveAndEnabled && collision.gameObject.CompareTag("Player"))
+        //{
+        //    Debug.Log("Player Hit");
+        //    GameManager.Instance.PlayerTakeDamage(10);
+        //}
     }
     
     public void OnDamaged(int dmg)
@@ -247,7 +270,7 @@ public class EnemyController : MonoBehaviour
         //anim.SetBool("Enemy_Damaged", false);//만약일반 몬스터라면 이거 필요, 보스몹에 지금은 없음
     }
 
-    protected void OnDetectPlayer()
+    protected void AfterPlayerDetect()
     {
         //Enemy is detect Player
         if (targetObj == null)
@@ -312,34 +335,58 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void SightRange()
-    {
-        Vector2 rayStartPos = new Vector2(enemySightStartPoint, enemyRigidbody.position.y - 0.4f);
-        Debug.DrawRay(rayStartPos, Vector3.left * attackRayLength, Color.red);
+    //private void Patrol()
+    //{
+    //    if (targetObj != null)
+    //        return;
 
-        RaycastHit2D rayHit_attack = Physics2D.Raycast(rayStartPos, Vector3.left, attackRayLength, LayerMask.GetMask("Player"));
-        targetObj = rayHit_attack.transform;
-    }
+    //    transform.position = Vector2.MoveTowards(transform.position, patrolSpot.position, enemy_Move_Speed * Time.deltaTime);
+
+    //    if(Vector2.Distance(transform.position, patrolSpot.position) < 0.2)
+    //    {
+    //        if(enemyPatrolTime <= 0)
+    //        {
+    //            patrolSpot.position = new Vector2(Random.Range(-5, 5), transform.position.y);
+    //            enemyPatrolTime = enemyPatrolWaitTime;
+    //        }
+    //        else
+    //        {
+    //            enemyPatrolTime -= Time.deltaTime;
+    //        }
+    //    }
+
+    //    SightRange();
+    //}
 
     //private void SightRange()
     //{
-    //    if (enemyDirection)
-    //    {
-    //        Vector2 rayStartPos = new Vector2(-enemySightStartPoint, enemyRigidbody.position.y - 0.4f);
-    //        Debug.DrawRay(rayStartPos, Vector3.right * attackRayLength, Color.red);
+    //    Vector2 rayStartPos = new Vector2(enemySightStartPoint, enemyRigidbody.position.y - 0.4f);
+    //    Debug.DrawRay(rayStartPos, Vector3.left * attackRayLength, Color.red);
 
-    //        RaycastHit2D rayHit_attack = Physics2D.Raycast(rayStartPos, Vector3.right, attackRayLength, LayerMask.GetMask("Player"));
-    //        targetObj = rayHit_attack.transform;
-    //    }
-    //    else
-    //    {
-    //        Vector2 rayStartPos = new Vector2(enemySightStartPoint, enemyRigidbody.position.y - 0.4f);
-    //        Debug.DrawRay(rayStartPos, Vector3.left * attackRayLength, Color.red);
-
-    //        RaycastHit2D rayHit_attack = Physics2D.Raycast(rayStartPos, Vector3.left, attackRayLength, LayerMask.GetMask("Player"));
-    //        targetObj = rayHit_attack.transform;
-    //    }
+    //    RaycastHit2D rayHit_attack = Physics2D.Raycast(rayStartPos, Vector3.left, attackRayLength, LayerMask.GetMask("Player"));
+    //    targetObj = rayHit_attack.transform;
     //}
+
+    //적 시야 범위
+    private void SightRange()
+    {
+        if (!enemyDirection)
+        {
+            Vector2 rayStartPos = new Vector2(enemyRigidbody.position.x + 4f, enemyRigidbody.position.y - 0.4f);
+            Debug.DrawRay(rayStartPos, Vector3.left * attackRayLength, Color.red);
+
+            RaycastHit2D rayHit_attack = Physics2D.Raycast(rayStartPos, Vector3.left, attackRayLength, LayerMask.GetMask("Player"));
+            targetObj = rayHit_attack.transform;
+        }
+        else
+        {
+            Vector2 rayStartPos = new Vector2(enemyRigidbody.position.x - 4f, enemyRigidbody.position.y - 0.4f);
+            Debug.DrawRay(rayStartPos, Vector3.right * attackRayLength, Color.red);
+
+            RaycastHit2D rayHit_attack = Physics2D.Raycast(rayStartPos, Vector3.right, attackRayLength, LayerMask.GetMask("Player"));
+            targetObj = rayHit_attack.transform;
+        }
+    }
 
     private void EnemyDirectionChange()
     {
@@ -357,17 +404,31 @@ public class EnemyController : MonoBehaviour
 
     protected virtual void StartAttackAnim()
     {
-        Debug.Log("Attack Start");
-        enemyAnimator.SetBool("Enemy_Attack_1", true);
+        int rnd = Random.Range(1, enemyPatternCount + 1);
 
-        StartCoroutine(EnemyAttackCoolDown(5f));
+        enemyAnimator.SetInteger("EnemyAttack", rnd);
+
+        StartCoroutine(EnemyAttackCoolDown(enemyAttackCooldown));
     }
 
     protected virtual void EndAttackAnim()
     {
-        Debug.Log("Attack End");
-        enemyAnimator.SetBool("Enemy_Attack_1", false);
+        enemyAnimator.SetInteger("EnemyAttack", 0);
     }
+
+    //protected virtual void StartAttackAnim()
+    //{
+    //    Debug.Log("Attack Start");
+    //    enemyAnimator.SetBool("Enemy_Attack_1", true);
+
+    //    StartCoroutine(EnemyAttackCoolDown(5f));
+    //}
+
+    //protected virtual void EndAttackAnim()
+    //{
+    //    Debug.Log("Attack End");
+    //    enemyAnimator.SetBool("Enemy_Attack_1", false);
+    //}
 
     protected IEnumerator EnemyAttackCoolDown(float attackCooldown)
     {
