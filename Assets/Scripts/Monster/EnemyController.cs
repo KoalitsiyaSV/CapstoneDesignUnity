@@ -270,7 +270,7 @@ public class EnemyController : MonoBehaviour
         //anim.SetBool("Enemy_Damaged", false);//만약일반 몬스터라면 이거 필요, 보스몹에 지금은 없음
     }
 
-    protected void AfterPlayerDetect()
+    protected virtual void AfterPlayerDetect()
     {
         //Enemy is detect Player
         if (targetObj == null)
@@ -327,12 +327,17 @@ public class EnemyController : MonoBehaviour
                 //E_follow = true;//해당하는 범위로 가기위해 walk
                 if (!isAction)//만약공격을 하고 있다면 멈취야 하기 때문에, 공격중이 아닐 경우에만 움직이게 함
                 {
-                    enemyAnimator.SetBool("Enemy_Walk", true);
-                    Vector3 targetPos = new Vector3(targetObj.position.x, transform.position.y, transform.position.z);
-                    transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * enemy_Move_Speed);
+                    MoveToPlayer();
                 }
             }
         }
+    }
+
+    protected virtual void MoveToPlayer()
+    {
+        enemyAnimator.SetBool("Enemy_Walk", true);
+        Vector3 targetPos = new Vector3(targetObj.position.x, transform.position.y, transform.position.z);
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * enemy_Move_Speed);
     }
 
     //private void Patrol()
@@ -368,7 +373,7 @@ public class EnemyController : MonoBehaviour
     //}
 
     //적 시야 범위
-    private void SightRange()
+    protected void SightRange()
     {
         if (!enemyDirection)
         {
@@ -388,7 +393,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void EnemyDirectionChange()
+    protected void EnemyDirectionChange()
     {
         if (transform.position.x > targetObj.position.x)
         {
@@ -430,8 +435,9 @@ public class EnemyController : MonoBehaviour
     //    enemyAnimator.SetBool("Enemy_Attack_1", false);
     //}
 
-    protected IEnumerator EnemyAttackCoolDown(float attackCooldown)
+    protected virtual IEnumerator EnemyAttackCoolDown(float attackCooldown)
     {
+        Debug.Log("Attack!");
         isAction = true;
         yield return new WaitForSeconds(attackCooldown);
 
