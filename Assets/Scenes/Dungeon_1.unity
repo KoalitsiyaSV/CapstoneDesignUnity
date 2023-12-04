@@ -619,7 +619,7 @@ Camera:
   far clip plane: 1000
   field of view: 90
   orthographic: 1
-  orthographic size: 2.9375
+  orthographic size: 14.0625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -919,6 +919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPrefab: {fileID: 8935833585645702381, guid: 678e772a6f380d9448cc998522ec9826, type: 3}
+  bossRoomPrefab: {fileID: 2190125934631680944, guid: 84ddb50c824efbe419da45d455d5b9fd, type: 3}
   roomPrefabList:
   - {fileID: 1973053890141088810, guid: cebf53f752db67d46afe488d43d4097d, type: 3}
   - {fileID: 7215289173510601495, guid: 953c0d1c332f03440b5b6dff91631995, type: 3}
