@@ -8,6 +8,7 @@ public class ChestInterationDetector : PlayerDetector
 {
     [Header("Chest Data")]
     [SerializeField] GameObject[] items;
+    private Collider2D chestCollider;
 
     [Header("Spawn Effect")]
     [SerializeField] float spawnForce = 6f;
@@ -21,7 +22,8 @@ public class ChestInterationDetector : PlayerDetector
     {
         base.Start();
 
-        anim = GetComponent<Animator>();        
+        anim = GetComponent<Animator>();
+        chestCollider = GetComponent<Collider2D>();
     }
 
     //targetObject가 있다면, F키를 누르면 상자 열림
@@ -45,6 +47,7 @@ public class ChestInterationDetector : PlayerDetector
 
         //더 이상 상호작용 불
         Destroy(overheadImage.gameObject);
+        chestCollider.enabled = false;
 
         anim.SetFloat("Speed", 1f);
 
@@ -61,15 +64,15 @@ public class ChestInterationDetector : PlayerDetector
             return;
         }
 
-        int rnd = Random.Range(0, items.Length);
         float rndForceHorizontal = Random.Range(-2f, 2f);
         
         Vector2 spawnPoint = transform.position;
         Vector2 randomForce = new Vector2(rndForceHorizontal, spawnForce);
 
         //랜덤한 아이템을 스폰하고 수평으로 랜덤한 값의 힘을 가하고 정해진 값만큼 아래에서 위로 힘을 가함
-        GameObject spawnItem = Instantiate(items[rnd], spawnPoint, Quaternion.identity);
+        GameObject spawnItem = Instantiate(ItemDatabase.instance.fieldItemPrefab, spawnPoint, Quaternion.identity);
         Rigidbody2D itemRigidbody = spawnItem.GetComponent<Rigidbody2D>();
+        spawnItem.GetComponent<FieldItem>().SetItem(ItemDatabase.instance.itemDB[Random.Range(0, 5)]);
 
         if (itemRigidbody != null)
         {
@@ -78,7 +81,5 @@ public class ChestInterationDetector : PlayerDetector
         }
         else
             Debug.Log("Spawned Item Does Not Have A Rigidbody Component");
-
-        Debug.Log("Item " + rnd + " Dropped!");
     }
 }
