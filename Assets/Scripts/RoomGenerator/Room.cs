@@ -97,11 +97,9 @@ public class Room : MonoBehaviour {
 
     bool isEnemyInRoom() {
         if (GameObject.FindGameObjectWithTag("Enemy") != null) {
-            Debug.Log("Enemy Detected");
             return true;
         }
         else {
-            Debug.Log("No Enemy Detected");
             return false;
         }
 
