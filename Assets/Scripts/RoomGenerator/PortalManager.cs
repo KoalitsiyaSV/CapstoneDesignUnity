@@ -23,51 +23,36 @@ public class PortalManager : MonoBehaviour
         currentPlayerPosition = playerSpawnPoint;
     }
     public void PlayerTeleportation(GameObject entry) {
+        string exit = SwitchDirection(entry.tag);
         float positionRevision = 3.6f;
         if(entry.CompareTag("Left")) {
             currentPlayerPosition.x--;
-            Room destination = RoomManager.GetComponent<RoomManager>().Teleport(currentPlayerPosition); //이거는 그 옆방 룸 자체 받아오는거에요
-            destination.gameObject.SetActive(true); //룸 활성화하고
-            foreach(Transform objects in destination.transform) {//네네 거기서 right만
-                if(objects.gameObject.CompareTag("Right")) {
-                    Vector3 position = new Vector3(objects.position.x, objects.position.y + positionRevision, objects.position.z);
-                    Debug.Log("teleport");
-                    PlayerObj.transform.position = position; //네네
-                }
-            }
         }
         else if (entry.CompareTag("Right")) {
             currentPlayerPosition.x++;
-            Room destination = RoomManager.GetComponent<RoomManager>().Teleport(currentPlayerPosition);
-            destination.gameObject.SetActive(true);
-            foreach (Transform objects in destination.transform) {
-                if (objects.gameObject.CompareTag("Left")) {
-                    Vector3 position = new Vector3(objects.position.x, objects.position.y + positionRevision, objects.position.z);
-                    PlayerObj.transform.position = position;
-                }
-            }
         }
         else if (entry.CompareTag("Up")) {
-            currentPlayerPosition.y++;
-            Room destination = RoomManager.GetComponent<RoomManager>().Teleport(currentPlayerPosition);
-            destination.gameObject.SetActive(true);
-            foreach (Transform objects in destination.transform) {
-                if (objects.gameObject.CompareTag("Down")) {
-                    Vector3 position = new Vector3(objects.position.x, objects.position.y + positionRevision, objects.position.z);
-                    PlayerObj.transform.position = position;
-                }
-            }
+            currentPlayerPosition.y++;  
         }
         else if (entry.CompareTag("Down")) {
             currentPlayerPosition.y--;
-            Room destination = RoomManager.GetComponent<RoomManager>().Teleport(currentPlayerPosition);
-            destination.gameObject.SetActive(true);
-            foreach (Transform objects in destination.transform) {
-                if (objects.gameObject.CompareTag("Up")) {
-                    Vector3 position = new Vector3(objects.position.x, objects.position.y + positionRevision, objects.position.z);
-                    PlayerObj.transform.position = position;
-                }
+        }
+        Room destination = RoomManager.GetComponent<RoomManager>().Teleport(currentPlayerPosition);
+        destination.gameObject.SetActive(true);
+        foreach (Transform objects in destination.transform) {
+            if (objects.gameObject.CompareTag(exit)) {
+                Vector3 position = new Vector3(objects.position.x, objects.position.y + positionRevision, objects.position.z);
+                PlayerObj.transform.position = position;
             }
+        }
+    }
+    private string SwitchDirection(string inputDirection) {
+        switch (inputDirection) {
+            case "Left": return "Right";
+            case "Right": return "Left";
+            case "Up": return "Down";
+            case "Down": return "Up";
+            default: return "UNKNOWN DIRECTION";
         }
     }
 }
