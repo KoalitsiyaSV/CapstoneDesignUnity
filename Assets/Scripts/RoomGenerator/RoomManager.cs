@@ -5,18 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class RoomManager : MonoBehaviour {
     [SerializeField] GameObject roomPrefab;
+    [SerializeField] GameObject bossRoomPrefab;
     [SerializeField] GameObject[] roomPrefabList;
-    [SerializeField] private int maxRooms = 15;
-    [SerializeField] private int minRooms = 10;
-
+    [SerializeField] private int maxRooms = 14;
+    [SerializeField] private int minRooms = 14;
+    
 
     int roomWidth = 100;
     int roomHeight = 80;
 
     int[] roomPrefabCount;
 
-    [SerializeField] int gridSizeX = 15;
-    [SerializeField] int gridSizeY = 15;
+    [SerializeField] int gridSizeX = 17;
+    [SerializeField] int gridSizeY = 17;
     [SerializeField] GameObject player;
 
     public Vector2Int RoomGridSize { 
@@ -30,10 +31,11 @@ public class RoomManager : MonoBehaviour {
     private int[,] roomGrid; //모든 방은 roomGrid안에 생성됨
 
     private int roomCount;
-
     private bool generationComplete = false;
+    private bool bossGenerationComplete = false;
 
     private bool checkOverlap = false;
+
    
     private void Start() { // 1번 방 생성
         player.SetActive(false);
@@ -55,11 +57,12 @@ public class RoomManager : MonoBehaviour {
             TryGenerateRoom(new Vector2Int(gridX, gridY + 1));
             TryGenerateRoom(new Vector2Int(gridX, gridY - 1));
         }
-        else if (roomCount < minRooms) {
+        else if (roomCount < maxRooms) {
             Debug.Log("RoomCount was less than the minumum amount of rooms. Regenerating Room");
             RegenerateRooms();
         }
-        else if(!generationComplete && !checkOverlap) {
+        else if (!generationComplete && !checkOverlap) {
+            
             for (int i = 1; i < roomObjects.Count; i++) {
                 if (roomObjects[0].transform.position == roomObjects[i].transform.position) {
                     Debug.Log("Overlap Detected. Regenerating Room");
@@ -69,19 +72,20 @@ public class RoomManager : MonoBehaviour {
                 }
                 else
                     Debug.Log("Checking Overlap /// No Overlap detected in this generation");
-                    checkOverlap = true;
+                checkOverlap = true;
             }
         }
         else if (!generationComplete && checkOverlap) {
-            Debug.Log($"Generation Complete, {roomCount} room created");
+            BossRoom();
+            Debug.Log($"Generation Complete, {roomObjects.Count} room created");
             generationComplete = true;
-            for(int i = 1; i < roomObjects.Count; i++) {
+            for (int i = 1; i < roomObjects.Count; i++) {
                 roomObjects[i].SetActive(false);
             }
             player.SetActive(true);
         }
     }
-     
+
     private void StartRoomGenerationFromRoom(Vector2Int roomIndex) { // 1번방 생성 메소드
         roomQueue.Enqueue(roomIndex);
         int x = roomIndex.x;
@@ -99,7 +103,7 @@ public class RoomManager : MonoBehaviour {
         int x = roomIndex.x;
         int y = roomIndex.y;
 
-        if (roomCount >= maxRooms)
+        if (roomCount >= maxRooms )
             return false;
 
         if (Random.value < 0.5f && roomIndex != Vector2Int.zero)
@@ -210,18 +214,55 @@ public class RoomManager : MonoBehaviour {
             }
         }
     }
-   
-    public Room Teleport(Vector2Int targetRoomGrid) {
-        Room targetRoom = GetRoomScriptAt(targetRoomGrid);
-        
-        return targetRoom;
-    }
-    // 텔레포트할 방의 Vector2Int 값과 목적지 Portal의 이름을 매개변수로 받아서 목적지 Portal의 좌표를 return함
-
     private void roomPrefabCountReset() {
         roomPrefabCount = new int[roomPrefabList.Length];
         for (int i = 1; i < roomPrefabList.Length; i++) {
             roomPrefabCount[i] = 0;
         }
     }
+
+    //Teleport Start
+    public Room Teleport(Vector2Int targetRoomGrid) {
+        Room targetRoom = GetRoomScriptAt(targetRoomGrid);
+        
+        return targetRoom;
+    }
+    //Teleport End
+
+    //Boss Room Start
+    private void BossRoom() {
+        Vector2Int[] lastRoomCounter = roomQueue.ToArray();
+        Vector2Int lastRoomIndex = lastRoomCounter[lastRoomCounter.Length - 1];
+        int gridX = lastRoomIndex.x;
+        int gridY = lastRoomIndex.y;
+        if (GetRoomScriptAt(new Vector2Int(gridX - 1, gridY)) == null && !bossGenerationComplete && CountAdjacentRooms(new Vector2Int(gridX - 1, gridY)) == 1) {
+            GenerateBossRoom(new Vector2Int(gridX - 1, gridY));
+        }
+        else if (GetRoomScriptAt(new Vector2Int(gridX + 1, gridY)) == null && !bossGenerationComplete && CountAdjacentRooms(new Vector2Int(gridX + 1, gridY)) == 1) {
+            GenerateBossRoom(new Vector2Int(gridX + 1, gridY));
+        }
+        else if (GetRoomScriptAt(new Vector2Int(gridX, gridY + 1)) == null && !bossGenerationComplete && CountAdjacentRooms(new Vector2Int(gridX, gridY + 1)) == 1) {
+            GenerateBossRoom(new Vector2Int(gridX, gridY + 1));
+        }
+        else if (GetRoomScriptAt(new Vector2Int(gridX, gridY - 1)) == null && !bossGenerationComplete && CountAdjacentRooms(new Vector2Int(gridX, gridY - 1)) == 1) {
+                GenerateBossRoom(new Vector2Int(gridX, gridY - 1));
+        }
+    }
+    private bool GenerateBossRoom(Vector2Int roomIndex) { // 2번방 ~ 이후 생성 메소드
+        GameObject bossPrefab;
+        int x = roomIndex.x;
+        int y = roomIndex.y;
+        roomGrid[x, y] = 1;
+        bossPrefab = bossRoomPrefab;
+        var newRoom = Instantiate(bossPrefab, GetPositionFromGridIndex(roomIndex), Quaternion.identity);
+        newRoom.GetComponent<Room>().RoomIndex = roomIndex;
+        newRoom.name = $"Room-Boss";
+        roomObjects.Add(newRoom);
+        bossGenerationComplete = true;
+
+        OpenDoors(newRoom, x, y);
+
+        return true;
+    }
+    //Boss Room End
 }
