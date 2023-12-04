@@ -37,6 +37,7 @@ public class PlayerBattleController : MonoBehaviour
         if (Input.GetMouseButton(1) && !GameManager.Instance.isAction)
             StartSkillAnim();
 
+
         //if (Input.GetKeyDown(KeyCode.C) && !GameManager.Instance.isAction)
         //    StartBackJumpAnim();
     }
@@ -44,9 +45,9 @@ public class PlayerBattleController : MonoBehaviour
     protected void FixedUpdate()
     {
         if (colliderComponents[0].enabled)
-        {
-            Debug.Log("Attack");
-            //WideAreaAttack();
+        {        
+            //안 맞거나 2번 이상 맞는 경우가 있음 수정 필요
+            WideAreaAttack();
         }
     }
 
@@ -71,6 +72,14 @@ public class PlayerBattleController : MonoBehaviour
             Bullet_Enemy enemyBullet = collision.gameObject.GetComponent<Bullet_Enemy>();
             OnPlayerDamaged(enemyBullet.eb_dmg);
             Destroy(collision.gameObject);
+        }
+    }
+
+    protected void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision == colliderComponents[0] && collision.CompareTag("Monster"))
+        {
+            Debug.Log("Hit");
         }
     }
 
@@ -150,8 +159,11 @@ public class PlayerBattleController : MonoBehaviour
         PlayerEndAction();
     }
 
+    //어떻게 제어해야할지 고민할 필요가 있음
     private void WideAreaAttack()
     {
+        Debug.Log("Attack");
+
         Collider2D[] enemyColliders = new Collider2D[10];
 
         ContactFilter2D contactFilter = new ContactFilter2D();
@@ -162,8 +174,13 @@ public class PlayerBattleController : MonoBehaviour
 
         foreach(Collider2D collider in enemyColliders)
         {
-            EnemyController enemyCollider = collider.gameObject.GetComponent<EnemyController>();
-            enemyCollider.OnDamaged(10);
+            if (collider != null)
+            {
+                //여기가 가끔씩 2번 이상 수행됨. 왜?
+                Debug.Log("Hit");
+                EnemyController enemyCollider = collider.gameObject.GetComponent<EnemyController>();
+                enemyCollider.OnDamaged(10);
+            }
         }
     }
 
