@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BatIdle
+  m_Name: Bat_Idle
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -22,15 +22,15 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 695181618, guid: 0b5c86b303ed5bd4cb9fb78a7f98eadb, type: 3}
-    - time: 0.13333334
+    - time: 0.1
       value: {fileID: -681896051, guid: 0b5c86b303ed5bd4cb9fb78a7f98eadb, type: 3}
-    - time: 0.26666668
+    - time: 0.2
       value: {fileID: 1145672285, guid: 0b5c86b303ed5bd4cb9fb78a7f98eadb, type: 3}
-    - time: 0.4
+    - time: 0.3
       value: {fileID: 602611173, guid: 0b5c86b303ed5bd4cb9fb78a7f98eadb, type: 3}
-    - time: 0.53333336
+    - time: 0.4
       value: {fileID: -1819983120, guid: 0b5c86b303ed5bd4cb9fb78a7f98eadb, type: 3}
-    - time: 0.6666667
+    - time: 0.5
       value: {fileID: 1072155467, guid: 0b5c86b303ed5bd4cb9fb78a7f98eadb, type: 3}
     attribute: m_Sprite
     path: 
@@ -65,7 +65,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.68333334
+    m_StopTime: 0.51666665
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
