@@ -61,6 +61,9 @@ public class PlayerMoveController : MonoBehaviour
         xMove = GameManager.Instance.isAction ? 0 : Input.GetAxisRaw("Horizontal");
         PlayerJump();
         ToggleRun();
+
+        if (playerRigidbody.velocity.y < 0 && !colliderComponents[0].isActiveAndEnabled)
+            colliderComponents[0].enabled = true;
     }
 
     private void FixedUpdate()
@@ -74,6 +77,13 @@ public class PlayerMoveController : MonoBehaviour
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
+        
+        //if (collision.CompareTag("Platform"))
+        //{
+        //    Debug.Log("Detect");
+        //    Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, true);
+        //}
+
         if (collision.CompareTag("FieldItem"))
         {
             Debug.Log("Item Detected");
@@ -110,11 +120,6 @@ public class PlayerMoveController : MonoBehaviour
 
     protected void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Platform"))
-        {
-            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, true);
-        }
-
         if (collision.CompareTag("FieldItem"))
         {
             Debug.Log("Item Stay Detected");
@@ -128,6 +133,14 @@ public class PlayerMoveController : MonoBehaviour
                 fieldItem.DestroyItem();
             }
         }
+    }
+
+    protected void OnTriggerExit2D(Collider2D collision)
+    {
+        //if (collision.CompareTag("Platform"))
+        //{
+        //    Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision, false);
+        //}
     }
 
     //콜리젼 컨트롤
@@ -224,6 +237,8 @@ public class PlayerMoveController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && !playerAnimator.GetBool("isJump") && canJump)
         { //&& !playerAnimator.GetBool("isJump")
+            colliderComponents[0].enabled = false;
+
             playerRigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             //playerRigidbody.velocity = Vector2.up * jumpForce * 1.5f;
             playerAnimator.SetBool("isJump", true);
@@ -237,7 +252,7 @@ public class PlayerMoveController : MonoBehaviour
         {
             ReverseTrigger();
 
-            Invoke("ReverseTrigger", 0.1f);
+            Invoke("ReverseTrigger", 0.2f);
 
         }
     }
