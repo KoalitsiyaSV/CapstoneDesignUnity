@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     {
         //layerName끼리 충돌판정이 생기지 않도록 함
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Item"), LayerMask.NameToLayer("Item"));
-        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Item"));
+        //Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Item"));
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerMovement"), LayerMask.NameToLayer("Enemy"));
         InitializePlayerStatus();
     }
@@ -83,6 +83,40 @@ public class GameManager : MonoBehaviour
     {
         playerCurHP -= dmgAmount;
         playerHPRatio = (playerCurHP / playerMaxHP) * 100f;
+    }
+
+    public void PlayerHealed(int healPoint)
+    {
+        playerCurHP += healPoint;
+
+        if (playerCurHP > playerMaxHP)
+            playerCurHP = playerMaxHP;
+
+        Debug.Log("Player CurHealth Point : " + playerCurHP);
+    }
+
+    public void PlayerHealthIncrease(int value)
+    {
+        playerMaxHP += value;
+        Debug.Log("Player Max Health Point : " + playerMaxHP);
+    }
+
+    public void PlayerAttackIncrease(int value)
+    {
+        playerAttackPoint += value;
+        Debug.Log("Player Attack Point : " + playerAttackPoint);
+    }
+
+    public void PlayerArmorIncrease(int value)
+    {
+        playerArmorPoint += value;
+        Debug.Log("Player Armor Point : " + playerArmorPoint);
+    }
+
+    public void PlayerMovementSpeedIncrease(float value)
+    {
+        playerMovementSpeedScale += value;
+        Debug.Log("Player Speed Scale : " + playerMovementSpeedScale);
     }
 
     //대화를 시작하는 기능

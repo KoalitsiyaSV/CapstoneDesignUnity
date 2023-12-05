@@ -8,7 +8,8 @@ public class ItemHealingEffect : ItemEffect
     public int healingPoint = 0;
     public override bool ExcuteRole()
     {
-        Debug.Log("Player Healed : " + healingPoint);
+        GameManager.Instance.PlayerHealed(healingPoint);
+
         return true;
     }
 }

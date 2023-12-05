@@ -7,10 +7,12 @@ public class FieldItem : MonoBehaviour
     public Item item;
     public SpriteRenderer itemSprite;
     public bool canPickUp = false;
+    public CircleCollider2D pickupRange;
 
     private void Start()
     {
         itemSprite = GetComponent<SpriteRenderer>();
+        pickupRange = GetComponent<CircleCollider2D>();
 
         Invoke("ReversePickUpFlag", 2f);
     }
@@ -33,7 +35,7 @@ public class FieldItem : MonoBehaviour
 
     private void ReversePickUpFlag()
     {
-        canPickUp = true;
+        pickupRange.enabled = true;
     }
 
     public void DestroyItem()

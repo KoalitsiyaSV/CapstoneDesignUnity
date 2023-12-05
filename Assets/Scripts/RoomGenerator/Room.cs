@@ -7,9 +7,14 @@ using UnityEngine;
 public class Room : MonoBehaviour {
     [SerializeField] GameObject portalPrefab;
 
+    public GameObject upPortal;
+    public GameObject downPortal;
+    public GameObject leftPortal;
+    public GameObject rightPortal;
+
     public Vector2Int RoomIndex { get; set; }
     private void Start() {
-
+        
     }
     private void Update() {
         if (this.isActiveAndEnabled) {
@@ -26,24 +31,40 @@ public class Room : MonoBehaviour {
         if (direction == Vector2Int.left) {
             var portal = Instantiate(portalPrefab, this.transform.Find("PortalPoints").transform.Find("Left").position, Quaternion.identity);
             portal.tag = "Left";
+            
+            if(leftPortal != null)
+                leftPortal.SetActive(true);
+            
             portal.gameObject.SetActive(true);
             portal.transform.parent = room.transform;
         }
         else if (direction == Vector2Int.right) {
             var portal = Instantiate(portalPrefab, this.transform.Find("PortalPoints").transform.Find("Right").position, Quaternion.identity);
             portal.tag = "Right";
+            
+            if(rightPortal != null)
+                rightPortal.SetActive(true);
+            
             portal.gameObject.SetActive(true);
             portal.transform.parent = room.transform;
         }
         else if (direction == Vector2Int.up) {
             var portal = Instantiate(portalPrefab, this.transform.Find("PortalPoints").transform.Find("Up").position, Quaternion.identity);
             portal.tag = "Up";
+
+            if(upPortal != null)
+                upPortal.SetActive(true);
+            
             portal.gameObject.SetActive(true);
             portal.transform.parent = room.transform;
         }
         else if (direction == Vector2Int.down) {
             var portal = Instantiate(portalPrefab, this.transform.Find("PortalPoints").transform.Find("Down").position, Quaternion.identity);
             portal.tag = "Down";
+            
+            if(downPortal != null)
+                downPortal.SetActive(true);
+            
             portal.gameObject.SetActive(true);
             portal.transform.parent = room.transform;
         }
