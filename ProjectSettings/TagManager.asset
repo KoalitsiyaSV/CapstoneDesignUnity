@@ -23,6 +23,8 @@ TagManager:
   - LRArea
   - trap
   - Top
+  - FieldItem
+  - PlayerMovement
   layers:
   - Default
   - TransparentFX
@@ -39,8 +41,8 @@ TagManager:
   - Platform
   - Item
   - PlayerDamaged
-  - 
-  - 
+  - PlayerMovement
+  - HitBox
   - 
   - 
   - 

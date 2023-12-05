@@ -37,17 +37,18 @@ public class PlayerBattleController : MonoBehaviour
         if (Input.GetMouseButton(1) && !GameManager.Instance.isAction)
             StartSkillAnim();
 
+
         //if (Input.GetKeyDown(KeyCode.C) && !GameManager.Instance.isAction)
         //    StartBackJumpAnim();
     }
 
     protected void FixedUpdate()
     {
-        if (colliderComponents[0].enabled)
-        {
-            Debug.Log("Attack");
-            //WideAreaAttack();
-        }
+        //if (colliderComponents[0].enabled)
+        //{
+        //    //안 맞거나 2번 이상 맞는 경우가 있음 수정 필요
+        //    WideAreaAttack();
+        //}
     }
 
     protected void OnCollisionEnter2D(Collision2D collision)
@@ -72,6 +73,19 @@ public class PlayerBattleController : MonoBehaviour
             OnPlayerDamaged(enemyBullet.eb_dmg);
             Destroy(collision.gameObject);
         }
+    }
+
+    protected void OnTriggerEnter2D(Collider2D collision)
+    {
+        //if (collision.CompareTag("Enemy"))
+        //{
+        //    Collider2D[] enemyColliders = collision.gameObject.GetComponents<BoxCollider2D>();
+
+        //    if (enemyColliders[1].isTrigger)
+        //    {
+        //        Debug.Log("Hit!");
+        //    }
+        //}
     }
 
     //공격 입력 후에도 짧은 시간 이동이 가능하도록 하기 위함
@@ -150,22 +164,30 @@ public class PlayerBattleController : MonoBehaviour
         PlayerEndAction();
     }
 
-    private void WideAreaAttack()
-    {
-        Collider2D[] enemyColliders = new Collider2D[10];
+    //어떻게 제어해야할지 고민할 필요가 있음
+    //private void WideAreaAttack()
+    //{
+    //    Debug.Log("Attack");
 
-        ContactFilter2D contactFilter = new ContactFilter2D();
+    //    Collider2D[] enemyColliders = new Collider2D[10];
 
-        contactFilter.SetLayerMask(LayerMask.GetMask("Enemy"));
+    //    ContactFilter2D contactFilter = new ContactFilter2D();
 
-        Physics2D.OverlapCollider(colliderComponents[0], contactFilter, enemyColliders);
+    //    contactFilter.SetLayerMask(LayerMask.GetMask("Enemy"));
 
-        foreach(Collider2D collider in enemyColliders)
-        {
-            EnemyController enemyCollider = collider.gameObject.GetComponent<EnemyController>();
-            enemyCollider.OnDamaged(10);
-        }
-    }
+    //    Physics2D.OverlapCollider(colliderComponents[0], contactFilter, enemyColliders);
+
+    //    foreach(Collider2D collider in enemyColliders)
+    //    {
+    //        if (collider != null)
+    //        {
+    //            //여기가 가끔씩 2번 이상 수행됨. 왜?
+    //            Debug.Log("Enemy Hit");
+    //            EnemyController enemyCollider = collider.gameObject.GetComponent<EnemyController>();
+    //            enemyCollider.OnDamaged(10);
+    //        }
+    //    }
+    //}
 
     //피격 시 발생하는 함수 및 무적시간 부여
     //KDW
