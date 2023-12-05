@@ -1736,7 +1736,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 8192
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -23870,13 +23870,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 940475620}
+  - component: {fileID: 940475621}
   m_Layer: 5
   m_Name: Minimap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &940475620
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23898,6 +23899,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &940475621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940475619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a83c3bab305c54186f52aacbdb1a9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minimapRenderer: {fileID: 2025239873}
 --- !u!4 &947020104 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6798949098625234869, guid: e0fdce83398d83043a755bec08089b9f, type: 3}
@@ -30913,7 +30927,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 73728
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -32441,7 +32455,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 577
+    m_Bits: 0
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 8a8957e9df6ccdb4fb984951482bfc5e, type: 2}
   m_TargetDisplay: 0
@@ -35431,23 +35445,27 @@ MonoBehaviour:
     itemName: IncreaseHealthPoint
     itemImage: {fileID: 21300000, guid: ce71326211b2e734db566b5fa57e976a, type: 3}
     itemEffects:
-    - {fileID: 11400000, guid: 293cada4296d3ba48baa88ba5168d533, type: 2}
+    - {fileID: 11400000, guid: b09dd7f0289ff2442954f89522b303f5, type: 2}
   - itemType: 2
     itemName: IncreaseAttackPoint
     itemImage: {fileID: 21300000, guid: 0ceb0fc3cff015b4ca74928e04d9b3f8, type: 3}
-    itemEffects: []
+    itemEffects:
+    - {fileID: 11400000, guid: 5f93a9ea539529841ba5d8ab05fd8e48, type: 2}
   - itemType: 2
     itemName: IncreaseArmorPoint
     itemImage: {fileID: 21300000, guid: 387dd87fc5fa2bf4aa6b02e89dbf5610, type: 3}
-    itemEffects: []
+    itemEffects:
+    - {fileID: 11400000, guid: 89788769df631274eae7a5b8f9c41ad6, type: 2}
   - itemType: 2
     itemName: IncreaseMovementSpeedScale
     itemImage: {fileID: 21300000, guid: 179c71ec160deba4abd258d648d628f8, type: 3}
-    itemEffects: []
+    itemEffects:
+    - {fileID: 11400000, guid: 001356deea66fed40b2c5629db52f2bb, type: 2}
   - itemType: 1
     itemName: Potion
     itemImage: {fileID: 21300000, guid: fc1ced0c4004a2e48816ee85ed412102, type: 3}
-    itemEffects: []
+    itemEffects:
+    - {fileID: 11400000, guid: 293cada4296d3ba48baa88ba5168d533, type: 2}
 --- !u!4 &1750398292
 Transform:
   m_ObjectHideFlags: 0
@@ -35805,7 +35823,7 @@ Transform:
   m_GameObject: {fileID: 1764156902}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.18, y: 10.19, z: 0}
+  m_LocalPosition: {x: -10.69, y: 6.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36034,7 +36052,7 @@ GameObject:
   - component: {fileID: 1782956913}
   - component: {fileID: 1782956917}
   - component: {fileID: 1782956916}
-  m_Layer: 15
+  m_Layer: 7
   m_Name: PlayerParent
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -36056,7 +36074,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 73728
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -36132,7 +36150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObj: {fileID: 345429265}
-  jumpForce: 16
+  jumpForce: 20
   walkSpeed: 6
   runSpeed: 10
   currentSpeed: 0
@@ -36154,7 +36172,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1782956910}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -36162,7 +36180,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 65536
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -36181,7 +36199,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.5
+  m_Radius: 3
 --- !u!1 &1785608525
 GameObject:
   m_ObjectHideFlags: 0
@@ -37710,9 +37728,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 940475620}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -474.1, y: -195.2}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 203.68, y: 203.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2025239875
@@ -38470,7 +38488,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2136912710
 RectTransform:
   m_ObjectHideFlags: 0

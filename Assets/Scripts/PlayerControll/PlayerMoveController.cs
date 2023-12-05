@@ -62,8 +62,8 @@ public class PlayerMoveController : MonoBehaviour
         PlayerJump();
         ToggleRun();
 
-        if (playerRigidbody.velocity.y < 0 && !colliderComponents[0].isActiveAndEnabled)
-            colliderComponents[0].enabled = true;
+        if (playerRigidbody.velocity.y < 0 && !canJump)
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerMovement"), LayerMask.NameToLayer("Platform"), false);
     }
 
     private void FixedUpdate()
@@ -77,7 +77,7 @@ public class PlayerMoveController : MonoBehaviour
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-        
+
         //if (collision.CompareTag("Platform"))
         //{
         //    Debug.Log("Detect");
@@ -87,10 +87,10 @@ public class PlayerMoveController : MonoBehaviour
         if (collision.CompareTag("FieldItem"))
         {
             Debug.Log("Item Detected");
-            
+
             FieldItem fieldItem = collision.GetComponent<FieldItem>();
 
-            if (fieldItem.canPickUp)
+            if (fieldItem.pickupRange.isActiveAndEnabled)
             {
                 fieldItem.item.use();
 
@@ -118,22 +118,22 @@ public class PlayerMoveController : MonoBehaviour
         //}
     }
 
-    protected void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("FieldItem"))
-        {
-            Debug.Log("Item Stay Detected");
+    //protected void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("FieldItem"))
+    //    {
+    //        FieldItem fieldItem = collision.GetComponent<FieldItem>();
 
-            FieldItem fieldItem = collision.GetComponent<FieldItem>();
+    //        if (fieldItem.canPickUp)
+    //        {
+    //            Debug.Log("Item Used");
 
-            if (fieldItem.canPickUp)
-            {
-                fieldItem.item.use();
+    //            fieldItem.item.use();
 
-                fieldItem.DestroyItem();
-            }
-        }
-    }
+    //            fieldItem.DestroyItem();
+    //        }
+    //    }
+    //}
 
     protected void OnTriggerExit2D(Collider2D collision)
     {
@@ -237,15 +237,15 @@ public class PlayerMoveController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && !playerAnimator.GetBool("isJump") && canJump)
         { //&& !playerAnimator.GetBool("isJump")
-            colliderComponents[0].enabled = false;
-
+            //colliderComponents[0].enabled = false;
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerMovement"), LayerMask.NameToLayer("Platform"), true);
             playerRigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             //playerRigidbody.velocity = Vector2.up * jumpForce * 1.5f;
             playerAnimator.SetBool("isJump", true);
             canJump = false;
-            GameManager.Instance.PlayerTakeDamage(10);
+            //GameManager.Instance.PlayerTakeDamage(10);
 
-            GameManager.Instance.isAction = true;
+            //GameManager.Instance.isAction = true;
         }
 
         if (Input.GetKeyDown(KeyCode.S) && canDownJump)
