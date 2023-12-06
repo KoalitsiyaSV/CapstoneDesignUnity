@@ -69,7 +69,7 @@ public class EnemyController : MonoBehaviour
     //
     //}
 
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         Destroy_Enemy();
 
@@ -312,7 +312,7 @@ public class EnemyController : MonoBehaviour
     {
         if (!enemyDirection)
         {
-            Vector2 rayStartPos = new Vector2(enemyRigidbody.position.x + 4f, enemyRigidbody.position.y - 0.4f);
+            Vector2 rayStartPos = new Vector2(enemyRigidbody.position.x + attackRayLength/ 2, enemyRigidbody.position.y - 0.4f);
             Debug.DrawRay(rayStartPos, Vector3.left * attackRayLength, Color.red);
 
             RaycastHit2D rayHit_attack = Physics2D.Raycast(rayStartPos, Vector3.left, attackRayLength, LayerMask.GetMask("Player"));
@@ -320,7 +320,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            Vector2 rayStartPos = new Vector2(enemyRigidbody.position.x - 4f, enemyRigidbody.position.y - 0.4f);
+            Vector2 rayStartPos = new Vector2(enemyRigidbody.position.x - attackRayLength / 2, enemyRigidbody.position.y - 0.4f);
             Debug.DrawRay(rayStartPos, Vector3.right * attackRayLength, Color.red);
 
             RaycastHit2D rayHit_attack = Physics2D.Raycast(rayStartPos, Vector3.right, attackRayLength, LayerMask.GetMask("Player"));
@@ -328,7 +328,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    protected void EnemyDirectionChange()
+    protected virtual void EnemyDirectionChange()
     {
         //true = 오른쪽을 바라봄, false = 왼쪽을 바라봄
         if (transform.position.x > targetObj.position.x)
