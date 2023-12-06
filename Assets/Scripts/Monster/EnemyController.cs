@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 
 //using System.Diagnostics;
 using UnityEngine;
+using static System.Collections.Specialized.BitVector32;
 using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 
@@ -71,7 +72,7 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Destroy_Enemy();
+        //Destroy_Enemy();
 
         Enemy_Relode();
 
@@ -165,13 +166,17 @@ public class EnemyController : MonoBehaviour
         //�浹�� ��¦ȿ��
         enemySpriteRenderer.color = new Color(1, 1, 1, 0.4f);
         Invoke("OffDamaged", 0.2f);
+        /*if (enemy_Life <= 0)
+        {
+            enemyAnimator.SetBool("Enemy_Die", true);
+        }*/
     }
 
     void Destroy_Enemy()
     {
         if (enemy_Life <= 0)
         {
-            Destroy(gameObject);//���� ��ü �ı�
+            Destroy(gameObject);
         }
     }
 
@@ -194,20 +199,21 @@ public class EnemyController : MonoBehaviour
     {
         //dmaged
         enemy_Life -= dmg;
-        //gameObject.layer = ; //���� �ǰ� ���̾�
-
         enemySpriteRenderer.color = new Color(1, 1, 1, 0.4f);
         Invoke("OffDamaged", 1);
-        //anim.SetBool("Enemy_Damaged", true);//만약일반 몬스터라면 이거 필요, 보스몹에 지금은 없음
     }
     void OffDamaged()
     {
         enemySpriteRenderer.color = new Color(1, 1, 1, 1);
-        //anim.SetBool("Enemy_Damaged", false);//만약일반 몬스터라면 이거 필요, 보스몹에 지금은 없음
     }
 
     protected virtual void AfterPlayerDetect()
     {
+        //1206
+        if (enemy_Life <= 0)
+        {
+            enemyAnimator.SetBool("Enemy_Die", true);
+        }
         //Enemy is detect Player
         if (targetObj == null)
         {
@@ -227,35 +233,6 @@ public class EnemyController : MonoBehaviour
                     StartAttackAnim();
 
                 enemyAnimator.SetBool("Enemy_Walk", false);
-                ////if(ememy_Type == 2)//shot bullet
-                ////{
-                ////    anim.SetBool("Enemy_Attack", true);
-                ////    Fire_Enemy(direction);
-                ////}
-
-                ////if (ememy_Type == 3)//보스몹 근접공격
-                ////{
-                ////    if (enemy_Attack_Delay <= max_Attack_Delay)
-                ////    {
-                ////        return;
-                ////    }
-                ////    else
-                ////    {
-                ////        E_attacked = true;
-                ////        //Debug.Log("ee");
-                ////        if (nextAttack == 1)
-                ////        {
-                ////            anim.SetBool("Enemy_Attack_2", true);
-                ////            enemy_Attack_Delay = 0;
-                ////        }
-                ////        else
-                ////        {
-                ////            anim.SetBool("Enemy_Attack_1", true);
-                ////            enemy_Attack_Delay = 0;
-                ////        }
-                ////    }
-                //    //anim_Attack();
-                //}
             }
             else//만약 공격 사거리 내부에 적이 없다면, 따라간다.
             {

@@ -9,6 +9,11 @@ public class SlimeController : EnemyController
 
     protected override void AfterPlayerDetect()
     {
+        if (enemy_Life <= 0)//1206KDW
+        {
+            enemyAnimator.SetBool("Enemy_Die", true);
+        }
+
         if (targetObj == null)
         {
             SightRange();
