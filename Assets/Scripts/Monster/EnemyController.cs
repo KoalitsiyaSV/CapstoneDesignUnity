@@ -36,6 +36,7 @@ public class EnemyController : MonoBehaviour
     public GameObject bullet_E;         
     public float bullet_E_Speed;
     public Transform bullet_Pos;
+    private bool isDead = false;
     [SerializeField] protected float enemySightStartPoint;
 
     [Header("Enemy Action Control")]
@@ -46,6 +47,8 @@ public class EnemyController : MonoBehaviour
     protected int enemyPatternCount;
     protected float enemyAttackCooldown;
     protected float enemyAttackCoolTime;
+
+    public int test = 0;
 
     //[Header("Patrol Test")]
     //[SerializeField] float enemyPatrolWaitTime;
@@ -71,11 +74,14 @@ public class EnemyController : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        Destroy_Enemy();
+        //if (!isDead)
+        //{
+        //    EnemyDeathStart();
 
         Enemy_Relode();
 
         AfterPlayerDetect();
+        //}
         //TransformAnim();
 
         //Vector2 EnemyDirection = Vector2.left;//찿았을때에 해당하는 방향으로 총알 발사시에 필요함
@@ -167,12 +173,19 @@ public class EnemyController : MonoBehaviour
         Invoke("OffDamaged", 0.2f);
     }
 
-    void Destroy_Enemy()
+    private void EnemyDeathStart()
     {
-        if (enemy_Life <= 0)
+        if (enemy_Life <= 0 && !enemyAnimator.GetBool("isDead"))
         {
-            Destroy(gameObject);//���� ��ü �ı�
+            isDead = true;
+            enemyAnimator.SetBool("isDead", true);
         }
+    }
+
+    void EnemyDeathEnd()
+    {
+        test++;
+            Destroy(gameObject);//���� ��ü �ı�
     }
 
     void OnTriggerEnter2D(Collider2D collision)//�浹 �߻��� Enemy�� Enemy_Life ����
@@ -209,6 +222,11 @@ public class EnemyController : MonoBehaviour
     protected virtual void AfterPlayerDetect()
     {
         //Enemy is detect Player
+        if(enemy_Life <= 0)
+        {
+            enemyAnimator.SetBool("isDead", true);
+        }
+
         if (targetObj == null)
         {
             SightRange();

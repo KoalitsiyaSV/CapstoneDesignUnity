@@ -9,6 +9,11 @@ public class SlimeController : EnemyController
 
     protected override void AfterPlayerDetect()
     {
+        if (enemy_Life <= 0)
+        {
+            enemyAnimator.SetBool("isDead", true);
+        }
+
         if (targetObj == null)
         {
             SightRange();
@@ -28,11 +33,11 @@ public class SlimeController : EnemyController
             }
 
             if (slimeDoJump)
-                MoveToPlayer();
+                JumpToPlayer();
         }
     }
 
-    protected override void MoveToPlayer()
+    protected void JumpToPlayer()
     {
         Debug.Log("Here");
         Vector2 targetPos = new Vector2(targetObj.position.x, transform.position.y);

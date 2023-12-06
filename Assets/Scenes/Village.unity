@@ -739,7 +739,7 @@ GameObject:
   - component: {fileID: 187201554}
   - component: {fileID: 187201560}
   m_Layer: 8
-  m_Name: GoblinDager
+  m_Name: GoblinDagger
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -954,7 +954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextMove: 0
-  enemy_Life: 50000
+  enemy_Life: 100
   raycastLength: 0
   attackRayLength: 15
   enemy_Move_Speed: 6
@@ -969,6 +969,7 @@ MonoBehaviour:
   targetObj: {fileID: 0}
   isAction: 0
   canAttack: 1
+  test: 0
 --- !u!1 &206176969
 GameObject:
   m_ObjectHideFlags: 0
@@ -2327,7 +2328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextMove: 0
-  enemy_Life: 50000
+  enemy_Life: 100
   raycastLength: 0
   attackRayLength: 15
   enemy_Move_Speed: 4
@@ -2342,6 +2343,7 @@ MonoBehaviour:
   targetObj: {fileID: 0}
   isAction: 0
   canAttack: 1
+  test: 0
 --- !u!61 &415307080
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31657,7 +31659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextMove: 0
-  enemy_Life: 50000
+  enemy_Life: 100
   raycastLength: 0
   attackRayLength: 25
   enemy_Move_Speed: 6
@@ -31672,6 +31674,7 @@ MonoBehaviour:
   targetObj: {fileID: 0}
   isAction: 0
   canAttack: 1
+  test: 0
 --- !u!1 &1268048091
 GameObject:
   m_ObjectHideFlags: 0
@@ -36607,7 +36610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextMove: 0
-  enemy_Life: 50000
+  enemy_Life: 100
   raycastLength: 0
   attackRayLength: 15
   enemy_Move_Speed: 4
@@ -36622,6 +36625,7 @@ MonoBehaviour:
   targetObj: {fileID: 0}
   isAction: 0
   canAttack: 1
+  test: 0
   isSleep: 1
   coolDown: 2
 --- !u!61 &1764156909
@@ -36933,7 +36937,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!70 &1782956913
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -38029,7 +38033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextMove: 0
-  enemy_Life: 50000
+  enemy_Life: 100
   raycastLength: 0
   attackRayLength: 15
   enemy_Move_Speed: 2
@@ -38044,6 +38048,7 @@ MonoBehaviour:
   targetObj: {fileID: 0}
   isAction: 0
   canAttack: 1
+  test: 0
   isSleep: 1
   coolDown: 4
 --- !u!95 &1909495689
@@ -38058,7 +38063,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 125ac969dfe188748b8eac6c9d6f6a84, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -39685,6 +39690,7 @@ MonoBehaviour:
   targetObj: {fileID: 0}
   isAction: 0
   canAttack: 1
+  test: 0
 --- !u!1 &2136912709
 GameObject:
   m_ObjectHideFlags: 0
@@ -40351,6 +40357,7 @@ MonoBehaviour:
   targetObj: {fileID: 0}
   isAction: 0
   canAttack: 1
+  test: 0
   slimeJumpForce: 4
   slimeDoJump: 0
 --- !u!1660057539 &9223372036854775807
@@ -40377,12 +40384,12 @@ SceneRoots:
   - {fileID: 1312286974}
   - {fileID: 1188694075}
   - {fileID: 1522480872}
-  - {fileID: 1297789045838639787}
   - {fileID: 1782956915}
+  - {fileID: 1297789045838639787}
   - {fileID: 501464437924617388}
   - {fileID: 187201559}
   - {fileID: 1267770864}
-  - {fileID: 1750398292}
-  - {fileID: 1764156907}
-  - {fileID: 676310586}
   - {fileID: 1909495687}
+  - {fileID: 1764156907}
+  - {fileID: 1750398292}
+  - {fileID: 676310586}
