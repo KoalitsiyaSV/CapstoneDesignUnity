@@ -22,10 +22,6 @@ public class EnemyController : MonoBehaviour
     public float enemy_Life;
     public float raycastLength;
 
-    //11/29test
-    //public Transform Attack_Pos;
-    //public Vector2 Attack_Size;
-
     public float attackRayLength;
     public float enemy_Move_Speed;
     public int enemy_Attack_dmg;
@@ -36,16 +32,11 @@ public class EnemyController : MonoBehaviour
 
     [Header("Enemy Status")]
     public float enemyAttackRange;//Enemy ���ݻ�Ÿ�
-    public float max_Attack_Delay;    //���� �ְ� ���� ������
+    //public float max_Attack_Delay;    //
     public GameObject bullet_E;         
     public float bullet_E_Speed;
     public Transform bullet_Pos;
     [SerializeField] protected float enemySightStartPoint;
-
-    //test1203
-    //public bool E_follow= false;
-    //public bool E_attacked = false;
-    //public bool Is_Attacked = false;
 
     [Header("Enemy Action Control")]
     [SerializeField] protected bool enemyDirection = false;//true = 오른쪽을 바라봄, false = 왼쪽을 바라봄
@@ -73,20 +64,21 @@ public class EnemyController : MonoBehaviour
         //patrolSpot.position = new Vector2(Random.Range(-5,5), transform.position.y);
     }
 
-    //void Update() //�� �����Ӹ��� ȣ��
+    //void Update()
     //{
     //
     //}
 
-    void FixedUpdate()//���� ���� ������Ʈ �ֱ�� ����ȭ => �ַ� ���� ���� ���� �۾��� ���� => �ð� ������ �����ϰ� �����Ǹ�, ������ ����Ʈ�� ������ ���� ����
+    void FixedUpdate()
     {
         Destroy_Enemy();
 
         Enemy_Relode();
 
-        TransformAnim();
-        
-        //Vector2 EnemyDirection = Vector2.left;
+        AfterPlayerDetect();
+        //TransformAnim();
+
+        //Vector2 EnemyDirection = Vector2.left;//찿았을때에 해당하는 방향으로 총알 발사시에 필요함
         //if (transform.localScale.x < 0)
         //{
         //    EnemyDirection = Vector2.right;
@@ -96,7 +88,7 @@ public class EnemyController : MonoBehaviour
         //    EnemyDirection = Vector2.left;
         //}
 
-        AfterPlayerDetect();
+
 
         //if (targetObj == null)
         //{
@@ -133,7 +125,7 @@ public class EnemyController : MonoBehaviour
     {
         nextMove = Random.Range(-1, 2); //�������� �ּڰ��� ����� ������, �ִ밪�� ��ǥ�� 1�� �ƴ� 2�� ������         
         //float nextThinkTime = Random.Range(2f, 5f);
-        TransformAnim();
+        //TransformAnim();
         Invoke("Think", 2); //����Լ�
     }
 
@@ -153,64 +145,8 @@ public class EnemyController : MonoBehaviour
         {
             anim.SetBool("isWalk", false);
         }*/
-        
-
-        //if (E_follow)
-        //{
-        //    enemyAnimator.SetBool("Enemy_Walk", true);
-        //}
-        //else
-        //{
-        //    enemyAnimator.SetBool("Enemy_Walk", false);
-        //}
-
-        //if (Is_Attacked == true)
-        //{
-        //    if(enemyAnimator.GetBool("Enemy_Attack_1")==false && enemyAnimator.GetBool("Enemy_Attack_2") == false)
-        //    {
-        //        enemyAnimator.SetBool("Enemy_Walk", true);
-        //        Is_Attacked = false;
-        //    }
-        //}
-        /*
-        if (anim.GetBool("Enemy_Attack_1") == false && anim.GetBool("Enemy_Attack_2") == false && E_attacked == false)
-        {
-            Debug.Log("action");
-            anim.SetBool("Enemy_Walk", false);
-        } 
-         */
-
-        //if (anim.GetBool("Enemy_Attack_1") && anim.GetBool("Enemy_Attack_2") == false)
-        //{
-        //    anim.SetBool("Enemy_walk", false);
-        //}
-
-        //if (Mathf.Abs(rigid.velocity.x) < 0.2f)
-        //    anim.SetBool("Enemy_walk", false);
-        //else
-        //    anim.SetBool("Enemy_walk", true);
+       
     }
-
-    //private void anim_Attack()//해당하는 메소드는 에니메이터에서 이벤트를 통해서 호출하는중
-    //{
-    //    if (E_attacked && enemyAnimator.GetBool("Enemy_Attack_1"))
-    //    {
-            
-    //        E_attacked = false;
-    //        enemyAnimator.SetBool("Enemy_Attack_1", false);
-    //        enemyAnimator.SetBool("Enemy_Attack_2", false);
-    //        enemyAnimator.SetBool("Enemy_Walk", true);
-    //        Debug.Log("action");
-    //    }
-    //    else if (E_attacked && enemyAnimator.GetBool("Enemy_Attack_2"))
-    //    {
-    //        E_attacked = false;
-    //        enemyAnimator.SetBool("Enemy_Attack_1", false);
-    //        enemyAnimator.SetBool("Enemy_Attack_2", false);
-    //        enemyAnimator.SetBool("Enemy_Walk", true);
-    //        Debug.Log("action");
-    //    }
-    //}
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -287,7 +223,6 @@ public class EnemyController : MonoBehaviour
 
             if (Vector2.Distance(transform.position, targetObj.position) < enemyAttackRange)
             {
-                //E_follow = false;//해당하는 범위에 들어왔으니 Idle
                 if(!isAction)
                     StartAttackAnim();
 
@@ -395,6 +330,7 @@ public class EnemyController : MonoBehaviour
 
     protected void EnemyDirectionChange()
     {
+        //true = 오른쪽을 바라봄, false = 왼쪽을 바라봄
         if (transform.position.x > targetObj.position.x)
         {
             transform.localScale = new Vector2(1, 1);
@@ -444,28 +380,30 @@ public class EnemyController : MonoBehaviour
         isAction = false;
     }
 
-    //Enemy�� ���Ÿ� ���� �߻�
-    void Fire_Enemy(Vector2 direction) {
-        if (enemyAttackCoolTime < max_Attack_Delay)
-            return;
-
+    //Enemy Long Range Attack
+    void Fire_Enemy()
+    {
+        /*if (enemyAttackCoolTime < max_Attack_Delay)//재장전 중에는 발사하지 않는 부분, 메소드를 에니메이션에서 호출만 할 경우, 필요가 없음
+            return;*/
+        Vector2 direction;
         Bullet_Enemy bullet_Enemy = Instantiate(bullet_E, bullet_Pos.position, transform.rotation).GetComponent<Bullet_Enemy>();
         Rigidbody2D rigid_B = bullet_Enemy.GetComponent<Rigidbody2D>();
         SpriteRenderer sprite_B = bullet_Enemy.GetComponent<SpriteRenderer>();
 
-        //�Ѿ���SpriteRenderer�� ���� ���̴� �̹����� �״�� Ȥ�� �����Ͽ� ȭ���� ���ư��°��� ǥ���մϴ�. 
-        if (direction == Vector2.left)
+        //총알의 방향을 결저한다.
+        if (enemyDirection)//direction == Vector2.left
         {
             sprite_B.flipX = true;
+            direction = new Vector2(-1,0);
         }
         else
         {
             sprite_B.flipX = false;
+            direction = new Vector2(1, 0);
         }
         bullet_Enemy.eb_dmg = enemy_Attack_dmg;
         rigid_B.velocity = direction * bullet_E_Speed;
-        enemyAttackCoolTime = 0;
-        //anim.SetBool("Enemy_Attack", false);
+        //enemyAttackCoolTime = 0;//쿨타임을 초기화 하는 부분, 메소드를 에니메이션에서 호출만 할 경우, 필요가 없음
     }
     void Enemy_Relode()
     {
