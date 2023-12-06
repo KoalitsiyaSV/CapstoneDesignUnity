@@ -24,7 +24,7 @@ public class PortalManager : MonoBehaviour
     }
     public void PlayerTeleportation(GameObject entry) {
         string exit = SwitchDirection(entry.tag);
-        float positionRevision = 3.6f;
+        float positionRevision = 1.4f;
         if(entry.CompareTag("Left")) {
             currentPlayerPosition.x--;
         }
