@@ -1010,7 +1010,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &482754179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5236,8 +5236,8 @@ MonoBehaviour:
   - {fileID: 4423205342310053371, guid: b1481d95d6d1a04449bbb543b24c4697, type: 3}
   maxRooms: 15
   minRooms: 10
-  gridSizeX: 15
-  gridSizeY: 15
+  gridSizeX: 17
+  gridSizeY: 17
   player: {fileID: 673844016}
 --- !u!4 &1855882897
 Transform:
