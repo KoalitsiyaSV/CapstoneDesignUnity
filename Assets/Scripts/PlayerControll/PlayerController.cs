@@ -88,6 +88,7 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.tag == "EnemyBullet")
         {
+            Debug.Log("sex");
             Bullet_Enemy enemyBullet = collision.gameObject.GetComponent<Bullet_Enemy>();
             OnPlayer_Enemy_Damaged(enemyBullet.eb_dmg);
             Destroy(collision.gameObject);
