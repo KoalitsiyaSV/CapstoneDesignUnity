@@ -7,8 +7,8 @@ public class RoomManager : MonoBehaviour {
     [SerializeField] GameObject roomPrefab;
     [SerializeField] GameObject bossRoomPrefab;
     [SerializeField] GameObject[] roomPrefabList;
-    [SerializeField] private int maxRooms = 14;
-    [SerializeField] private int minRooms = 14;
+    private int maxRooms = 10;
+    private int minRooms = 10;
     
 
     int roomWidth = 100;
@@ -47,7 +47,7 @@ public class RoomManager : MonoBehaviour {
         roomPrefabCountReset();
     }
     private void Update() { // minRooms 이상, maxRooms 이하로 방 생성
-        if (roomQueue.Count > 0 && roomCount < maxRooms && !generationComplete) {
+        if (roomQueue.Count > 0 && roomCount < minRooms && !generationComplete) {
             Vector2Int roomIndex = roomQueue.Dequeue();
             int gridX = roomIndex.x;
             int gridY = roomIndex.y;
