@@ -50,7 +50,7 @@ public class SlimeController : EnemyController
         enemyRigidbody.AddForce(Vector2.up * slimeJumpForce, ForceMode2D.Impulse);
         slimeDoJump = true;
 
-        StartCoroutine(EnemyAttackCoolDown(1.5f));
+        StartCoroutine(EnemyAttackCoolDown(2.5f));
     }
 
     private void SlimeJumpEnd()

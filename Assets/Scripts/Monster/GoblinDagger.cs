@@ -10,7 +10,7 @@ public class GoblinDagger : EnemyController
         base.Awake();
 
         enemyPatternCount = 1;
-        enemyAttackCooldown = 1.5f;
+        enemyAttackCooldown = 2.5f;
     }
     private void Update()
     {

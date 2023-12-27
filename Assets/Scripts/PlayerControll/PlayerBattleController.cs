@@ -37,6 +37,12 @@ public class PlayerBattleController : MonoBehaviour
         if (Input.GetMouseButton(1) && !GameManager.Instance.isAction)
             StartSkillAnim();
 
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            GameManager.Instance.playerAttackPoint = 400;
+            GameManager.Instance.playerMaxHP = 1000f;
+            GameManager.Instance.playerCurHP = 1000f;
+        }
 
         //if (Input.GetKeyDown(KeyCode.C) && !GameManager.Instance.isAction)
         //    StartBackJumpAnim();
@@ -77,15 +83,12 @@ public class PlayerBattleController : MonoBehaviour
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.CompareTag("Enemy"))
-        //{
-        //    Collider2D[] enemyColliders = collision.gameObject.GetComponents<BoxCollider2D>();
-
-        //    if (enemyColliders[1].isTrigger)
-        //    {
-        //        Debug.Log("Hit!");
-        //    }
-        //}
+        if (collision.gameObject.tag == "EnemyBullet")
+        {
+            Bullet_Enemy enemyBullet = collision.gameObject.GetComponent<Bullet_Enemy>();
+            GameManager.Instance.PlayerTakeDamage(10);
+            Destroy(collision.gameObject);
+        }
     }
 
     //공격 입력 후에도 짧은 시간 이동이 가능하도록 하기 위함
@@ -154,6 +157,8 @@ public class PlayerBattleController : MonoBehaviour
     protected virtual void StartSkillAnim()
     {
         playerAnimator.SetBool("isSkill", true);
+        GameManager.Instance.playerAttackPoint *= 4;
+        Debug.Log(GameManager.Instance.playerAttackPoint);
         PlayerDuringAction();
     }
 
@@ -161,6 +166,8 @@ public class PlayerBattleController : MonoBehaviour
     protected virtual void EndSkillAnim()
     {
         playerAnimator.SetBool("isSkill", false);
+        GameManager.Instance.playerAttackPoint /= 4;
+        Debug.Log(GameManager.Instance.playerAttackPoint);
         PlayerEndAction();
     }
 

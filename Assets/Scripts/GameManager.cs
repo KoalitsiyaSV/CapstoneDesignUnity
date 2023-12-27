@@ -15,10 +15,10 @@ public class GameManager : MonoBehaviour
     public int dialogueIndex;
 
     //플레이어 스테이터스
-    public float playerMaxHP { get; private set; }
-    public float playerCurHP { get; private set; }
+    public float playerMaxHP { get; set; }
+    public float playerCurHP { get; set; }
     public float playerHPRatio { get; private set; }
-    public float playerAttackPoint { get; private set; }
+    public int playerAttackPoint { get; set; }
     public float playerArmorPoint { get; private set; }
     public float playerMovementSpeedScale { get; private set; }
     public float playerPotionAmount { get; private set; }
@@ -44,11 +44,14 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        
         //layerName끼리 충돌판정이 생기지 않도록 함
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Item"), LayerMask.NameToLayer("Item"));
         //Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Item"));
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerMovement"), LayerMask.NameToLayer("Enemy"));
         InitializePlayerStatus();
+
+        Debug.Log(playerAttackPoint);
     }
 
     private void Awake()
@@ -64,6 +67,12 @@ public class GameManager : MonoBehaviour
             //씬 전환 시 파괴되지 않도록 설정
             DontDestroyOnLoad(this.gameObject);
         }
+    }
+
+    private void Update()
+    {
+        if (playerCurHP <= 0)
+            OnApplicationQuit();
     }
 
     //초기화, 현재는 플레이어 체력 관리만 함 + 다른 스테이터스 추가 되었음. 장비 장착 등으로 인한 스테이터스 변화도 이걸 활용하면 가능할듯

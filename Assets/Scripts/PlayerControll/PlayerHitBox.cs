@@ -14,6 +14,6 @@ public class PlayerHitBox : HitBox
     protected override void OnHit(Collider2D collision)
     {
         EnemyController enemyCollider = collision.gameObject.GetComponent<EnemyController>();
-        enemyCollider.OnDamaged(10);
+        enemyCollider.OnDamaged(GameManager.Instance.playerAttackPoint);
     }
 }

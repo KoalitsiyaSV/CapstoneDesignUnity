@@ -7,7 +7,7 @@ public class PlayerData
     private static PlayerData _instance;
 
     public float playerHealthPoint { get; private set; }
-    public float playerAttackPoint { get; private set; }
+    public int playerAttackPoint { get; private set; }
     public float playerArmorPoint { get; private set; }
     public float playerMovementSpeedScale { get; private set; }
 
@@ -25,8 +25,8 @@ public class PlayerData
 
     private PlayerData()
     {
-        playerHealthPoint = 200f;
-        playerAttackPoint = 10f;
+        playerHealthPoint = 1000f;
+        playerAttackPoint = 30;
         playerArmorPoint = 0;
         playerMovementSpeedScale = 1f;
     }

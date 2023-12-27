@@ -422,6 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b92320822ac6c40a2212ffc3e57bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canPlayerTeleport: 0
 --- !u!19719996 &4656467069520020030
 TilemapCollider2D:
   m_ObjectHideFlags: 0
