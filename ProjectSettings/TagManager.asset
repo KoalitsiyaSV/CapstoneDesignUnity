@@ -9,6 +9,22 @@ TagManager:
   - Bottom
   - Enemy
   - Platform
+  - Bullet
+  - EnemyBullet
+  - NPC
+  - Chest
+  - Item
+  - Left
+  - Right
+  - Down
+  - Up
+  - Undefined
+  - TDArea
+  - LRArea
+  - trap
+  - Top
+  - FieldItem
+  - PlayerMovement
   layers:
   - Default
   - TransparentFX
@@ -19,14 +35,14 @@ TagManager:
   - Ground
   - Player
   - Enemy
+  - Neutral
+  - Chest
   - Minimap
   - Platform
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Item
+  - PlayerDamaged
+  - PlayerMovement
+  - HitBox
   - 
   - 
   - 
